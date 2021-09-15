@@ -1,0 +1,115 @@
+<!doctype html><html>
+<head>
+<title>posts</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="posts">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://log.taedi.net/posts/">
+<link rel=stylesheet href=/css/layouts/list.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Taedi's Log</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/blog/>blog</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/blog/setting/>setting</a>
+<ul>
+<li><a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ title="Github 블로그 설정  1. Hugo 설치">Github 블로그 설정 1. Hugo 설치</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class="content container-fluid" id=content>
+<div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Github 블로그 설정 1. Hugo 설치</h5>
+<p class="card-text post-summary">서론 코딩 공부를 시작하며 메모는 선택이 아닌 필수가 되었다. 처음에는 노션으로 기본적인 메모를 하고 어느정도 정리가 되면 티스토리에 업로드를 할 것을 계획했고 포스팅을 조금씩 해나가고 있었는데, 언젠가부터 글을 작성할 때 마다 reCAPTCHA 가 발생하기 시작했다.
+물론 직접 글을 작성할 때야 체크 항목이 하나 늘어난 것 뿐이지만, 문제는 OPEN API 방식의 포스팅은 완전히 불가능해져 애용하던 Notion2Tistory 를 활용할 수가 없어진 것이 큰 문제였다. (노션에 작성한 글을 API 없이 티스토리에 업로드 하기위해서는 대단한 인내심이 필요했다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>September 13, 2021</span>
+<a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class=paginator>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><span>Email: </span> <span>taedi90@gmail.com</span></li>
+<li><span>Github: </span> <span>https://github.com/taedi90</span></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=/js/list.js></script>
+</body>
+</html>
