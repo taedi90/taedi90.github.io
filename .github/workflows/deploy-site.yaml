@@ -24,10 +24,11 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: CNAME copy
+        run: cp CNAME public/
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        env:
-          PAGES_CNAME: log.taedi.net
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: main # if your main branch is `master` use that here.
