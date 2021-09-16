@@ -90,12 +90,7 @@
         {{ end }}
 
       <!-- Add google Ads  -->
-      {{ if site.Params.enableUtterances }}
-        {{ partial "googlead_inpost.html" . }}
-      {{ end }}
-
-      <!-- Add google Ads  -->
-      {{ if site.Params.enableUtterances }}
+      {{ if site.Params.enableGoogleAds }}
         {{ partial "googlead.html" . }}
       {{ end }}
 
