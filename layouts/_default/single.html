@@ -89,6 +89,16 @@
           </div>
         {{ end }}
 
+      <!-- Add google Ads  -->
+      {{ if site.Params.enableUtterances }}
+        {{ partial "googlead_inpost.html" . }}
+      {{ end }}
+
+      <!-- Add google Ads  -->
+      {{ if site.Params.enableUtterances }}
+        {{ partial "googlead.html" . }}
+      {{ end }}
+
         <!---Next and Previous Navigator -->
       <hr />
         {{ partial "navigators/next-prev-navigator.html" . }}
