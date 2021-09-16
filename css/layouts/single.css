@@ -131,17 +131,36 @@ body {
 .post-content {
   padding: 15px;
 }
+/* .post-content > * {
+  margin-bottom: 1.5rem;
+} */
+
+.post-content img {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.post-content p {
+  margin-bottom: 2rem;
+}
+
+/* 코드블럭 */
+.post-content .highlight {
+  margin-top: 1rem;
+  margin-bottom: 2.7rem;
+}
 
 .post-content h1,
 h2 {
-  margin-top: 1.4rem;
+  margin-top: 5rem;
 }
 
 .post-content h3,
 h4,
 h5,
 h6 {
-  margin-top: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .post-content blockquote {
@@ -149,6 +168,8 @@ h6 {
   background-color: #248baa15;
   padding: 0.3rem;
   padding-left: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .post-content blockquote > p {

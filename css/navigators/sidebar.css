@@ -25,9 +25,12 @@
 .sidebar-tree {
   padding-left: 1rem;
   position: relative;
-  width: -webkit-max-content;
+  /*width: -webkit-max-content;
   width: -moz-max-content;
-  width: max-content;
+  width: max-content;*/
+  /* 수정 */
+  width: auto;
+
 }
 
 #search-box {
@@ -62,7 +65,9 @@
 
 .tree li {
   margin: 0;
-  padding: 0 1em;
+  /* 수정 */
+  /* padding: 0 1em; */
+  padding-left: 1em;
   line-height: 2em;
   color: #3c4858;
   position: relative;
@@ -119,6 +124,9 @@
 ul > ul {
   position: relative;
   padding-left: 0.5rem;
+  /* 추가 */
+  padding-right: 0.5rem;
+
   display: none;
 }
 
