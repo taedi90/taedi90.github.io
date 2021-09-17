@@ -1,0 +1,393 @@
+<!doctype html><html>
+<head>
+<title>[Maven] 외부 톰캣에 deploy 설정하기</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="[Maven] 외부 톰캣에 deploy 설정하기">
+<meta property="og:description" content="local에서 build 시 외부 tomcat으로 auto deploy 되도록 설정">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://log.taedi.net/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-09-06T00:00:00+09:00">
+<meta property="article:modified_time" content="2021-09-06T00:00:00+09:00">
+<meta name=description content="local에서 build 시 외부 tomcat으로 auto deploy 되도록 설정">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Taedi's Log</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/java/>JAVA</a>
+<ul class=active>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/java/tomcat/>tomcat</a>
+<ul class=active>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/>자동 배포</a>
+<ul class=active>
+<li><a class=active href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/ title=maven>maven</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/blog/>blog</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/blog/setting/>setting</a>
+<ul>
+<li><a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ title="Github 블로그 설정  1. Hugo 설치">Github 블로그 설정 1. Hugo 설치</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/hero/java.png)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/avatar_hud917392cdfdd4ec322da585b115111ac_12166_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Taesoo Kim</h5>
+<p>2021년 09월 06일</p>
+</div>
+<div class=title>
+<h1>[Maven] 외부 톰캣에 deploy 설정하기</h1>
+</div>
+<div class=taxonomy-terms>
+<ul style=padding-inline-start:0>
+<li class=rounded><a href=/tags/deploy class="btn, btn-sm">deploy</a></li>
+<li class=rounded><a href=/tags/java class="btn, btn-sm">java</a></li>
+<li class=rounded><a href=/tags/maven class="btn, btn-sm">maven</a></li>
+<li class=rounded><a href=/tags/tomcat class="btn, btn-sm">tomcat</a></li>
+</ul>
+</div>
+<div class=post-content id=post-content>
+<p>외부 톰캣에 프로젝트를 배포하기 위해서는 war 파일을 직접 업로드 하여야하는데, 이걸 IDE에서 run 할때 바로 처리하는 방법을 알아보았다. (이해가 부족하여 문장이 뒤죽박죽..)</p>
+<h4 id=작업-환경>작업 환경</h4>
+<ul>
+<li>시놀로지 Docker - <strong>tomcat-8.5.69버전</strong></li>
+<li>IDE - eGov3.10</li>
+</ul>
+<h2 id=시놀로지-세팅>시놀로지 세팅</h2>
+<hr>
+<p>ssh 와 vi를 다루는 데 능숙하지 않기 때문에 시놀로지 gui 환경에서 작업을 처리할 방법을 구상해 보았다.</p>
+<h3 id=볼륨-마운트>볼륨 마운트</h3>
+<ul>
+<li>작업 편의성을 위하여 외부 폴더들에 conf 와 webapps 경로를 마운트 해주었다.</li>
+<li>&lsquo;컨테이너 선택 > 편집 > 볼륨&rsquo; 으로 이동하여 아래와 같이 폴더를 마운트 하였다.
+(폴더 경로는 임의로 변경해도 무방하다.)</li>
+</ul>
+<p><img src=images/pic-0009.png alt=Untitled></p>
+<p>여기서 conf 폴더는 tomcat 관련 설정파일들이 있는 것으로 보이고, webapps는 배포할 프로젝트들을 업로드할 공간이다.</p>
+<h3 id=마운트한-폴더에-데이터-붙여-넣기>마운트한 폴더에 데이터 붙여 넣기</h3>
+<ul>
+<li>&lsquo;컨테이너 선택 > 설정 > 내보내기&rsquo; 를 통해 docker에 설치 된 tomcat을 로컬 저장소에 백업</li>
+<li>이후 압축을 해제하고
+usr/local/tomcat/conf<br>
+usr/local/tomcat/webapps.dist/manager
+경로의 내용을 마운트한 폴더에 복사</li>
+</ul>
+<h4 id=webapps-폴더에-마운트되는-경로에-manager-폴더-복사>webapps 폴더에 마운트되는 경로에 manager 폴더 복사</h4>
+<p><img src=images/pic-0001.png alt=Untitled></p>
+<h4 id=conf-폴더에-마운트되는-경로에-기존-conf-하위-파일들-복사>conf 폴더에 마운트되는 경로에 기존 conf 하위 파일들 복사</h4>
+<p><img src=images/pic-0003.png alt=Untitled></p>
+<p>시놀로지에서 세팅은 여기까지며, 이후 웹 어플리케이션을 사용하는 방식과 ftp를 활용하는 방식 중에 선택하여 설정이 가능하다.(ssh 방식 등 알아보지 않은 다른 방법들이 있음)</p>
+<h3 id=첫번째-방법-tomcat-웹-어플리케이션-활용>첫번째 방법. Tomcat 웹 어플리케이션 활용</h3>
+<hr>
+<h3 id=conf--tomcat-usersxml-파일-내용-추가>conf > tomcat-users.xml 파일 내용 추가</h3>
+<ul>
+<li>아이디, 패스워드는 manager 페이지 접속에 사용</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;role</span> <span style=color:#a6e22e>rolename=</span><span style=color:#e6db74>&#34;manager-gui&#34;</span> <span style=color:#f92672>/&gt;</span>
+	<span style=color:#f92672>&lt;role</span> <span style=color:#a6e22e>rolename=</span><span style=color:#e6db74>&#34;manager-script&#34;</span> <span style=color:#f92672>/&gt;</span>
+	<span style=color:#f92672>&lt;role</span> <span style=color:#a6e22e>rolename=</span><span style=color:#e6db74>&#34;manager-jmx&#34;</span> <span style=color:#f92672>/&gt;</span>
+	<span style=color:#f92672>&lt;role</span> <span style=color:#a6e22e>rolename=</span><span style=color:#e6db74>&#34;manager-status&#34;</span> <span style=color:#f92672>/&gt;</span>
+	<span style=color:#f92672>&lt;user</span> <span style=color:#a6e22e>username=</span><span style=color:#e6db74>&#34;아이디&#34;</span> <span style=color:#a6e22e>password=</span><span style=color:#e6db74>&#34;패스워드&#34;</span>
+		<span style=color:#a6e22e>roles=</span><span style=color:#e6db74>&#34;manager-gui,manager-script,manager-jmx,manager-status&#34;</span> <span style=color:#f92672>/&gt;</span>
+</code></pre></div><h3 id=manager---meta-inf--contextxml-파일-수정>manager > META-INF > context.xml 파일 수정</h3>
+<ul>
+<li>valve ~ 부분 주석처리</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;Context</span> <span style=color:#a6e22e>antiResourceLocking=</span><span style=color:#e6db74>&#34;false&#34;</span> <span style=color:#a6e22e>privileged=</span><span style=color:#e6db74>&#34;true&#34;</span> <span style=color:#f92672>&gt;</span>
+  <span style=color:#f92672>&lt;CookieProcessor</span> <span style=color:#a6e22e>className=</span><span style=color:#e6db74>&#34;org.apache.tomcat.util.http.Rfc6265CookieProcessor&#34;</span>
+                   <span style=color:#a6e22e>sameSiteCookies=</span><span style=color:#e6db74>&#34;strict&#34;</span> <span style=color:#f92672>/&gt;</span>
+  <span style=color:#75715e>&lt;!--&lt;Valve className=&#34;org.apache.catalina.valves.RemoteAddrValve&#34;
+</span><span style=color:#75715e>         allow=&#34;127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1&#34; /&gt;--&gt;</span>
+  <span style=color:#f92672>&lt;Manager</span> <span style=color:#a6e22e>sessionAttributeValueClassNameFilter=</span><span style=color:#e6db74>&#34;java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap&#34;</span><span style=color:#f92672>/&gt;</span>
+<span style=color:#f92672>&lt;/Context&gt;</span>
+</code></pre></div><h3 id=서버주소managerhtml-접속-확인>서버주소/manager/html 접속 확인</h3>
+<ul>
+<li>로그인 이후 아래와 같은 페이지가 정상적으로 표시되는지 확인</li>
+</ul>
+<p><img src=images/pic-0002.png alt=Untitled></p>
+<h4 id=pomxml-내용-추가>pom.xml 내용 추가</h4>
+<ul>
+<li>tomcat8-maven-plugin 은 없으며 7버전으로 정상적으로 동작함</li>
+<li>url과 로그인 정보는 보안을 위해 settings.xml에 별도 설정</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;plugin&gt;</span>
+    <span style=color:#f92672>&lt;groupId&gt;</span>org.apache.tomcat.maven<span style=color:#f92672>&lt;/groupId&gt;</span>
+    <span style=color:#f92672>&lt;artifactId&gt;</span>tomcat7-maven-plugin<span style=color:#f92672>&lt;/artifactId&gt;</span>
+    <span style=color:#f92672>&lt;version&gt;</span>2.2<span style=color:#f92672>&lt;/version&gt;</span>
+    <span style=color:#f92672>&lt;configuration&gt;</span>
+        <span style=color:#f92672>&lt;url&gt;</span>${tomcat-server-url}<span style=color:#f92672>&lt;/url&gt;</span>
+        <span style=color:#f92672>&lt;server&gt;</span>tomcat-server<span style=color:#f92672>&lt;/server&gt;</span>
+        <span style=color:#f92672>&lt;path&gt;</span>/${name}<span style=color:#f92672>&lt;/path&gt;</span>
+    <span style=color:#f92672>&lt;/configuration&gt;</span>
+<span style=color:#f92672>&lt;/plugin&gt;</span>
+</code></pre></div><h4 id=settingsxml-내용-추가>settings.xml 내용 추가</h4>
+<ul>
+<li>기본적으로 C:\Users\사용자.m2 경로에 있음</li>
+<li>window > preferences > maven > user settings 에서 위치 변경가능</li>
+</ul>
+<p><img src=images/pic-0007.png alt=Untitled></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+
+<span style=color:#f92672>&lt;settings</span> <span style=color:#a6e22e>xmlns=</span><span style=color:#e6db74>&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+	<span style=color:#a6e22e>xmlns:xsi=</span><span style=color:#e6db74>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+	<span style=color:#a6e22e>xsi:schemaLocation=</span><span style=color:#e6db74>&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&#34;</span><span style=color:#f92672>&gt;</span>
+	<span style=color:#f92672>&lt;servers&gt;</span>
+		<span style=color:#f92672>&lt;server&gt;</span>
+			<span style=color:#f92672>&lt;id&gt;</span>tomcat-server<span style=color:#f92672>&lt;/id&gt;</span>
+			<span style=color:#75715e>&lt;!-- 아이디 --&gt;</span>
+			<span style=color:#f92672>&lt;username&gt;</span>아이디<span style=color:#f92672>&lt;/username&gt;</span>
+			<span style=color:#75715e>&lt;!-- 비밀번호 --&gt;</span>
+			<span style=color:#f92672>&lt;password&gt;</span>비밀번호<span style=color:#f92672>&lt;/password&gt;</span>
+		<span style=color:#f92672>&lt;/server&gt;</span>
+	<span style=color:#f92672>&lt;/servers&gt;</span>
+
+	<span style=color:#f92672>&lt;profiles&gt;</span>
+		<span style=color:#f92672>&lt;profile&gt;</span>
+      		<span style=color:#f92672>&lt;id&gt;</span>inject-tomcat-server-url<span style=color:#f92672>&lt;/id&gt;</span>
+      		<span style=color:#f92672>&lt;properties&gt;</span>
+			  	  <span style=color:#75715e>&lt;!-- 서버 주소 --&gt;</span>
+        		<span style=color:#f92672>&lt;tomcat-server-url&gt;</span>http://사이트 주소:포트번호/manager/text<span style=color:#f92672>&lt;/tomcat-server-url&gt;</span>
+      		<span style=color:#f92672>&lt;/properties&gt;</span>
+    	<span style=color:#f92672>&lt;/profile&gt;</span>
+  	<span style=color:#f92672>&lt;/profiles&gt;</span>
+    
+  	<span style=color:#f92672>&lt;activeProfiles&gt;</span>
+    	<span style=color:#f92672>&lt;activeProfile&gt;</span>inject-tomcat-server-url<span style=color:#f92672>&lt;/activeProfile&gt;</span>
+  	<span style=color:#f92672>&lt;/activeProfiles&gt;</span>
+
+<span style=color:#f92672>&lt;/settings&gt;</span>
+</code></pre></div><p>url까지 pom.xml에서 빼려다보니 settings.xml의 코드가 늘어났다.</p>
+<h4 id=maven-build>Maven build</h4>
+<ul>
+<li>프로젝트 우클릭 > Run As > Maven build</li>
+</ul>
+<p><img src=images/pic-0006.png alt=Untitled></p>
+<ul>
+<li>Goals에 tomcat7:deploy 입력 후 run!</li>
+</ul>
+<p><img src=images/pic-0004.png alt=Untitled></p>
+<h3 id=두번째-방법-ftp-활용>두번째 방법. FTP 활용</h3>
+<hr>
+<p>ftp를 사용하려면 시놀로지 설정이 조금 더 필요하며 보안 부분에도 고려해야할 사항이 발생할 것으로 보인다. (그래서 사실 최초에 ftp를 이용해서 deploy 여부를 확인만 하고 첫번째 방식인 웹 어플리케이션 방식으로 변경하였다.)</p>
+<h4 id=제어판--파일-서비스--ftp--ftp-서비스-활성화>제어판 > 파일 서비스 > FTP > FTP 서비스 활성화</h4>
+<ul>
+<li>서비스 활성화 및 포트 설정 (사설 IP 외부 접속의 경우 포트 포워딩 필요)</li>
+</ul>
+<p><img src=images/pic-0005.png alt=Untitled></p>
+<h4 id=제어판--파일-서비스--ftp--일반--고급설정--루트-디렉토리-변경>제어판 > 파일 서비스 > FTP > 일반 > 고급설정 > 루트 디렉토리 변경</h4>
+<ul>
+<li>순수 tomcat 용도로만 ftp가 필요하기 때문에 루트 폴더를 webapps 에 마운트 될 디렉토리로 한정 해줌</li>
+</ul>
+<p><img src=images/pic-0010.png alt=Untitled></p>
+<h4 id=pomxml-수정>pom.xml 수정</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>
+    <span style=color:#75715e>&lt;!-- project 내부 --&gt;</span>
+    <span style=color:#f92672>&lt;distributionManagement&gt;</span>
+        <span style=color:#f92672>&lt;repository&gt;</span>
+            <span style=color:#f92672>&lt;id&gt;</span>repo<span style=color:#f92672>&lt;/id&gt;</span>
+            <span style=color:#f92672>&lt;url&gt;</span>ftp://주소:포트번호/<span style=color:#f92672>&lt;/url&gt;</span>
+        <span style=color:#f92672>&lt;/repository&gt;</span>
+    <span style=color:#f92672>&lt;/distributionManagement&gt;</span>
+
+    <span style=color:#75715e>&lt;!-- build 내부 --&gt;</span>
+		<span style=color:#f92672>&lt;extensions&gt;</span>
+			<span style=color:#f92672>&lt;extension&gt;</span>
+				<span style=color:#f92672>&lt;groupId&gt;</span>org.apache.maven.wagon<span style=color:#f92672>&lt;/groupId&gt;</span>
+				<span style=color:#f92672>&lt;artifactId&gt;</span>wagon-ftp<span style=color:#f92672>&lt;/artifactId&gt;</span>
+				<span style=color:#f92672>&lt;version&gt;</span>3.2.0<span style=color:#f92672>&lt;/version&gt;</span>
+			<span style=color:#f92672>&lt;/extension&gt;</span>
+		<span style=color:#f92672>&lt;/extensions&gt;</span>
+</code></pre></div><h4 id=settingsxml-수정>settings.xml 수정</h4>
+<ul>
+<li>기본적으로 C:\Users\사용자.m2 경로에 있음</li>
+<li>window > preferences > maven > user settings 에서 위치 변경가능</li>
+</ul>
+<p><img src=images/pic-0007.png alt=Untitled></p>
+<ul>
+<li>id 태그 안의 값은 pom.xml의 내용과 동일해야함</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml>  <span style=color:#f92672>&lt;server&gt;</span>
+      <span style=color:#f92672>&lt;id&gt;</span>repo<span style=color:#f92672>&lt;/id&gt;</span>
+      <span style=color:#f92672>&lt;username&gt;</span>계정<span style=color:#f92672>&lt;/username&gt;</span>
+      <span style=color:#f92672>&lt;password&gt;</span>비밀번호<span style=color:#f92672>&lt;/password&gt;</span>
+    <span style=color:#f92672>&lt;/server&gt;</span>
+  <span style=color:#f92672>&lt;/servers&gt;</span>
+</code></pre></div><h4 id=maven-build-1>Maven build</h4>
+<ul>
+<li>프로젝트 우클릭 > Run As > Maven build</li>
+</ul>
+<p><img src=images/pic-0006.png alt=Untitled></p>
+<ul>
+<li>Goals에 deploy 입력 후 run!</li>
+</ul>
+<p><img src=images/pic-0008.png alt=Untitled></p>
+<h2 id=references>References</h2>
+<hr>
+<p><a href=http://maven.apache.org/wagon/wagon-providers/wagon-ftp/>http://maven.apache.org/wagon/wagon-providers/wagon-ftp/</a></p>
+<p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=javaking75&logNo=220947560568">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=javaking75&logNo=220947560568</a></p>
+<p><a href=https://hongku.tistory.com/196>https://hongku.tistory.com/196</a></p>
+<p><a href=https://www.baeldung.com/tomcat-deploy-war>https://www.baeldung.com/tomcat-deploy-war</a></p>
+<p><a href=https://maven.apache.org/examples/injecting-properties-via-settings.html>https://maven.apache.org/examples/injecting-properties-via-settings.html</a></p>
+</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-1882367656929494 data-ad-slot=9457951065 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<hr>
+<div class="row next-prev-navigator">
+<div class="col-md-12 next-article">
+<a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ title="Github 블로그 설정  1. Hugo 설치" class="btn btn-outline-info">
+<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
+<div class=next-prev-text>Github 블로그 설정 1. Hugo 설치</div>
+</a>
+</div>
+</div>
+<hr>
+<div class=utterances></div>
+<script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">List</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href=#작업-환경>작업 환경</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#시놀로지-세팅>시놀로지 세팅</a>
+<ul>
+<li><a href=#볼륨-마운트>볼륨 마운트</a></li>
+<li><a href=#마운트한-폴더에-데이터-붙여-넣기>마운트한 폴더에 데이터 붙여 넣기</a>
+<ul>
+<li><a href=#webapps-폴더에-마운트되는-경로에-manager-폴더-복사>webapps 폴더에 마운트되는 경로에 manager 폴더 복사</a></li>
+<li><a href=#conf-폴더에-마운트되는-경로에-기존-conf-하위-파일들-복사>conf 폴더에 마운트되는 경로에 기존 conf 하위 파일들 복사</a></li>
+</ul>
+</li>
+<li><a href=#첫번째-방법-tomcat-웹-어플리케이션-활용>첫번째 방법. Tomcat 웹 어플리케이션 활용</a></li>
+<li><a href=#conf--tomcat-usersxml-파일-내용-추가>conf > tomcat-users.xml 파일 내용 추가</a></li>
+<li><a href=#manager---meta-inf--contextxml-파일-수정>manager > META-INF > context.xml 파일 수정</a></li>
+<li><a href=#서버주소managerhtml-접속-확인>서버주소/manager/html 접속 확인</a>
+<ul>
+<li><a href=#pomxml-내용-추가>pom.xml 내용 추가</a></li>
+<li><a href=#settingsxml-내용-추가>settings.xml 내용 추가</a></li>
+<li><a href=#maven-build>Maven build</a></li>
+</ul>
+</li>
+<li><a href=#두번째-방법-ftp-활용>두번째 방법. FTP 활용</a>
+<ul>
+<li><a href=#제어판--파일-서비스--ftp--ftp-서비스-활성화>제어판 > 파일 서비스 > FTP > FTP 서비스 활성화</a></li>
+<li><a href=#제어판--파일-서비스--ftp--일반--고급설정--루트-디렉토리-변경>제어판 > 파일 서비스 > FTP > 일반 > 고급설정 > 루트 디렉토리 변경</a></li>
+<li><a href=#pomxml-수정>pom.xml 수정</a></li>
+<li><a href=#settingsxml-수정>settings.xml 수정</a></li>
+<li><a href=#maven-build-1>Maven build</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#references>References</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>Contact</h5>
+<ul>
+<li><span>Email: </span> <span>taedi90@gmail.com</span></li>
+<li><span>Github: </span> <span>https://github.com/taedi90</span></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>$(document).ready(function(){$('p').has('img').css('text-align','center')})</script>
+</body>
+</html>

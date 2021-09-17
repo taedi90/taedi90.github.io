@@ -1,6 +1,6 @@
 <!doctype html><html>
 <head>
-<title>posts</title>
+<title>java</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta http-equiv=x-ua-compatible content="ie=edge">
@@ -11,10 +11,10 @@
 <link rel=stylesheet href=/css/flag-icon.min.css>
 <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
 <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="posts">
+<meta property="og:title" content="java">
 <meta property="og:description" content>
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://log.taedi.net/posts/">
+<meta property="og:url" content="https://log.taedi.net/tags/java/">
 <link rel=stylesheet href=/css/layouts/list.css>
 <link rel=stylesheet href=/css/navigators/sidebar.css>
 <link rel=stylesheet href=/css/style.css>
@@ -45,35 +45,15 @@ Taedi's Log</a>
 </form>
 <div class=sidebar-tree>
 <ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/>JAVA</a>
-<ul>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/>tomcat</a>
-<ul>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/>자동 배포</a>
-<ul>
-<li><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/ title=maven>maven</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/blog/>blog</a>
-<ul>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/blog/setting/>setting</a>
-<ul>
-<li><a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ title="Github 블로그 설정  1. Hugo 설치">Github 블로그 설정 1. Hugo 설치</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li id=list-heading><a href=/tags data-filter=all>Tags</a></li>
+<div class="subtree taxonomy-terms">
+<li><a class=taxonomy-term href=https://log.taedi.net/tags/blog/ data-taxonomy-term=blog><span class=taxonomy-label>blog</span></a></li>
+<li><a class=taxonomy-term href=https://log.taedi.net/tags/deploy/ data-taxonomy-term=deploy><span class=taxonomy-label>deploy</span></a></li>
+<li><a class=taxonomy-term href=https://log.taedi.net/tags/github-pages/ data-taxonomy-term=github-pages><span class=taxonomy-label>github pages</span></a></li>
+<li><a class=taxonomy-term href=https://log.taedi.net/tags/hugo/ data-taxonomy-term=hugo><span class=taxonomy-label>hugo</span></a></li>
+<li><a class="taxonomy-term active" href=https://log.taedi.net/tags/java/ data-taxonomy-term=java><span class=taxonomy-label>java</span></a></li>
+<li><a class=taxonomy-term href=https://log.taedi.net/tags/maven/ data-taxonomy-term=maven><span class=taxonomy-label>maven</span></a></li>
+<li><a class=taxonomy-term href=https://log.taedi.net/tags/tomcat/ data-taxonomy-term=tomcat><span class=taxonomy-label>tomcat</span></a></li>
 </div>
 </ul>
 </div>
@@ -83,24 +63,6 @@ Taedi's Log</a>
 <section class=content-section id=content-section>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
-<div class=post-card>
-<a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Github 블로그 설정 1. Hugo 설치</h5>
-<p class="card-text post-summary">서론 코딩 공부를 시작하며 메모는 선택이 아닌 필수가 되었다. 처음에는 노션으로 기본적인 메모를 하고 어느정도 정리가 되면 티스토리에 업로드를 할 것을 계획했고 포스팅을 조금씩 해나가고 있었는데, 언젠가부터 글을 작성할 때 마다 reCAPTCHA 가 발생하기 시작했다.
-물론 직접 글을 작성할 때야 체크 항목이 하나 늘어난 것 뿐이지만, 문제는 OPEN API 방식의 포스팅은 완전히 불가능해져 애용하던 Notion2Tistory 를 활용할 수가 없어진 것이 큰 문제였다. (노션에 작성한 글을 API 없이 티스토리에 업로드 하기위해서는 대단한 인내심이 필요했다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>September 13, 2021</span>
-<a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 <div class=post-card>
 <a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/ class=post-card-link>
 <div class=card>
