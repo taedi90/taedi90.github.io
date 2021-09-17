@@ -1,5 +1,5 @@
 ---
-title: "[Maven] 외부 톰캣에 deploy 설정하기"
+title: "[Maven] 외부 톰캣 deploy 설정하기"
 date: 2021-09-06T00:00:00+09:00
 hero: images/hero/java.png
 description: local에서 build 시 외부 tomcat으로 auto deploy 되도록 설정

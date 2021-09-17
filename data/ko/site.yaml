@@ -8,7 +8,7 @@ You can modify or distribute the theme without requiring any permission from the
 However, the theme author does not provide any warranty or takes any liability for any issue with the theme."
 
 # Meta description for your site.  This will help the search engines to find your site.
-description: Portfolio and personal blog of Taesoo Kim.
+description: 비전공자의 코딩 메모장!
 
 # specify the list of custom menus that you want to show in the top navbar.
 # they will be separated by a divider from the main menus.
@@ -22,6 +22,6 @@ customMenus:
 openGraph:
   title: Taedi's Log
   type: website
-  description: Portfolio and personal blog of Taesoo Kim
+  description: 비전공자의 코딩 메모장!
   image: images/author/avator.png
   url: https://log.taedi.net/

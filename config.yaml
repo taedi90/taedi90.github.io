@@ -14,14 +14,6 @@ languages:
 
 defaultContentLanguage: ko
 
-
-# Control TOC depth
-markup:
-  tableOfContents:
-    startLevel: 1
-    endLevel: 6
-    ordered: false
-
 # At least HTML and JSON are required for the main HTML content and
 # client-side JavaScript search
 outputs:
@@ -32,9 +24,6 @@ outputs:
 
 # Enable global emoji support
 enableEmoji: true
-
-
-
 
 # Site parameters
 params:

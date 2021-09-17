@@ -6,9 +6,9 @@ description: how to set github pages blog
 tags: [blog, github pages, hugo]
 menu:
   sidebar:
-    name: Github 블로그 설정  1. Hugo 설치
-    identifier: Github 블로그 설정  1. Hugo 설치
-    parent: setting
+    name: 1. Hugo 설치
+    identifier: blog-세팅하기-1. Hugo 설치
+    parent: 세팅하기
     weight: 
 ---
 
