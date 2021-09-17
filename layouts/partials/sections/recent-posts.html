@@ -1,0 +1,33 @@
+{{ $sectionID := replace (lower .section.name) " " "-"  }}
+{{ if .section.id }}
+  {{ $sectionID = .section.id }}
+{{ end }}
+
+{{ $numShow := 3}}
+{{ if .section.numShow }}
+  {{ $numShow = .section.numShow }}
+{{ end }}
+
+
+<div class="container-fluid anchor pb-5 recent-posts-section" id="{{ $sectionID }}">
+  {{ if not (.section.hideTitle) }}
+    <h1 class="text-center">{{ .section.name }}</h1>
+  {{ end }}
+  <div class="container">
+    <div class="row" id="recent-post-cards">
+      {{ range first $numShow (where site.RegularPages.ByDate.Reverse "Type" "in" "posts" ) }}
+        {{/* printf "%s%n" .Dir*/}}
+
+        {{/* 2021년도 이후(>=) 글만 가져오기 */}}
+        {{$test := time.Format "2006" .Date}}
+        {{if and ((true)) (ge $test "2021") }}
+
+        {{/* posts/ 경로가 아닌 글만 가져오기 */}}
+        {{/* $test := .Dir */}}
+        {{/*if and ((true)) (ne $test "posts/") */}}
+          {{ partial "cards/recent-post.html" . }}
+        {{end}}  
+      {{ end }}
+    </div>
+  </div>
+</div>
