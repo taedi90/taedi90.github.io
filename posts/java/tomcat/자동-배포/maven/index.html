@@ -1,6 +1,6 @@
 <!doctype html><html>
 <head>
-<title>[Maven] 외부 톰캣에 deploy 설정하기</title>
+<title>[Maven] 외부 톰캣 deploy 설정하기</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta http-equiv=x-ua-compatible content="ie=edge">
@@ -11,7 +11,7 @@
 <link rel=stylesheet href=/css/flag-icon.min.css>
 <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
 <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="[Maven] 외부 톰캣에 deploy 설정하기">
+<meta property="og:title" content="[Maven] 외부 톰캣 deploy 설정하기">
 <meta property="og:description" content="local에서 build 시 외부 tomcat으로 auto deploy 되도록 설정">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://log.taedi.net/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/"><meta property="article:section" content="posts">
@@ -71,9 +71,9 @@ Taedi's Log</a>
 <i class="fas fa-plus-circle"></i><a href=/posts/blog/>blog</a>
 <ul>
 <li>
-<i class="fas fa-plus-circle"></i><a href=/posts/blog/setting/>setting</a>
+<i class="fas fa-plus-circle"></i><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/>세팅하기</a>
 <ul>
-<li><a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ title="Github 블로그 설정  1. Hugo 설치">Github 블로그 설정 1. Hugo 설치</a></li>
+<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ title="1. Hugo 설치">1. Hugo 설치</a></li>
 </ul>
 </li>
 </ul>
@@ -96,7 +96,7 @@ Taedi's Log</a>
 <p>2021년 09월 06일</p>
 </div>
 <div class=title>
-<h1>[Maven] 외부 톰캣에 deploy 설정하기</h1>
+<h1>[Maven] 외부 톰캣 deploy 설정하기</h1>
 </div>
 <div class=taxonomy-terms>
 <ul style=padding-inline-start:0>
@@ -295,7 +295,7 @@ usr/local/tomcat/webapps.dist/manager
 <hr>
 <div class="row next-prev-navigator">
 <div class="col-md-12 next-article">
-<a href=/posts/blog/setting/github-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%84%A4%EC%A0%95-1.-hugo-%EC%84%A4%EC%B9%98/ title="Github 블로그 설정  1. Hugo 설치" class="btn btn-outline-info">
+<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ title="Github 블로그 설정  1. Hugo 설치" class="btn btn-outline-info">
 <div>다음 <i class="fas fa-chevron-circle-right"></i></div>
 <div class=next-prev-text>Github 블로그 설정 1. Hugo 설치</div>
 </a>
@@ -318,48 +318,21 @@ usr/local/tomcat/webapps.dist/manager
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href=#작업-환경>작업 환경</a></li>
-</ul>
-</li>
+<li></li>
 </ul>
 </li>
 <li><a href=#시놀로지-세팅>시놀로지 세팅</a>
 <ul>
 <li><a href=#볼륨-마운트>볼륨 마운트</a></li>
-<li><a href=#마운트한-폴더에-데이터-붙여-넣기>마운트한 폴더에 데이터 붙여 넣기</a>
-<ul>
-<li><a href=#webapps-폴더에-마운트되는-경로에-manager-폴더-복사>webapps 폴더에 마운트되는 경로에 manager 폴더 복사</a></li>
-<li><a href=#conf-폴더에-마운트되는-경로에-기존-conf-하위-파일들-복사>conf 폴더에 마운트되는 경로에 기존 conf 하위 파일들 복사</a></li>
-</ul>
-</li>
+<li><a href=#마운트한-폴더에-데이터-붙여-넣기>마운트한 폴더에 데이터 붙여 넣기</a></li>
 <li><a href=#첫번째-방법-tomcat-웹-어플리케이션-활용>첫번째 방법. Tomcat 웹 어플리케이션 활용</a></li>
 <li><a href=#conf--tomcat-usersxml-파일-내용-추가>conf > tomcat-users.xml 파일 내용 추가</a></li>
 <li><a href=#manager---meta-inf--contextxml-파일-수정>manager > META-INF > context.xml 파일 수정</a></li>
-<li><a href=#서버주소managerhtml-접속-확인>서버주소/manager/html 접속 확인</a>
-<ul>
-<li><a href=#pomxml-내용-추가>pom.xml 내용 추가</a></li>
-<li><a href=#settingsxml-내용-추가>settings.xml 내용 추가</a></li>
-<li><a href=#maven-build>Maven build</a></li>
-</ul>
-</li>
-<li><a href=#두번째-방법-ftp-활용>두번째 방법. FTP 활용</a>
-<ul>
-<li><a href=#제어판--파일-서비스--ftp--ftp-서비스-활성화>제어판 > 파일 서비스 > FTP > FTP 서비스 활성화</a></li>
-<li><a href=#제어판--파일-서비스--ftp--일반--고급설정--루트-디렉토리-변경>제어판 > 파일 서비스 > FTP > 일반 > 고급설정 > 루트 디렉토리 변경</a></li>
-<li><a href=#pomxml-수정>pom.xml 수정</a></li>
-<li><a href=#settingsxml-수정>settings.xml 수정</a></li>
-<li><a href=#maven-build-1>Maven build</a></li>
-</ul>
-</li>
+<li><a href=#서버주소managerhtml-접속-확인>서버주소/manager/html 접속 확인</a></li>
+<li><a href=#두번째-방법-ftp-활용>두번째 방법. FTP 활용</a></li>
 </ul>
 </li>
 <li><a href=#references>References</a></li>
-</ul>
-</li>
 </ul>
 </nav>
 </div>
