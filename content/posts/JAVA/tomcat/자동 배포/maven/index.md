@@ -231,8 +231,8 @@ ftp를 사용하려면 시놀로지 설정이 조금 더 필요하며 보안 부
 
 ## 참고
 
--- [http://maven.apache.org/wagon/wagon-providers/wagon-ftp/](http://maven.apache.org/wagon/wagon-providers/wagon-ftp/)
--- [https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=javaking75&logNo=220947560568](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=javaking75&logNo=220947560568)
--- [https://hongku.tistory.com/196](https://hongku.tistory.com/196)
--- [https://www.baeldung.com/tomcat-deploy-war](https://www.baeldung.com/tomcat-deploy-war)
--- [https://maven.apache.org/examples/injecting-properties-via-settings.html](https://maven.apache.org/examples/injecting-properties-via-settings.html)
+- [http://maven.apache.org/wagon/wagon-providers/wagon-ftp/](http://maven.apache.org/wagon/wagon-providers/wagon-ftp/)
+- [https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=javaking75&logNo=220947560568](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=javaking75&logNo=220947560568)
+- [https://hongku.tistory.com/196](https://hongku.tistory.com/196)
+- [https://www.baeldung.com/tomcat-deploy-war](https://www.baeldung.com/tomcat-deploy-war)
+- [https://maven.apache.org/examples/injecting-properties-via-settings.html](https://maven.apache.org/examples/injecting-properties-via-settings.html)
