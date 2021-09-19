@@ -69,6 +69,17 @@ Taedi's Log</a>
 </ul>
 </li>
 <li>
+<i class="fas fa-plus-circle"></i><a href=/posts/python/>python</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/python/setting/>setting</a>
+<ul>
+<li><a href=/posts/python/setting/%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95/ title="가상환경 설정">가상환경 설정</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
 <i class="fas fa-plus-circle"></i><a href=/posts/blog/>blog</a>
 <ul>
 <li>
@@ -295,9 +306,9 @@ usr/local/tomcat/webapps.dist/manager
 <hr>
 <div class="row next-prev-navigator">
 <div class="col-md-12 next-article">
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ title="Github 블로그 설정  1. Hugo 설치" class="btn btn-outline-info">
+<a href=/posts/python/setting/%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95/ title="파이썬 가상환경 설정(pyenv, pipenv)" class="btn btn-outline-info">
 <div>다음 <i class="fas fa-chevron-circle-right"></i></div>
-<div class=next-prev-text>Github 블로그 설정 1. Hugo 설치</div>
+<div class=next-prev-text>파이썬 가상환경 설정(pyenv, pipenv)</div>
 </a>
 </div>
 </div>
@@ -318,18 +329,41 @@ usr/local/tomcat/webapps.dist/manager
 <ul>
 <li>
 <ul>
-<li></li>
+<li>
+<ul>
+<li><a href=#작업-환경>작업 환경</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href=#시놀로지-세팅>시놀로지 세팅</a>
 <ul>
 <li><a href=#볼륨-마운트>볼륨 마운트</a></li>
-<li><a href=#마운트한-폴더에-데이터-붙여-넣기>마운트한 폴더에 데이터 붙여 넣기</a></li>
+<li><a href=#마운트한-폴더에-데이터-붙여-넣기>마운트한 폴더에 데이터 붙여 넣기</a>
+<ul>
+<li><a href=#webapps-폴더에-마운트되는-경로에-manager-폴더-복사>webapps 폴더에 마운트되는 경로에 manager 폴더 복사</a></li>
+<li><a href=#conf-폴더에-마운트되는-경로에-기존-conf-하위-파일들-복사>conf 폴더에 마운트되는 경로에 기존 conf 하위 파일들 복사</a></li>
+</ul>
+</li>
 <li><a href=#첫번째-방법-tomcat-웹-어플리케이션-활용>첫번째 방법. Tomcat 웹 어플리케이션 활용</a></li>
 <li><a href=#conf--tomcat-usersxml-파일-내용-추가>conf > tomcat-users.xml 파일 내용 추가</a></li>
 <li><a href=#manager---meta-inf--contextxml-파일-수정>manager > META-INF > context.xml 파일 수정</a></li>
-<li><a href=#서버주소managerhtml-접속-확인>서버주소/manager/html 접속 확인</a></li>
-<li><a href=#두번째-방법-ftp-활용>두번째 방법. FTP 활용</a></li>
+<li><a href=#서버주소managerhtml-접속-확인>서버주소/manager/html 접속 확인</a>
+<ul>
+<li><a href=#pomxml-내용-추가>pom.xml 내용 추가</a></li>
+<li><a href=#settingsxml-내용-추가>settings.xml 내용 추가</a></li>
+<li><a href=#maven-build>Maven build</a></li>
+</ul>
+</li>
+<li><a href=#두번째-방법-ftp-활용>두번째 방법. FTP 활용</a>
+<ul>
+<li><a href=#제어판--파일-서비스--ftp--ftp-서비스-활성화>제어판 > 파일 서비스 > FTP > FTP 서비스 활성화</a></li>
+<li><a href=#제어판--파일-서비스--ftp--일반--고급설정--루트-디렉토리-변경>제어판 > 파일 서비스 > FTP > 일반 > 고급설정 > 루트 디렉토리 변경</a></li>
+<li><a href=#pomxml-수정>pom.xml 수정</a></li>
+<li><a href=#settingsxml-수정>settings.xml 수정</a></li>
+<li><a href=#maven-build-1>Maven build</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href=#references>References</a></li>
