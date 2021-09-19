@@ -29,7 +29,7 @@ markup:
       unsafe: true
   tableOfContents:
     startLevel: 2
-    endLevel: 6
+    endLevel: 4
     ordered: false
 
 # Enable global emoji support
@@ -86,3 +86,7 @@ params:
 
   enableUtterances: true
   enableGoogleAds: true
+
+sitemap:
+  filename: sitemap.xml
+  priority: 0.5
