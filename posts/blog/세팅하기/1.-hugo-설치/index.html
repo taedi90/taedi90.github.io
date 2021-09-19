@@ -1,1 +1,234 @@
-<!doctype html>
+<!doctype html><html>
+<head>
+<title>Github 블로그 설정 1. Hugo 설치</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<script data-ad-client=ca-pub-1882367656929494 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<meta property="og:title" content="Github 블로그 설정  1. Hugo 설치">
+<meta property="og:description" content="how to set github pages blog">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://log.taedi.net/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-09-13T00:00:00+09:00">
+<meta property="article:modified_time" content="2021-09-13T00:00:00+09:00">
+<meta name=description content="how to set github pages blog">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Taedi's Log</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/java/>JAVA</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/>tomcat</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/>자동 배포</a>
+<ul>
+<li><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/ title=maven>maven</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/>blog</a>
+<ul class=active>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/>세팅하기</a>
+<ul class=active>
+<li><a class=active href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ title="1. Hugo 설치">1. Hugo 설치</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/hero/blog.png)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/avatar_hud917392cdfdd4ec322da585b115111ac_12166_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Taesoo Kim</h5>
+<p>2021년 09월 13일</p>
+</div>
+<div class=title>
+<h1>Github 블로그 설정 1. Hugo 설치</h1>
+</div>
+<div class=taxonomy-terms>
+<ul style=padding-inline-start:0>
+<li class=rounded><a href=/tags/blog class="btn, btn-sm">blog</a></li>
+<li class=rounded><a href=/tags/github-pages class="btn, btn-sm">github pages</a></li>
+<li class=rounded><a href=/tags/hugo class="btn, btn-sm">hugo</a></li>
+</ul>
+</div>
+<div class=post-content id=post-content>
+<h2 id=서론>서론</h2>
+<p>코딩 공부를 시작하며 메모는 선택이 아닌 필수가 되었다. 처음에는 <strong>노션</strong>으로 기본적인 메모를 하고 어느정도 정리가 되면 <strong>티스토리</strong>에 업로드를 할 것을 계획했고 포스팅을 조금씩 해나가고 있었는데, 언젠가부터 글을 작성할 때 마다 <strong>reCAPTCHA</strong> 가 발생하기 시작했다.</p>
+<p><img src=images/pic-0001.png alt="스크린샷 2021-09-13 오후 5.41.49.png"></p>
+<p>물론 직접 글을 작성할 때야 체크 항목이 하나 늘어난 것 뿐이지만, 문제는 OPEN API 방식의 포스팅은 완전히 불가능해져 애용하던 Notion2Tistory 를 활용할 수가 없어진 것이 큰 문제였다. (노션에 작성한 글을 API 없이 티스토리에 업로드 하기위해서는 대단한 인내심이 필요했다.)</p>
+<p><img src=images/pic-0002.png alt="스크린샷 2021-09-13 오후 5.49.15.png"></p>
+<p><strong>reCAPTCHA</strong> 가 모든 블로그에 해당하는 사항이 아니었기 때문에 아무래도 내 블로그가 저품질 판정을 받은 것 같은데, 도배나 광고글을 작성한 적이 없고 게시글 수도 많지않아 이같은 처분이 당황스러워 고객센터에 문의도 해보았으나 이렇다할 답변을 받지 못했고, 티스토리 내에서 해결책을 찾느니 이왕 이렇게 된거 다른 서비스를 찾아보기로 결심하게 되었다.</p>
+<p>결론적으로 <strong>Github Pages</strong> 와 <strong>Hugo</strong> 를 활용하기로 결정하였고, 조만간 세팅했던 기억도 가물가물해질 것이 분명하기 때문에 기록으로 남겨놓고자 한다.</p>
+<h2 id=내게-필요했던-사항>내게 필요했던 사항</h2>
+<h3 id=1-노션-메모를-최소한의-수정-또는-무수정으로-배포할-수-있을-것>1. 노션 메모를 최소한의 수정 또는 무수정으로 배포할 수 있을 것</h3>
+<p>노션과의 호환성은 0순위였다. 가뜩이나 글을쓰고 정리하는게 어렵게 느껴지는데 플랫폼을 오가며 글을 수정하고 있으면 글을 다듬는 실력은 늘지도 모르겠지만, 그만큼 학습할 시간이 부족해 주객이 전도된다고 느껴졌다. 노션으로 작성한 메모를 마크다운 형식으로 배포할 수 있기 때문에 (문제가 꽤 있다는 것을 후에 깨달았다) 마크다운을 지원하는 medium, velog, wordpress, github pages 들을 리스트에 올렸다.</p>
+<h3 id=2-방문-유입은-크게-관계-없음>2. 방문 유입은 크게 관계 없음</h3>
+<p>사실 작성하게 될 글들이 매우 기초적이고 오류 투성이가 될 예정이라 많은 노출은 부담스럽다. 그래서 velog 같은 서비스도 괜찮다고 생각했지만 전문적인 글들 사이에 나의 초라한 메모가 혹여 노출되진 않을까 하는 자격지심에 나중에 기회가 되면 사용해보겠다고 마음먹었다.(고수분들이 지켜보고 있다..! ' &lsquo;;)</p>
+<h3 id=3--무료이고-안정적인-서비스>3. 무료이고 안정적인 서비스</h3>
+<p>면 좋겠다고 생각했다. 다행이도 대부분의 서비스가 무료 플랜이 존재하였고 안정적으로 보였다.</p>
+<h3 id=github-pages를-선택한-이유>Github Pages를 선택한 이유</h3>
+<p>개별적인 설정도 필요하여 다른 서비스에 비해서 시간투자가 예상되긴 했지만, 그만큼 자유도가 높지 않을까 생각되기도 했고 git pull 한번이면 손쉽게 게시했던 내용을 백업할 수 있다는 점이 매력적이었다. 공부하는셈 치자는 합리화와 함께 <strong>Github Pages</strong> 를 선택하게 되었다. <strong>Github Pages</strong> 에 적용할 수 있는 블로그 프레임워크 중에 <strong>Jekyll</strong> 과 <strong>Hugo</strong> 가 인기가 있는듯 했고, 기존에 Jekyll 로 세팅을 해봤기 때문에 이번엔 Hugo 를 선택하였다.</p>
+<h2 id=설치>설치</h2>
+<h3 id=1-휴고-설치>1. 휴고 설치</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>brew install hugo
+</code></pre></div><p>brew 명령어를 사용할 수도 있으나 arm맥에서 정상적으로 작동하는지 확인되지 않아 직접 다운받아 알맞은 경로에 압축을 풀고 path를 설정해 주었다.</p>
+<blockquote>
+<p><a href=https://github.com/gohugoio/hugo>https://github.com/gohugoio/hugo</a></p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>export PATH<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/Users/taedi/hugo/bin:</span>$PATH<span style=color:#e6db74>&#34;</span>
+</code></pre></div><h3 id=2-사이트-생성>2. 사이트 생성</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo new site taedi90.github.io -f<span style=color:#f92672>=</span>yaml --force
+cd taedi90.github.io
+git init
+</code></pre></div><h3 id=3-테마-다운로드>3. 테마 다운로드</h3>
+<p>테마는 Hugo 사이트에서 여러가지 중에 선택할 수 있는데 테마마다 설정들이 조금씩 달라 자주 변경하는 것은 쉽지 않을 것 같다. 목차와 카테고리 기능이 필요해 <a href=https://themes.gohugo.io/themes/toha/>Toha 테마</a>를 선택했다</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>it submodule add https://github.com/hugo-toha/toha.git themes/toha
+</code></pre></div><h3 id=4-기본-설정>4. 기본 설정</h3>
+<p>테마마다 설정이 다를 수 있으므로 각 테마의 readme.md 파일이나 Docs 사이트를 확인하여 config.yaml 파일을 알맞게 수정해준다.</p>
+<h3 id=5-실행>5. 실행</h3>
+<p>실행은 아래 명령어 중에 선택하여 입력하면 된다. &lsquo;-D&rsquo;는 front matter 에 draft가 true로 체크 된 컨텐츠도 빌드하여 확인할 수 있도록 해준다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo server -D
+hugo server --bind 아이피주소 -D
+</code></pre></div><h3 id=6-댓글기능-utterances-추가>6. 댓글기능 (utterances) 추가</h3>
+<p>깃허브에 Public 리포지토리를 추가해준다. 리포지토리 명은 &lsquo;blog_comments&rsquo; 로 지정해 주었다.</p>
+<p>그리고 <a href=https://utteranc.es/>여기</a>를 눌러 방금 생성한 리포지토리에 utterances 를 설치하고 스크립트를 테마의 알맞은 부분에 넣어주면 된다.</p>
+<h2 id=참고>참고</h2>
+<ul>
+<li><a href=https://gohugo.io/getting-started/quick-start/>https://gohugo.io/getting-started/quick-start/</a></li>
+<li><a href=https://ialy1595.github.io/post/blog-construct-1/>https://ialy1595.github.io/post/blog-construct-1/</a></li>
+<li><a href=https://utteranc.es/>https://utteranc.es/</a></li>
+</ul>
+</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-1882367656929494 data-ad-slot=9457951065 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<hr>
+<div class="row next-prev-navigator">
+<div class="col-md-6 previous-article">
+<a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/ title="[Maven] 외부 톰캣 deploy 설정" class="btn btn-outline-info">
+<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
+<div class=next-prev-text>[Maven] 외부 톰캣 deploy 설정</div>
+</a>
+</div>
+</div>
+<hr>
+<div class=utterances></div>
+<script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">List</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#서론>서론</a></li>
+<li><a href=#내게-필요했던-사항>내게 필요했던 사항</a>
+<ul>
+<li><a href=#1-노션-메모를-최소한의-수정-또는-무수정으로-배포할-수-있을-것>1. 노션 메모를 최소한의 수정 또는 무수정으로 배포할 수 있을 것</a></li>
+<li><a href=#2-방문-유입은-크게-관계-없음>2. 방문 유입은 크게 관계 없음</a></li>
+<li><a href=#3--무료이고-안정적인-서비스>3. 무료이고 안정적인 서비스</a></li>
+<li><a href=#github-pages를-선택한-이유>Github Pages를 선택한 이유</a></li>
+</ul>
+</li>
+<li><a href=#설치>설치</a>
+<ul>
+<li><a href=#1-휴고-설치>1. 휴고 설치</a></li>
+<li><a href=#2-사이트-생성>2. 사이트 생성</a></li>
+<li><a href=#3-테마-다운로드>3. 테마 다운로드</a></li>
+<li><a href=#4-기본-설정>4. 기본 설정</a></li>
+<li><a href=#5-실행>5. 실행</a></li>
+<li><a href=#6-댓글기능-utterances-추가>6. 댓글기능 (utterances) 추가</a></li>
+</ul>
+</li>
+<li><a href=#참고>참고</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>Contact</h5>
+<ul>
+<li><span>Email: </span> <span>taedi90@gmail.com</span></li>
+<li><span>Github: </span> <span>https://github.com/taedi90</span></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>$(document).ready(function(){$('p').has('img').css('text-align','center')})</script>
+</body>
+</html>
