@@ -35,6 +35,10 @@ markup:
 # Enable global emoji support
 enableEmoji: true
 
+# Enable Google Analytics
+googleAnalytics: 2802576574
+
+
 # Site parameters
 params:
   # Background image of the landing page
