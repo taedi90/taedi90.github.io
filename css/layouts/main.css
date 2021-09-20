@@ -165,7 +165,8 @@ img.right {
 }
 
 .card-body {
-  text-align: justify;
+  /*text-align: justify;*/
+  text-align: left;
 }
 
 .sub-title {
