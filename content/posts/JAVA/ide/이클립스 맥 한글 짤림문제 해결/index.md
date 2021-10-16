@@ -2,7 +2,7 @@
 title: "이클립스(eclipse), Dbeaver 맥에서 한글 짤림문제 해결"
 date: 2021-10-16T00:00:00+09:00
 lastmod: 2021-10-17T02:24:00+09:00
-hero: 
+hero: images/hero/java.png
 description: 이클립스, Dbeaver 맥 한글 짤림문제 해결
 tags: [eclipse]
 menu:
