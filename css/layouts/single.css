@@ -2,6 +2,7 @@ body {
   background-color: #e5e9f2;
   position: relative;
 }
+
 .read-area {
   background-color: #f9fafc;
 }
@@ -136,31 +137,40 @@ body {
 } */
 
 .post-content img {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .post-content p {
   margin-bottom: 2rem;
 }
 
+.post-content ul {
+  margin-bottom: 2rem;
+}
+
 /* 코드블럭 */
 .post-content .highlight {
-  margin-top: 1rem;
-  margin-bottom: 2.7rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .post-content h1,
 h2 {
   margin-top: 5rem;
+  margin-bottom: 2rem;
 }
 
 .post-content h3,
 h4,
 h5,
 h6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.post-content code {
+  font-size: inherit;
 }
 
 .post-content blockquote {
@@ -168,8 +178,8 @@ h6 {
   background-color: #248baa15;
   padding: 0.3rem;
   padding-left: 1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .post-content blockquote > p {
