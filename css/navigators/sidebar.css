@@ -71,6 +71,11 @@
   line-height: 2em;
   color: #3c4858;
   position: relative;
+
+  /* 추가 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tree li a {
