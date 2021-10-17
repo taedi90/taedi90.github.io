@@ -2,14 +2,14 @@
 title: Github 블로그 설정  1. Hugo 설치
 date: 2021-09-13T00:00:00+09:00
 hero: images/hero/blog.png
-description: how to set github pages blog
+description: github pages 블로그 설정 방법
 tags: [blog, github pages, hugo]
 menu:
   sidebar:
     name: 1. Hugo 설치
     identifier: blog-세팅하기-1. Hugo 설치
     parent: 세팅하기
-    weight: 
+    weight: 10
 ---
 
 

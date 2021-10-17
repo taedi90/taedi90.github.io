@@ -1,7 +1,7 @@
 ---
 title: "이클립스(eclipse), Dbeaver 맥에서 한글 짤림문제 해결"
 date: 2021-10-16T00:00:00+09:00
-lastmod: 2021-10-17T02:24:00+09:00
+lastmod: 2021-10-17T10:41:00+09:00
 hero: images/hero/java.png
 description: 이클립스, Dbeaver 맥 한글 짤림문제 해결
 tags: [eclipse]
@@ -200,7 +200,7 @@ Karabiner-Elements Preferences > Devices 에서 사용하는 마우스가 체크
 현재까지 발견한 문제는 다음과 같으며 이 밖에도 다른 문제가 있을 수 있으니 유의할 것!
 
 1. 한글 입력 직후 빠르게 cmd + s 등의 키조합을 사용하려할 경우, 올바르게 동작하지 않는 현상 - 
-cmd키를 누르고 0.2초 이상 지난 후에 s 버튼을 눌러야 정상적으로 동작함("basic.to_if_held_down_threshold_milliseconds": 200)
+*cmd키를 누르고 0.2초 이상 지난 후에 s 버튼을 눌러야 정상적으로 동작함*
 2. 한글입력 중 backspace 시 '종성' - '중성' - '초성' 순으로 지워지는 것이 아니라 한개 글자가 바로 삭제 되는 현상 - *2021.10.17 추가 내용 참고*
 
 그리고 최고의 해결책은 이클립스를 포기하고 `intellij`를 사용하는 것이다. 
