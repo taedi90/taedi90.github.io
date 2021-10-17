@@ -1,9 +1,9 @@
 ---
-title: JAVA
+title: java
 menu:
   sidebar:
-    name: JAVA
-    identifier: JAVA
+    name: java
+    identifier: java
     weight: 10
 ---
 

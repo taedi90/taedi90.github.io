@@ -2,7 +2,8 @@ baseURL: https://log.taedi.net/
 
 languageCode: en-us
 title: "Taedi's Log"
-theme: "toha"
+theme: 
+- "toha"
 
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/

@@ -4,6 +4,6 @@ menu:
   sidebar:
     name: blog
     identifier: blog
-    weight: 99999
+    weight: 10
 ---
 
