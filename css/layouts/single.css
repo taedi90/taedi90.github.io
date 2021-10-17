@@ -131,6 +131,7 @@ body {
 
 .post-content {
   padding: 15px;
+  word-break:break-all;
 }
 /* .post-content > * {
   margin-bottom: 1.5rem;
@@ -171,6 +172,12 @@ h6 {
 
 .post-content code {
   font-size: inherit;
+  word-break:break-all;
+  white-space: break-spaces;
+}
+
+.post-content pre > code {
+  font-size: 0.6rem;
 }
 
 .post-content blockquote {

@@ -1,0 +1,221 @@
+<!doctype html><html>
+<head>
+<title>Github 블로그 설정 2. Toha 테마 세팅</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<link rel=icon type=image/png href=/images/site/favicon.svg>
+<meta property="og:title" content="Github 블로그 설정 2. Toha 테마 세팅">
+<meta property="og:description" content="주의사항 테마는 themes 폴더 내의 파일을 수정하는 것이 아니라 루트폴더(프로젝트 최상위 폴더)에서 수정하면 배포시에 우선적으로 선택된다는 것 (더 자세한 내용은 이 분 블로그 내용 참고)
+themes 폴더에서 수정하고 싶은 내용이 있다면 프로젝트 루트 폴더에 동일한 경로를 만들고 해당 파일을 복사해서 수정해주면 된다.
+single.html 파일이 /프로젝트 폴더/layouts/single.html 와 /프로젝트 폴더/themes/toha/layouts/single.html 두 곳에 있다면 사이트를 배포할 때 둘 중 상위 경로의 데이터를 취한다는 것이다.
+처음엔 이 내용을 몰라서 submodule로 등록한 테마 디렉토리를 직접 수정해가며 &lsquo;나중에 테마 업데이트가 있으면 이 부분을 어떻게 반영하지&mldr;?">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://log.taedi.net/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/2.-%ED%85%8C%EB%A7%88-%EC%84%B8%ED%8C%85/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-09-13T00:00:00+09:00">
+<meta property="article:modified_time" content="2021-10-17T10:28:00+09:00">
+<meta name=description content="Github 블로그 설정 2. Toha 테마 세팅">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-52CHZ4CKK9',{anonymize_ip:!1})}</script>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+<img src=/images/site/main-logo.svg alt=Logo>
+Taedi's Log</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+<img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
+<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo">
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/java/>JAVA</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/java/ide/>ide</a>
+<ul>
+<li><a href=/posts/java/ide/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-%EB%A7%A5-%ED%95%9C%EA%B8%80-%EC%A7%A4%EB%A6%BC%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/ title="이클립스 맥 한글 짤림문제 해결">이클립스 맥 한글 짤림문제 해결</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/>tomcat</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/>자동 배포</a>
+<ul>
+<li><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/ title=maven>maven</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/python/>python</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/python/setting/>setting</a>
+<ul>
+<li><a href=/posts/python/setting/%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95/ title="가상환경 설정">가상환경 설정</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/>blog</a>
+<ul class=active>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/>세팅하기</a>
+<ul class=active>
+<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ title="1. Hugo 설치">1. Hugo 설치</a></li>
+<li><a class=active href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/2.-%ED%85%8C%EB%A7%88-%EC%84%B8%ED%8C%85/ title="2. 테마 세팅">2. 테마 세팅</a></li>
+<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/3.-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B3%80%ED%99%98/ title="3. 페이지 변환">3. 페이지 변환</a></li>
+<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/4.-%EC%97%85%EB%A1%9C%EB%93%9C/ title="4. 업로드">4. 업로드</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/hero/blog.png)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/avatar_hue4fa7b2d8e73b32dce85afe643c3f5c5_90375_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Taesoo Kim</h5>
+<p>2021년 09월 13일</p>
+</div>
+<div class=title>
+<h1>Github 블로그 설정 2. Toha 테마 세팅</h1>
+</div>
+<div class=taxonomy-terms>
+<ul style=padding-inline-start:0>
+<li class=rounded><a href=/tags/blog class="btn, btn-sm">blog</a></li>
+<li class=rounded><a href=/tags/github-pages class="btn, btn-sm">github pages</a></li>
+<li class=rounded><a href=/tags/hugo class="btn, btn-sm">hugo</a></li>
+</ul>
+</div>
+<div class=post-content id=post-content>
+<h3 id=주의사항>주의사항</h3>
+<p>테마는 themes 폴더 내의 파일을 수정하는 것이 아니라 루트폴더(프로젝트 최상위 폴더)에서 수정하면 배포시에 우선적으로 선택된다는 것 (더 자세한 내용은 이 분 블로그 내용 <a href=https://ialy1595.github.io/post/blog-construct-2/>참고</a>)</p>
+<p>themes 폴더에서 수정하고 싶은 내용이 있다면 프로젝트 루트 폴더에 동일한 경로를 만들고 해당 파일을 복사해서 수정해주면 된다.</p>
+<p>single.html 파일이 /프로젝트 폴더/layouts/single.html 와 /프로젝트 폴더/themes/toha/layouts/single.html 두 곳에 있다면 사이트를 배포할 때 둘 중 상위 경로의 데이터를 취한다는 것이다.</p>
+<p><img src=images/pic-0001.png alt="스크린샷 2021-10-17 오전 10.25.14.png"></p>
+<p>처음엔 이 내용을 몰라서 submodule로 등록한 테마 디렉토리를 직접 수정해가며 &lsquo;나중에 테마 업데이트가 있으면 이 부분을 어떻게 반영하지&mldr;?&rsquo; 생각하고 있었다. 역시 무식하면 용감한듯하다. 덕분에 설정했던 내용을 다시 다 잡아주었다.</p>
+<p>같은 맥락으로 여러개의 테마를 우선순위를 두어 적용도 가능한 듯 한데 도저히 엄두가 나질않아 포기했다. (관심 있으신 분들은 <a href=https://gohugo.io/hugo-modules/theme-components/>여기</a>를 참고)</p>
+<p>이 부분만 제대로 활용하면 테마 설정은 입맛대로 할 수 있다. (원래는 테마 설정하면서 여러 삽질 했던 기록들을 작성하려 했는데.. 오래되어 다 까먹어버렸다.)</p>
+<h2 id=참고>참고</h2>
+<ul>
+<li><a href=https://gohugo.io/hugo-modules/theme-components/>https://gohugo.io/hugo-modules/theme-components/</a></li>
+<li><a href=https://ialy1595.github.io/post/blog-construct-2/>https://ialy1595.github.io/post/blog-construct-2/</a></li>
+</ul>
+</div>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-1882367656929494 data-ad-slot=9457951065 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<hr>
+<div class="row next-prev-navigator">
+<div class="col-md-6 previous-article">
+<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ title="Github 블로그 설정  1. Hugo 설치" class="btn btn-outline-info">
+<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
+<div class=next-prev-text>Github 블로그 설정 1. Hugo 설치</div>
+</a>
+</div>
+<div class="col-md-6 next-article">
+<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/3.-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B3%80%ED%99%98/ title="Github 블로그 설정 3. Notion 페이지 변환" class="btn btn-outline-info">
+<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
+<div class=next-prev-text>Github 블로그 설정 3. Notion 페이지 변환</div>
+</a>
+</div>
+</div>
+<hr>
+<div class=utterances></div>
+<script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous defer></script>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">List</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#주의사항>주의사항</a></li>
+</ul>
+</li>
+<li><a href=#참고>참고</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>Contact</h5>
+<ul>
+<li><span>Email: </span> <span>taedi90@gmail.com</span></li>
+<li><span>Github: </span> <span>https://github.com/taedi90</span></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>$(document).ready(function(){$('p').has('img').css('text-align','center')})</script>
+</body>
+</html>
