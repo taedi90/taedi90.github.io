@@ -8,8 +8,8 @@ description: 휴고 블로그 깃허브 push 방법 소개
 tags: [blog, github pages, hugo]
 menu:
   sidebar:
-    name: 4. hugo 업로드
-    identifier: blog-4. hugo 업로드
+    name: 4. 업로드 하기
+    identifier: blog-4. 업로드 하기
     parent: blog
     weight: 13
 ---

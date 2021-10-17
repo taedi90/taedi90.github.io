@@ -8,8 +8,8 @@ description: 휴고 블로그 세부 설정 및 테마 설정 방법
 tags: [blog, github pages, hugo]
 menu:
   sidebar:
-    name: 2. hugo 세부 설정
-    identifier: blog-2. hugo 세부 설정
+    name: 2. 세부 설정
+    identifier: blog-2. 세부 설정
     parent: blog
     weight: 11
 ---
