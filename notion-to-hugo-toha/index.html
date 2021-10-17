@@ -14,15 +14,12 @@
 <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
 <link rel=icon type=image/png href=/images/site/favicon.svg>
 <meta property="og:title" content="Github 블로그 설정 3. Notion 페이지 변환">
-<meta property="og:description" content="노션은 기본적으로 작성한 글을 마크다운으로 내보낼 수 있는 기능이 있어 hugo 포스팅을 하는데 탁월할 것이라 생각했다.
-하지만 노션의 내보내기 기능은 어딘가 아쉬운 부분이 있어 이것을 조금 손봐줄 필요가 있었다.
-추가 작업 H 태그 노션은 h1 ~ h3 태그만 지원하며 h4~h6 태그는 없다. 그런데 h1 태그는 포스트에 여러개 존재하면 SEO 점수에 좋지 않은 영향을 미치기 떄문에 hugo 포스팅을 염두에 둔다면 h2 와 h3 태그만 사용해야하는 문제가 발생한다.
-그대로 사용하기엔 기존의 글을 그대로 옮기기 위해 추가적인 작업이 필요한 문제와(h1 태그 안쓴 글이 없었다.">
+<meta property="og:description" content="노션 페이지를 휴고 블로그 게시글로 전환하는 방법 소개">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://log.taedi.net/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/3.-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B3%80%ED%99%98/"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://log.taedi.net/notion-to-hugo-toha/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-09-13T00:00:00+09:00">
-<meta property="article:modified_time" content="2021-10-17T10:21:00+09:00">
-<meta name=description content="Github 블로그 설정 3. Notion 페이지 변환">
+<meta property="article:modified_time" content="2021-10-17T16:34:00+09:00">
+<meta name=description content="노션 페이지를 휴고 블로그 게시글로 전환하는 방법 소개">
 <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
 <link rel=stylesheet href=/css/layouts/single.css>
 <link rel=stylesheet href=/css/navigators/sidebar.css>
@@ -62,50 +59,25 @@ Taedi's Log</a>
 <li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
 <div class=subtree>
 <li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/>JAVA</a>
-<ul>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/ide/>ide</a>
-<ul>
-<li><a href=/posts/java/ide/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-%EB%A7%A5-%ED%95%9C%EA%B8%80-%EC%A7%A4%EB%A6%BC%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/ title="이클립스 맥 한글 짤림문제 해결">이클립스 맥 한글 짤림문제 해결</a></li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/>blog</a>
+<ul class=active>
+<li><a href=/hugo-install/ title="1. Hugo 설치">1. Hugo 설치</a></li>
+<li><a href=/hugo-setting/ title="2. hugo 세부 설정">2. hugo 세부 설정</a></li>
+<li><a class=active href=/notion-to-hugo-toha/ title="3. notion 페이지 변환">3. notion 페이지 변환</a></li>
+<li><a href=/hugo-upload/ title="4. hugo 업로드">4. hugo 업로드</a></li>
 </ul>
 </li>
 <li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/>tomcat</a>
+<i class="fas fa-plus-circle"></i><a href=/posts/java/>java</a>
 <ul>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/>자동 배포</a>
-<ul>
-<li><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/ title=maven>maven</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href=/tomcat-external-deploy-maven/ title="외부 톰캣 자동 배포">외부 톰캣 자동 배포</a></li>
+<li><a href=/eclipse-mac-kor-fix/ title="이클립스 맥 한글 짤림문제 해결">이클립스 맥 한글 짤림문제 해결</a></li>
 </ul>
 </li>
 <li>
 <i class="fas fa-plus-circle"></i><a href=/posts/python/>python</a>
 <ul>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/python/setting/>setting</a>
-<ul>
-<li><a href=/posts/python/setting/%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95/ title="가상환경 설정">가상환경 설정</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/>blog</a>
-<ul class=active>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/>세팅하기</a>
-<ul class=active>
-<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ title="1. Hugo 설치">1. Hugo 설치</a></li>
-<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/2.-%ED%85%8C%EB%A7%88-%EC%84%B8%ED%8C%85/ title="2. 테마 세팅">2. 테마 세팅</a></li>
-<li><a class=active href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/3.-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B3%80%ED%99%98/ title="3. 페이지 변환">3. 페이지 변환</a></li>
-<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/4.-%EC%97%85%EB%A1%9C%EB%93%9C/ title="4. 업로드">4. 업로드</a></li>
-</ul>
-</li>
+<li><a href=/python-virtual-environment-setup/ title="파이썬 가상환경 설정">파이썬 가상환경 설정</a></li>
 </ul>
 </li>
 </div>
@@ -200,7 +172,7 @@ Taedi's Log</a>
         fix_path <span style=color:#f92672>=</span> rename_img_dir_name <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;/&#34;</span> <span style=color:#f92672>+</span> val
         body <span style=color:#f92672>=</span> body<span style=color:#f92672>.</span>replace(origin_path, fix_path)
 </code></pre></div><p>나중에 시간이 된다면 이 부분은 좀더 세련된 방식으로 바꿔야 할 듯 하다.</p>
-<h3 id=날짜-포맷>날짜 포맷</h3>
+<h3 id=front-matters-날짜-포맷>front matters 날짜 포맷</h3>
 <p>노션에서는 날짜 포맷이 다음과 같다.</p>
 <p><img src=images/pic-0005.png alt="스크린샷 2021-10-16 오후 11.44.24.png"></p>
 <p>이걸 hugo에서 활용하려면 &ldquo;2021-10-16T23:43:00+09:00&rdquo; 와 같은 형식으로 변경해주어야 했다.</p>
@@ -275,13 +247,13 @@ path <span style=color:#f92672>=</span> path <span style=color:#f92672>+</span> 
 <hr>
 <div class="row next-prev-navigator">
 <div class="col-md-6 previous-article">
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/2.-%ED%85%8C%EB%A7%88-%EC%84%B8%ED%8C%85/ title="Github 블로그 설정 2. Toha 테마 세팅" class="btn btn-outline-info">
+<a href=/hugo-setting/ title="Github 블로그 설정 2. 세부 설정" class="btn btn-outline-info">
 <div><i class="fas fa-chevron-circle-left"></i> 이전</div>
-<div class=next-prev-text>Github 블로그 설정 2. Toha 테마 세팅</div>
+<div class=next-prev-text>Github 블로그 설정 2. 세부 설정</div>
 </a>
 </div>
 <div class="col-md-6 next-article">
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/4.-%EC%97%85%EB%A1%9C%EB%93%9C/ title="Github 블로그 설정 4. 대망의 업로드" class="btn btn-outline-info">
+<a href=/hugo-upload/ title="Github 블로그 설정 4. 대망의 업로드" class="btn btn-outline-info">
 <div>다음 <i class="fas fa-chevron-circle-right"></i></div>
 <div class=next-prev-text>Github 블로그 설정 4. 대망의 업로드</div>
 </a>
@@ -306,7 +278,7 @@ path <span style=color:#f92672>=</span> path <span style=color:#f92672>+</span> 
 <ul>
 <li><a href=#h-태그>H 태그</a></li>
 <li><a href=#이미지-파일-경로>이미지 파일 경로</a></li>
-<li><a href=#날짜-포맷>날짜 포맷</a></li>
+<li><a href=#front-matters-날짜-포맷>front matters 날짜 포맷</a></li>
 <li><a href=#줄바꿈>줄바꿈</a></li>
 <li><a href=#front-matters-입력>front matters 입력</a></li>
 <li><a href=#부모-폴더-생성-및-_indexmd-파일-처리>부모 폴더 생성 및 _index.md 파일 처리</a></li>

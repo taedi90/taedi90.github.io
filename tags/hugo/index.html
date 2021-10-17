@@ -60,6 +60,7 @@ Taedi's Log</a>
 <li><a class=taxonomy-term href=https://log.taedi.net/tags/github-pages/ data-taxonomy-term=github-pages><span class=taxonomy-label>github pages</span></a></li>
 <li><a class="taxonomy-term active" href=https://log.taedi.net/tags/hugo/ data-taxonomy-term=hugo><span class=taxonomy-label>hugo</span></a></li>
 <li><a class=taxonomy-term href=https://log.taedi.net/tags/java/ data-taxonomy-term=java><span class=taxonomy-label>java</span></a></li>
+<li><a class=taxonomy-term href=https://log.taedi.net/tags/macos/ data-taxonomy-term=macos><span class=taxonomy-label>macOS</span></a></li>
 <li><a class=taxonomy-term href=https://log.taedi.net/tags/maven/ data-taxonomy-term=maven><span class=taxonomy-label>maven</span></a></li>
 <li><a class=taxonomy-term href=https://log.taedi.net/tags/pip/ data-taxonomy-term=pip><span class=taxonomy-label>pip</span></a></li>
 <li><a class=taxonomy-term href=https://log.taedi.net/tags/pipenv/ data-taxonomy-term=pipenv><span class=taxonomy-label>pipenv</span></a></li>
@@ -76,7 +77,7 @@ Taedi's Log</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ class=post-card-link>
+<a href=/hugo-install/ class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
@@ -88,33 +89,33 @@ Taedi's Log</a>
 </div>
 <div class=card-footer>
 <span class=float-left>2021년 09월 13일</span>
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ class="float-right btn btn-outline-info btn-sm">Read</a>
+<a href=/hugo-install/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
 </div>
 <div class=post-card>
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/2.-%ED%85%8C%EB%A7%88-%EC%84%B8%ED%8C%85/ class=post-card-link>
+<a href=/hugo-setting/ class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
 </div>
 <div class=card-body>
-<h5 class=card-title>Github 블로그 설정 2. Toha 테마 세팅</h5>
-<p class="card-text post-summary">주의사항 테마는 themes 폴더 내의 파일을 수정하는 것이 아니라 루트폴더(프로젝트 최상위 폴더)에서 수정하면 배포시에 우선적으로 선택된다는 것 (더 자세한 내용은 이 분 블로그 내용 참고)
-themes 폴더에서 수정하고 싶은 내용이 있다면 프로젝트 루트 폴더에 동일한 경로를 만들고 해당 파일을 복사해서 수정해주면 된다.
-single.html 파일이 /프로젝트 폴더/layouts/single.html 와 /프로젝트 폴더/themes/toha/layouts/single.html 두 곳에 있다면 사이트를 배포할 때 둘 중 상위 경로의 데이터를 취한다는 것이다.
-처음엔 이 내용을 몰라서 submodule로 등록한 테마 디렉토리를 직접 수정해가며 &lsquo;나중에 테마 업데이트가 있으면 이 부분을 어떻게 반영하지&mldr;?</p>
+<h5 class=card-title>Github 블로그 설정 2. 세부 설정</h5>
+<p class="card-text post-summary">글 게시 작성한 글을 게시하려면 md 형식으로 저장하여 프로젝트 내부의 content 폴더에 위치시키면 된다.
+front matter 설정 글 상단에 yaml, toml, json 키 값 쌍으로 이워진 front matter 를 작성해야한다. front matter 는 종류가 꽤 다양해 공식 문서를 확인해보고 필요한 것들을 선택적으로 사용하면 될 듯하다. 그리고 적용한 테마에 따라서 필수적으로 요구되는 front matter 가 달라질 수 있고 형식 또한 달라질 수 있는 듯 하다.
+https://gohugo.io/content-management/front-matter/
+섹션 설정 hugo는 폴더로 섹션과 하위 섹션을 구분할 수 있다.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>2021년 09월 13일</span>
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/2.-%ED%85%8C%EB%A7%88-%EC%84%B8%ED%8C%85/ class="float-right btn btn-outline-info btn-sm">Read</a>
+<a href=/hugo-setting/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
 </div>
 <div class=post-card>
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/3.-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B3%80%ED%99%98/ class=post-card-link>
+<a href=/notion-to-hugo-toha/ class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
@@ -128,13 +129,13 @@ single.html 파일이 /프로젝트 폴더/layouts/single.html 와 /프로젝트
 </div>
 <div class=card-footer>
 <span class=float-left>2021년 09월 13일</span>
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/3.-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B3%80%ED%99%98/ class="float-right btn btn-outline-info btn-sm">Read</a>
+<a href=/notion-to-hugo-toha/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
 </div>
 <div class=post-card>
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/4.-%EC%97%85%EB%A1%9C%EB%93%9C/ class=post-card-link>
+<a href=/hugo-upload/ class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
@@ -147,7 +148,7 @@ single.html 파일이 /프로젝트 폴더/layouts/single.html 와 /프로젝트
 </div>
 <div class=card-footer>
 <span class=float-left>2021년 09월 13일</span>
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/4.-%EC%97%85%EB%A1%9C%EB%93%9C/ class="float-right btn btn-outline-info btn-sm">Read</a>
+<a href=/hugo-upload/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

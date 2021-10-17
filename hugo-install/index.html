@@ -16,9 +16,9 @@
 <meta property="og:title" content="Github 블로그 설정  1. Hugo 설치">
 <meta property="og:description" content="github pages 블로그 설정 방법">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://log.taedi.net/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://log.taedi.net/hugo-install/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-09-13T00:00:00+09:00">
-<meta property="article:modified_time" content="2021-09-13T00:00:00+09:00">
+<meta property="article:modified_time" content="2021-10-17T15:51:00+09:00">
 <meta name=description content="github pages 블로그 설정 방법">
 <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
 <link rel=stylesheet href=/css/layouts/single.css>
@@ -59,50 +59,25 @@ Taedi's Log</a>
 <li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
 <div class=subtree>
 <li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/>JAVA</a>
-<ul>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/ide/>ide</a>
-<ul>
-<li><a href=/posts/java/ide/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4-%EB%A7%A5-%ED%95%9C%EA%B8%80-%EC%A7%A4%EB%A6%BC%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0/ title="이클립스 맥 한글 짤림문제 해결">이클립스 맥 한글 짤림문제 해결</a></li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/>blog</a>
+<ul class=active>
+<li><a class=active href=/hugo-install/ title="1. Hugo 설치">1. Hugo 설치</a></li>
+<li><a href=/hugo-setting/ title="2. hugo 세부 설정">2. hugo 세부 설정</a></li>
+<li><a href=/notion-to-hugo-toha/ title="3. notion 페이지 변환">3. notion 페이지 변환</a></li>
+<li><a href=/hugo-upload/ title="4. hugo 업로드">4. hugo 업로드</a></li>
 </ul>
 </li>
 <li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/>tomcat</a>
+<i class="fas fa-plus-circle"></i><a href=/posts/java/>java</a>
 <ul>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/>자동 배포</a>
-<ul>
-<li><a href=/posts/java/tomcat/%EC%9E%90%EB%8F%99-%EB%B0%B0%ED%8F%AC/maven/ title=maven>maven</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href=/tomcat-external-deploy-maven/ title="외부 톰캣 자동 배포">외부 톰캣 자동 배포</a></li>
+<li><a href=/eclipse-mac-kor-fix/ title="이클립스 맥 한글 짤림문제 해결">이클립스 맥 한글 짤림문제 해결</a></li>
 </ul>
 </li>
 <li>
 <i class="fas fa-plus-circle"></i><a href=/posts/python/>python</a>
 <ul>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/python/setting/>setting</a>
-<ul>
-<li><a href=/posts/python/setting/%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95/ title="가상환경 설정">가상환경 설정</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/>blog</a>
-<ul class=active>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/>세팅하기</a>
-<ul class=active>
-<li><a class=active href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/1.-hugo-%EC%84%A4%EC%B9%98/ title="1. Hugo 설치">1. Hugo 설치</a></li>
-<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/2.-%ED%85%8C%EB%A7%88-%EC%84%B8%ED%8C%85/ title="2. 테마 세팅">2. 테마 세팅</a></li>
-<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/3.-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B3%80%ED%99%98/ title="3. 페이지 변환">3. 페이지 변환</a></li>
-<li><a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/4.-%EC%97%85%EB%A1%9C%EB%93%9C/ title="4. 업로드">4. 업로드</a></li>
-</ul>
-</li>
+<li><a href=/python-virtual-environment-setup/ title="파이썬 가상환경 설정">파이썬 가상환경 설정</a></li>
 </ul>
 </li>
 </div>
@@ -148,7 +123,7 @@ Taedi's Log</a>
 <h3 id=3--무료이고-안정적인-서비스>3. 무료이고 안정적인 서비스</h3>
 <p>면 좋겠다고 생각했다. 다행이도 대부분의 서비스가 무료 플랜이 존재하였고 안정적으로 보였다.</p>
 <h3 id=github-pages를-선택한-이유>Github Pages를 선택한 이유</h3>
-<p>개별적인 설정도 필요하여 다른 서비스에 비해서 시간투자가 예상되긴 했지만, 그만큼 자유도가 높지 않을까 생각되기도 했고 git pull 한번이면 손쉽게 게시했던 내용을 백업할 수 있다는 점이 매력적이었다. 공부하는셈 치자는 합리화와 함께 <strong>Github Pages</strong> 를 선택하게 되었다. <strong>Github Pages</strong> 에 적용할 수 있는 블로그 프레임워크 중에 <strong>Jekyll</strong> 과 <strong>Hugo</strong> 가 인기가 있는듯 했고, 기존에 Jekyll 로 세팅을 해봤기 때문에 이번엔 Hugo 를 선택하였다.</p>
+<p>개별적인 설정도 필요하여 다른 서비스에 비해서 시간투자가 예상되긴 했지만, 그만큼 자유도가 높지 않을까 생각되기도 했고 git pull 한번이면 손쉽게 게시했던 내용을 백업할 수 있다는 점이 매력적이었다. 공부하는셈 치자는 합리화와 함께 <strong>Github Pages</strong> 를 선택하게 되었다. ****Github Pages 에 적용할 수 있는 블로그 프레임워크 중에 <strong>Jekyll</strong> 과 <strong>Hugo</strong> 가 인기가 있는듯 했고, 기존에 Jekyll 로 세팅을 해봤기 때문에 이번엔 Hugo 를 선택하였다.</p>
 <h2 id=설치>설치</h2>
 <h3 id=1-휴고-설치>1. 휴고 설치</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>brew install hugo
@@ -184,16 +159,10 @@ hugo server --bind 아이피주소 -D
 <script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
 <hr>
 <div class="row next-prev-navigator">
-<div class="col-md-6 previous-article">
-<a href=/posts/python/setting/%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95/ title="파이썬 가상환경 설정(pyenv, pipenv)" class="btn btn-outline-info">
-<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
-<div class=next-prev-text>파이썬 가상환경 설정(pyenv, pipenv)</div>
-</a>
-</div>
-<div class="col-md-6 next-article">
-<a href=/posts/blog/%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0/2.-%ED%85%8C%EB%A7%88-%EC%84%B8%ED%8C%85/ title="Github 블로그 설정 2. Toha 테마 세팅" class="btn btn-outline-info">
+<div class="col-md-12 next-article">
+<a href=/hugo-setting/ title="Github 블로그 설정 2. 세부 설정" class="btn btn-outline-info">
 <div>다음 <i class="fas fa-chevron-circle-right"></i></div>
-<div class=next-prev-text>Github 블로그 설정 2. Toha 테마 세팅</div>
+<div class=next-prev-text>Github 블로그 설정 2. 세부 설정</div>
 </a>
 </div>
 </div>
