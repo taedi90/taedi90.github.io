@@ -367,6 +367,7 @@ h6 {
 
   .page-content {
     padding: 0px;
+    overflow-x: hidden;
   }
 
   .btn-improve-page {
