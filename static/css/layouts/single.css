@@ -1,3 +1,7 @@
+html {
+  font-size: 18px;
+}
+
 body {
   background-color: #e5e9f2;
   position: relative;
@@ -178,7 +182,7 @@ h6 {
 }
 
 .post-content pre > code {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .post-content blockquote {
