@@ -77,7 +77,7 @@ git init
 테마는 Hugo 사이트에서 여러가지 중에 선택할 수 있는데 테마마다 설정들이 조금씩 달라 자주 변경하는 것은 쉽지 않을 것 같다.  목차와 카테고리 기능이 필요해 [Toha 테마](https://themes.gohugo.io/themes/toha/)를 선택했다
 
 ```bash
-it submodule add https://github.com/hugo-toha/toha.git themes/toha
+git submodule add https://github.com/hugo-toha/toha.git themes/toha
 ```
 
 ### 4. 기본 설정
