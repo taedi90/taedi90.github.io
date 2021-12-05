@@ -1,0 +1,220 @@
+<!doctype html><html>
+<head>
+<title>[Vanilla JS]Ajax 함수 모듈화</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<link rel=icon type=image/png href=/images/site/favicon.svg>
+<meta property="og:title" content="[Vanilla JS]Ajax 함수 모듈화">
+<meta property="og:description" content="바닐라 자바스크립트 Ajax 함수 모듈화">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://log.taedi.net/vanillajs-ajax-module/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-05T00:00:00+09:00">
+<meta property="article:modified_time" content="2021-12-05T16:48:00+09:00">
+<meta name=description content="바닐라 자바스크립트 Ajax 함수 모듈화">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-52CHZ4CKK9',{anonymize_ip:!1})}</script>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+<img src=/images/site/main-logo.svg alt=Logo>
+Taedi's Log</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+<img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
+<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo">
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
+<div class=subtree>
+<li><a href=/posts/java/ title=java>java</a></li>
+<li><a class=active href=/posts/javascript/ title=JavaScript>JavaScript</a></li>
+<li><a href=/posts/python/ title=python>python</a></li>
+<li><a href=/posts/server/ title=server>server</a></li>
+<li><a href=/posts/blog/ title=blog>blog</a></li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/hero/js.png)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/avatar_hue4fa7b2d8e73b32dce85afe643c3f5c5_90375_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Taesoo Kim</h5>
+<p>2021년 12월 05일</p>
+</div>
+<div class=title>
+<h1>[Vanilla JS]Ajax 함수 모듈화</h1>
+</div>
+<div class=taxonomy-terms>
+<ul style=padding-inline-start:0>
+<li class=rounded><a href=/tags/vanillajs class="btn, btn-sm">VanillaJS</a></li>
+<li class=rounded><a href=/tags/ajax class="btn, btn-sm">ajax</a></li>
+</ul>
+</div>
+<div class=post-content id=post-content>
+<p>개인 프로젝트나 팀 프로젝트 할 것 없이 Ajax 를 매우 많은 곳에 사용했는데 그때마다 코드를 작성하려니 <code>contentType</code> 같이 외우기 까다로운 부분도 있고 코드도 길어진다고 판단하여 모듈화를 하여 사용하였다.</p>
+<p>개인적으로 <code>post</code> 방식으로 <code>json</code> 데이터를 사용하는 경우가 많아서 기본값으로 두었고, 데이터는 &ldquo;json / multipart / urlencoded&rdquo; 에 대한 부분만 고려했다.</p>
+<p>코드는 짧지만 불필요한 if 문이라던지(막상 지우려니 잘 안된다..) 깔끔해 보이지 않아서 한참이나 고민했지만 결국 만족할 만큼 다듬지 못한 것 같다.</p>
+<h2 id=시도해본-것>시도해본 것</h2>
+<ul>
+<li>ajax 통신 이후 결과 여부에 따라 지정한 콜백함수 호출</li>
+<li>필요한 전달인자만 입력하면 되도록</li>
+</ul>
+<h2 id=코드>코드</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#e6db74>&#39;use strict&#39;</span>;
+
+<span style=color:#75715e>/**
+</span><span style=color:#75715e> * Vanilla JavaScript Ajax 함수 모듈화
+</span><span style=color:#75715e> *
+</span><span style=color:#75715e> * @param {string} url - (required) 호출 할 url
+</span><span style=color:#75715e> * @param {object} data - (optional) 전송 할 데이터
+</span><span style=color:#75715e> * @param {function} confirmCallback - (optional) ajax 통신 완료 후 실행 할 함수
+</span><span style=color:#75715e> * @param {function} cancelCallback -  (optional) ajax 통신 실패 시 실행 할 함수
+</span><span style=color:#75715e> * @param {string} method -  (optional) post / get / put ...
+</span><span style=color:#75715e> * @param {string} contentType -  (optional) json / multipart / urlencoded
+</span><span style=color:#75715e> *
+</span><span style=color:#75715e> * @example
+</span><span style=color:#75715e> * ajax(&#39;board/insert&#39;,{method: &#34;get&#34;})
+</span><span style=color:#75715e> *
+</span><span style=color:#75715e> * @author taedi &lt;taedi90@gmail.com&gt;
+</span><span style=color:#75715e> */</span>
+
+<span style=color:#66d9ef>function</span> <span style=color:#a6e22e>ajax</span>(<span style=color:#a6e22e>url</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>,
+              {
+                  <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> {},
+                  <span style=color:#a6e22e>callback</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>res</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>res</span>),
+                  <span style=color:#a6e22e>errorCallback</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>res</span>) =&gt; <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#a6e22e>res</span>),
+                  <span style=color:#a6e22e>method</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;post&#39;</span>,
+                  <span style=color:#a6e22e>contentType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;json&#39;</span>
+              } <span style=color:#f92672>=</span> {}) {
+
+    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>contentType</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;json&#34;</span>) {
+        <span style=color:#a6e22e>contentType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;application/json; charset=utf-8&#34;</span>;
+        <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>data</span>);
+    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>contentType</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;multipart&#34;</span>) {
+        <span style=color:#75715e>//do nothing
+</span><span style=color:#75715e></span>    } <span style=color:#66d9ef>else</span> {
+        <span style=color:#a6e22e>contentType</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;application/x-www-form-urlencoded; charset=utf-8;&#34;</span>;
+        <span style=color:#a6e22e>url</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>url</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;?&#34;</span> <span style=color:#f92672>+</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>URLSearchParams</span>(Object.<span style=color:#a6e22e>entries</span>(<span style=color:#a6e22e>data</span>)).<span style=color:#a6e22e>toString</span>();
+        <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>null</span>;
+    }
+
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>xhr</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>XMLHttpRequest</span>();
+    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>open</span>(<span style=color:#a6e22e>method</span>, <span style=color:#a6e22e>url</span>, <span style=color:#66d9ef>true</span>);
+    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>contentType</span> <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#34;multipart&#34;</span>){
+        <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>setRequestHeader</span>(<span style=color:#e6db74>&#39;Content-Type&#39;</span>, <span style=color:#a6e22e>contentType</span>);
+    }
+    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>send</span>(<span style=color:#a6e22e>data</span>);
+
+    <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>onload</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span> () {
+        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>200</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>201</span>) { <span style=color:#75715e>// 통신 성공 시
+</span><span style=color:#75715e></span>            <span style=color:#a6e22e>callback</span>(<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>response</span>);
+        } <span style=color:#66d9ef>else</span> { <span style=color:#75715e>// 통신 실패 시
+</span><span style=color:#75715e></span>            <span style=color:#a6e22e>errorCallback</span>(<span style=color:#a6e22e>xhr</span>.<span style=color:#a6e22e>status</span>);
+        }
+    }
+
+}
+</code></pre></div>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+<div class="col-md-6 previous-article">
+<a href=/eclipse-mac-kor-fix/ title="이클립스(eclipse), Dbeaver 맥에서 한글 짤림문제 해결" class="btn btn-outline-info">
+<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
+<div class=next-prev-text>이클립스(eclipse), Dbeaver 맥에서 한글 짤림문제 해결</div>
+</a>
+</div>
+<div class="col-md-6 next-article">
+<a href=/vanillajs-modal-window/ title="[Vanilla JS]모달 알림창 만들어보기" class="btn btn-outline-info">
+<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
+<div class=next-prev-text>[Vanilla JS]모달 알림창 만들어보기</div>
+</a>
+</div>
+</div>
+<hr>
+<div class=utterances></div>
+<script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous defer></script>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">List</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#시도해본-것>시도해본 것</a></li>
+<li><a href=#코드>코드</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>Contact</h5>
+<ul>
+<li><span>Email: </span> <a href=mailto:taedi90@gmail.com><span>taedi90@gmail.com</span></a></li>
+<li><span>Github: </span> <a href=https://github.com/taedi90><span>https://github.com/taedi90</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>$(document).ready(function(){$('p').has('img').css('text-align','center')})</script>
+</body>
+</html>

@@ -55,7 +55,9 @@ Taedi's Log</a>
 <li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
 <div class=subtree>
 <li><a href=/posts/java/ title=java>java</a></li>
+<li><a href=/posts/javascript/ title=JavaScript>JavaScript</a></li>
 <li><a href=/posts/python/ title=python>python</a></li>
+<li><a href=/posts/server/ title=server>server</a></li>
 <li><a href=/posts/blog/ title=blog>blog</a></li>
 </div>
 </ul>
@@ -66,6 +68,62 @@ Taedi's Log</a>
 <section class=content-section id=content-section>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/vanillajs-ajax-module/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/hero/js.png alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>[Vanilla JS]Ajax 함수 모듈화</h5>
+<p class="card-text post-summary">개인 프로젝트나 팀 프로젝트 할 것 없이 Ajax 를 매우 많은 곳에 사용했는데 그때마다 코드를 작성하려니 contentType 같이 외우기 까다로운 부분도 있고 코드도 길어진다고 판단하여 모듈화를 하여 사용하였다.
+개인적으로 post 방식으로 json 데이터를 사용하는 경우가 많아서 기본값으로 두었고, 데이터는 &ldquo;json / multipart / urlencoded&rdquo; 에 대한 부분만 고려했다.
+코드는 짧지만 불필요한 if 문이라던지(막상 지우려니 잘 안된다..) 깔끔해 보이지 않아서 한참이나 고민했지만 결국 만족할 만큼 다듬지 못한 것 같다.
+시도해본 것 ajax 통신 이후 결과 여부에 따라 지정한 콜백함수 호출 필요한 전달인자만 입력하면 되도록 코드 'use strict'; /** * Vanilla JavaScript Ajax 함수 모듈화 * * @param {string} url - (required) 호출 할 url * @param {object} data - (optional) 전송 할 데이터 * @param {function} confirmCallback - (optional) ajax 통신 완료 후 실행 할 함수 * @param {function} cancelCallback - (optional) ajax 통신 실패 시 실행 할 함수 * @param {string} method - (optional) post / get / put .</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 05일</span>
+<a href=/vanillajs-ajax-module/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/vanillajs-modal-window/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/hero/js.png alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>[Vanilla JS]모달 알림창 만들어보기</h5>
+<p class="card-text post-summary">프로젝트를 진행하면서 알림이나 서브 컨텐츠를 alert 창이나 pop-up window를 이용하지 않고 처리하고싶은 욕심이 생겨 모달창을 공부해보았다.
+시도해본 것 여러 창을 동시에 띄울 수 있어야 하고, 포커싱 된 요소가 최상단에 위치해야한다. 버튼을 눌렀을 때 예약된 함수를 불러올 수 있어야 한다. 드래그&드롭으로 이동이 가능해야한다. html, css에 별도로 구성요소를 세팅하지 않고 .js 파일 링크만으로 동작해야한다. 동작 영상 코드 'use strict'; /** * Vanilla JavaScript 모달 알림창 스크립트 * * @param {string} html - (optional) 모달창 내용 * @param {int} kind - (optional) 버튼 종류 (1: 확인, 2: 예&아니오) * @param {function} confirmCallback - (optional) 확인, 예 클릭 후 실행 함수 * @param {function} cancelCallback - (optional) 아니오 클릭 후 실행 함수 * * @example * const modalContainer = new ModalContainer(); * modalContainer.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 05일</span>
+<a href=/vanillajs-modal-window/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/oci-centos-setting/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>[OCI]CentOS 8 설치 및 세팅하기</h5>
+<p class="card-text post-summary">어느날 우연히 오라클 클라우드 인프라(이하 OCI) 에서 프리티어 서비스를 제공하는 것을 알게 되었고 &lsquo;내가 만든 웹 프로젝트를 서비스할 서버를 직접 구축해보자!&rsquo; 라고 결심했다. 시도해본 것은 VM(가상머신)에 CentOS 를 설치하고 docker 환경에서 tomcat, nginx, jenkins, MySQL 까지 세팅하여 보았다. 그리고 추가적으로 도메인 설정, SSL 인증서 발급, NAS 서버에 자동 백업 설정, Github WebHook 까지 설정하여 프로젝트 테스트 용도의 웹 서버로 원활히 사용할 수 있도록 설정을 하였고 작업한 내용을 정리해보려 한다.
+기존에 시놀로지 NAS에 docker를 이용하면서 비슷한 경험을 해봐서 수월할거라 착각했지만 꽤나 복잡했고 정리한 내용도 다소 부족한 것 같다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 01일</span>
+<a href=/oci-centos-setting/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
 <div class=post-card>
 <a href=/eclipse-mac-kor-fix/ class=post-card-link>
 <div class=card>
@@ -235,47 +293,28 @@ https://gohugo.io/content-management/front-matter/
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/tistory-blog-setting-2/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>검색엔진 노출 재설정하기 - 티스토리 2차 도메인 설정 #1</h5>
-<p class="card-text post-summary">※ 티스토리 블로그에 작성했던 내용을 옮겨왔습니다.
-티스토리 블로그 주소 변경을 마친 후에 가장 먼저 사이트 검색노출을 재설정 해주었습니다. 기존에 사용하던 1차 도메인(티스토리 기본 제공 도메인)이 계속해서 검색엔진에 노출되고 있고 2차 도메인(개인 도메인)은 아직 알려져있지 않기 때문에 신속하게 변경하여야 유입 방문객 수 손실을 그나마 낮출 수 있을 것이라 판단했기 때문입니다.
-도메인 구매과정 및 티스토리 블로그 적용 방법에 대한 내용이 궁금하시다면 아래 링크를 참고하시기 바랍니다.
-티스토리 개인 도메인 구매 및 활용하기 - #1 구매동기, DNS설정, 오류해결</p>
-</div>
-<div class=card-footer>
-<span class=float-left>2021년 03월 07일</span>
-<a href=/tistory-blog-setting-2/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/tistory-blog-setting/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>티스토리 개인 도메인 구매 및 활용하기 - #1 구매동기, DNS설정, 오류해결</h5>
-<p class="card-text post-summary">※ 티스토리 블로그에 작성했던 내용을 옮겨왔습니다.
-얼마 전 블로그 주소를 tae-di.tistory.com 에서 taedi.net 으로 변경하였습니다. 도메인 변경을 진행하기 전 여러 후기에서 티스토리 블로그 2차 도메인 등록 시 발생하는 많은 문제점에 대한 부분을 확인 하였지만 이같은 결정을 하게 된 것은 그만큼의 메리트가 있었기 때문입니다. 티스토리 블로그 2차 도메인(개인 도메인)이 주는 기대효과와 이를 위해 감수해야하는 단점, 그리고 도메인 등록방법과 문제점들을 어느 정도 해소하기 위한 설정 방법들을 공유하고자 글을 남기게 되었습니다.
-장점 - 개인 도메인을 구매한 동기 물론 가장 큰 목적은 &lsquo;갖고싶어서&rsquo; 였습니다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>2021년 03월 05일</span>
-<a href=/tistory-blog-setting/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
+<ul class="pagination pagination-default">
+<li class="page-item disabled">
+<a href=# aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class="page-item disabled">
+<a href=# aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class="page-item active">
+<a href=# aria-current=page aria-label="Page 1" class=page-link role=button>1</a>
+</li>
+<li class=page-item>
+<a href=/posts/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
+</li>
+<li class=page-item>
+<a href=/posts/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/posts/page/2/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
 </div>
 </div>
 </section>
