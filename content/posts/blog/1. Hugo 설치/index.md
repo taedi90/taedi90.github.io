@@ -9,8 +9,8 @@ tags: [blog, github pages, hugo]
 menu:
   sidebar:
     name: 1. Hugo 설치
-    identifier: blog-1. Hugo 설치
-    parent: blog
+    identifier: Blog-1. Hugo 설치
+    parent: Blog
     weight: 10
 ---
 

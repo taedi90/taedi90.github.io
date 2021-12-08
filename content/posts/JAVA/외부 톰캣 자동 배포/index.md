@@ -9,8 +9,8 @@ tags: [deploy, java, maven, tomcat]
 menu:
   sidebar:
     name: 외부 톰캣 자동 배포
-    identifier: java-외부 톰캣 자동 배포
-    parent: java
+    identifier: Java-외부 톰캣 자동 배포
+    parent: Java
     weight: 10
 ---
 

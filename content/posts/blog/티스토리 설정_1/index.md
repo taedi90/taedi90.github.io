@@ -9,8 +9,8 @@ tags: [blog, dns, tistory]
 menu:
   sidebar:
     name: 티스토리 설정_1
-    identifier: blog-티스토리 설정_1
-    parent: blog
+    identifier: Blog-티스토리 설정_1
+    parent: Blog
     weight: 10
 ---
 

@@ -9,8 +9,8 @@ tags: [blog, github pages, hugo]
 menu:
   sidebar:
     name: 4. 업로드 하기
-    identifier: blog-4. 업로드 하기
-    parent: blog
+    identifier: Blog-4. 업로드 하기
+    parent: Blog
     weight: 13
 ---
 

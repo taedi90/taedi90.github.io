@@ -1,9 +1,9 @@
 ---
-title: python
+title: Python
 menu:
   sidebar:
-    name: python
-    identifier: python
+    name: Python
+    identifier: Python
     weight: 10
 ---
 

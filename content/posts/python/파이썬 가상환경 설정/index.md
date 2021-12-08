@@ -9,8 +9,8 @@ tags: [pip, pipenv, pyenv, python]
 menu:
   sidebar:
     name: 파이썬 가상환경 설정
-    identifier: python-파이썬 가상환경 설정
-    parent: python
+    identifier: Python-파이썬 가상환경 설정
+    parent: Python
     weight: 10
 ---
 

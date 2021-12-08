@@ -1,9 +1,9 @@
 ---
-title: blog
+title: Blog
 menu:
   sidebar:
-    name: blog
-    identifier: blog
+    name: Blog
+    identifier: Blog
     weight: 99999
 ---
 

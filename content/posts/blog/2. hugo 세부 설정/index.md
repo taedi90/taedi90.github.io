@@ -9,8 +9,8 @@ tags: [blog, github pages, hugo]
 menu:
   sidebar:
     name: 2. 세부 설정
-    identifier: blog-2. 세부 설정
-    parent: blog
+    identifier: Blog-2. 세부 설정
+    parent: Blog
     weight: 11
 ---
 

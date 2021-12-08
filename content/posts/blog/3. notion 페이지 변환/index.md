@@ -9,8 +9,8 @@ tags: [blog, github pages, hugo]
 menu:
   sidebar:
     name: 3. notion 페이지 변환
-    identifier: blog-3. notion 페이지 변환
-    parent: blog
+    identifier: Blog-3. notion 페이지 변환
+    parent: Blog
     weight: 12
 ---
 

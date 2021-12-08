@@ -9,8 +9,8 @@ tags: [eclipse, macOS]
 menu:
   sidebar:
     name: 이클립스 맥 한글 짤림문제 해결
-    identifier: java-이클립스 맥 한글 짤림문제 해결
-    parent: java
+    identifier: Java-이클립스 맥 한글 짤림문제 해결
+    parent: Java
     weight: 
 ---
 

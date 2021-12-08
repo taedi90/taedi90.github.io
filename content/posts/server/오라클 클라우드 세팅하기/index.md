@@ -9,8 +9,8 @@ tags: [OCI, sever]
 menu:
   sidebar:
     name: 오라클 클라우드 세팅하기
-    identifier: server-오라클 클라우드 세팅하기
-    parent: server
+    identifier: Server-오라클 클라우드 세팅하기
+    parent: Server
     weight: 
 ---
 

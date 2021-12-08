@@ -1,9 +1,9 @@
 ---
-title: server
+title: Server
 menu:
   sidebar:
-    name: server
-    identifier: server
+    name: Server
+    identifier: Server
     weight: 10
 ---
 

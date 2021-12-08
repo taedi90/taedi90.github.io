@@ -9,7 +9,7 @@ tags: [VanillaJS, modal]
 menu:
   sidebar:
     name: 모달 알림창 만들어보기
-    identifier: JavaScript-모달 알림창 만들어보기
+    identifier: javascript-모달 알림창 만들어보기
     parent: JavaScript
     weight: 
 ---
