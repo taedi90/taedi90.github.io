@@ -58,6 +58,7 @@ Taedi's Log</a>
 <li><a href=/posts/javascript/ title=JavaScript>JavaScript</a></li>
 <li><a href=/posts/python/ title=Python>Python</a></li>
 <li><a href=/posts/server/ title=Server>Server</a></li>
+<li><a href=/posts/sql/ title=SQL>SQL</a></li>
 <li><a href=/posts/blog/ title=Blog>Blog</a></li>
 </div>
 </ul>
@@ -68,6 +69,23 @@ Taedi's Log</a>
 <section class=content-section id=content-section>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/mysql-dump/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/hero/sql.png alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>[mysqldump] MySQL DB 백업 및 복구</h5>
+<p class="card-text post-summary">백업 # mysqldump -u root -p --databases [DB명] > [저장경로/파일명] mysqldump -u root -p --databases [DB명] > /var/lib/mysql/project_2021-12-07.sql 복원 # mysqldump -u root -p [DB명] &lt; [저장경로/파일명] mysql -u root -p project &lt; /var/lib/mysql/project_2021-12-07.sql 참고 https://code-factory.tistory.com/21 </p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 07일</span>
+<a href=/mysql-dump/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
 <div class=post-card>
 <a href=/vanillajs-ajax-module/ class=post-card-link>
 <div class=card>
@@ -270,25 +288,6 @@ https://gohugo.io/content-management/front-matter/
 <div class=card-footer>
 <span class=float-left>2021년 03월 10일</span>
 <a href=/tistory-blog-setting-4/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/tistory-blog-setting-3/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>댓글 작성하려는데 로그인이 안된다구? - 티스토리 2차 도메인 설정 #2</h5>
-<p class="card-text post-summary">※ 티스토리 블로그에 작성했던 내용을 옮겨왔습니다.
-개인 도메인으로 블로그 게시물에 접근하면 티스토리 로그인이 되어있지 않은 상태가 됩니다. 때문에 게시물 수정이나 블로그 관리 페이지 진입 등이 되지 않는 불편함이 있는데 이것은 블로그 주인만 느끼면 되는 문제라 크게 문제가 되지 않습니다. 하지만 방문객이 겪는 불편함이 존재하는데 바로 티스토리 로그인이 연동되지 않아 비회원으로 댓글을 남겨야 하는 문제입니다. 댓글기능이 원활하지 않는다는 것은 블로그의 순기능 중 소통의 영역에서 마이너스 요소가 아닐 수 없습니다.
-개인 도메인에서는 티스토리 아이디로 댓글 작성이 불가능하다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>2021년 03월 09일</span>
-<a href=/tistory-blog-setting-3/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
