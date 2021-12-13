@@ -9,7 +9,7 @@
 
 {{/* if hero image is not provided, then use the default hero image */}}
 {{ if not $heroImage }}
-  {{ $heroImage := resources.Get "images/default-hero.svg"}}
+  {{ $heroImage := resources.Get "images/default-hero2.png"}}
   {{ .Scratch.Set "heroScratch" $heroImage }}
 {{ end }}
 
