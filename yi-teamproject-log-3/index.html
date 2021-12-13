@@ -1,0 +1,576 @@
+<!doctype html><html>
+<head>
+<title>팀 프로젝트(쇼핑몰 제작) 회고 - 3.코딩 컨벤션</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<link rel=icon type=image/png href=/images/site/favicon.svg>
+<meta property="og:title" content="팀 프로젝트(쇼핑몰 제작) 회고 - 3.코딩 컨벤션">
+<meta property="og:description" content="프로젝트 내내 덕을 많이 본 코딩 컨벤션이다. 하단 링크를 참고하여 간결하게 우리 프로젝트 만의 컨벤션을 정의했는데 기회가 된다면 이것보다도 더욱 정교하게 만들어 보고 싶다.
+1. Basic 캠퍼스 핵데이 Java 코딩 컨벤션 을 준수 하며, JS 의 경우 Naver JavaScript Style Guide 를 가급적 지향하며 코딩할 것
+1-1. IDE 설정 캠퍼스 핵데이 가이드에 따라 코딩할 수 있도록 IDE Formatter 적용이 가능함
+1-1-1. Eclipse naver-eclipse-formatter.xml
+ 아래 링크 D.1.* 내용 참고 https://naver.github.io/hackday-conventions-java/#_eclipse  1-1-2.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://log.taedi.net/yi-teamproject-log-3/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-05T00:00:00+09:00">
+<meta property="article:modified_time" content="2021-12-13T20:28:00+09:00">
+<meta name=description content="팀 프로젝트(쇼핑몰 제작) 회고 - 3.코딩 컨벤션">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-52CHZ4CKK9',{anonymize_ip:!1})}</script>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+<img src=/images/site/main-logo.svg alt=Logo>
+Taedi's Log</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+<img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
+<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo">
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
+<div class=subtree>
+<li><a href=/posts/java/ title=Java>Java</a></li>
+<li><a href=/posts/javascript/ title=JavaScript>JavaScript</a></li>
+<li><a class=active href=/posts/logs/ title=Logs>Logs</a></li>
+<li><a href=/posts/python/ title=Python>Python</a></li>
+<li><a href=/posts/server/ title=Server>Server</a></li>
+<li><a href=/posts/sql/ title=SQL>SQL</a></li>
+<li><a href=/posts/blog/ title=Blog>Blog</a></li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/default-hero.svg)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/avatar_hue4fa7b2d8e73b32dce85afe643c3f5c5_90375_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Taesoo Kim</h5>
+<p>2021년 12월 05일</p>
+</div>
+<div class=title>
+<h1>팀 프로젝트(쇼핑몰 제작) 회고 - 3.코딩 컨벤션</h1>
+</div>
+<div class=taxonomy-terms>
+<ul style=padding-inline-start:0>
+<li class=rounded><a href=/tags/log class="btn, btn-sm">log</a></li>
+</ul>
+</div>
+<div class=post-content id=post-content>
+<p>프로젝트 내내 덕을 많이 본 코딩 컨벤션이다. 하단 링크를 참고하여 간결하게 우리 프로젝트 만의 컨벤션을 정의했는데 기회가 된다면 이것보다도 더욱 정교하게 만들어 보고 싶다.</p>
+<h2 id=1-basic>1. Basic</h2>
+<p><a href=https://naver.github.io/hackday-conventions-java/>캠퍼스 핵데이 Java 코딩 컨벤션</a> 을 <strong><code>준수</code></strong> 하며, JS 의 경우 <a href=https://github.com/naver/eslint-config-naver/blob/master/STYLE_GUIDE.md>Naver JavaScript Style Guide</a> 를 가급적 <code>지향</code>하며 코딩할 것</p>
+<h3 id=1-1-ide-설정>1-1. IDE 설정</h3>
+<p><code>캠퍼스 핵데이 가이드</code>에 따라 코딩할 수 있도록 IDE Formatter 적용이 가능함</p>
+<h4 id=1-1-1-eclipse>1-1-1. Eclipse</h4>
+<p><a href=images/pic-0001.xml>naver-eclipse-formatter.xml</a></p>
+<ul>
+<li>아래 링크 D.1.* 내용 참고
+<a href=https://naver.github.io/hackday-conventions-java/#_eclipse>https://naver.github.io/hackday-conventions-java/#_eclipse</a></li>
+</ul>
+<h4 id=1-1-2-intellij>1-1-2. Intellij</h4>
+<p><a href=images/pic-0002.xml>naver-intellij-formatter.xml</a></p>
+<ul>
+<li>아래 링크 D.2.* 내용 참고
+<a href=https://naver.github.io/hackday-conventions-java/#_intellij>https://naver.github.io/hackday-conventions-java/#_eclipse</a></li>
+</ul>
+<h2 id=2-variable--method>2. Variable & Method</h2>
+<p>변수와 메서드 네이밍 규칙</p>
+<h3 id=2-1-common>2-1. Common</h3>
+<p>변수 및 메서드 공통 사항</p>
+<h4 id=2-1-1-naming>2-1-1. Naming</h4>
+<ul>
+<li>가급적 이해할 수 있는 쉬운 단어 (<em><strong>축약X</strong></em>)
+→ mod_date (❌), modify_date (👌🏻)</li>
+<li>camelCase 사용
+→ JAVA, Java Script</li>
+<li>snake_case 사용
+→ SQL, HTML Attribute</li>
+<li>kebob-case 사용
+→ CSS</li>
+</ul>
+<blockquote>
+<p>DB 테이블 속성 : parent_no</p>
+<p>DTO 속성 : parentNo</p>
+<p>JS var : parentNo</p>
+<p>JS function : checkParentId</p>
+<p>HTML element id : parent_no</p>
+<p>CSS : #parent_no { font-size : var(—font-base); }</p>
+</blockquote>
+<p><del>element id 와 js function 명이 일치하면 onclick 이벤트에서 오류남</del></p>
+<p><del>CSS 는 대소문자를 구분하지 않는다?</del></p>
+<h3 id=2-2-variable>2-2. Variable</h3>
+<p>변수 및 상수 관련</p>
+<h4 id=2-2-1-boolean>2-2-1. boolean</h4>
+<ul>
+<li><del>가급적 int 자료형 보다 boolean 자료형 사용</del>
+→ sql result 가 int 형으로 반환 됨.</li>
+<li>boolean 자료형의 경우 &lsquo;is~&rsquo; 활용
+→ isCorrect, isNull</li>
+</ul>
+<h4 id=2-2-2-const>2-2-2. Const</h4>
+<ul>
+<li>상수는 대문자 및 언더바 사용 (JAVA, JS)
+→ TEST_COUNT</li>
+</ul>
+<h3 id=2-3-method>2-3. Method</h3>
+<p>메서드 관련</p>
+<h4 id=2-3-1-check>2-3-1. check</h4>
+<ul>
+<li>true or false 를 판별하는 메서드는 &lsquo;check~&rsquo; 표기
+→ checkId(user)</li>
+</ul>
+<h4 id=2-3-2-getter--setter>2-3-2. getter & setter</h4>
+<ul>
+<li>getName(args), setName(args)</li>
+</ul>
+<h4 id=2-3-3-dao--sql-mapper>2-3-3. DAO & SQL mapper</h4>
+<ul>
+<li>insert
+→ insertBoard(board)</li>
+<li>update
+→ updateBoard(board)</li>
+<li>select
+→ boardDto selectBoard(board), List<board> selectBoardList(Board board)</li>
+<li>delete
+→ deleteBoard(board)</li>
+</ul>
+<h2 id=3-structure>3. Structure</h2>
+<p>프로젝트 구조</p>
+<h3 id=3-1-folder--package--file>3-1. Folder & Package & File</h3>
+<h4 id=3-1-1-outline>3-1-1. Outline</h4>
+<ul>
+<li>아래 표를 기준으로 프로젝트 구조를 지정</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>경로</th>
+<th>이름 예시</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Controller</td>
+<td>~base_package/controller/</td>
+<td>BoardController.java</td>
+<td>응답처리, view 업데이트</td>
+</tr>
+<tr>
+<td>Service</td>
+<td>~base_package/service/BoardService.java</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ServiceImpl</td>
+<td>~base_package/service/Impl</td>
+<td>BoardServiceImpl.java</td>
+<td>비즈니스 로직 처리</td>
+</tr>
+<tr>
+<td>Mapper</td>
+<td>~base_package/mapper/</td>
+<td>BoardMapper.java</td>
+<td>데이터 엑세스</td>
+</tr>
+<tr>
+<td>Dto</td>
+<td>~base_package/dto/</td>
+<td>Board.java</td>
+<td>데이터 교환 객체</td>
+</tr>
+<tr>
+<td>Config</td>
+<td>~base_package/dto/</td>
+<td>WebConfig.java</td>
+<td>JAVA 기반 설정파일</td>
+</tr>
+<tr>
+<td>Common</td>
+<td>~base_package/common/</td>
+<td>randomUtil.java</td>
+<td>클래스 간 공유 모듈</td>
+</tr>
+<tr>
+<td>sqlmap</td>
+<td>/resources/sqlmap/</td>
+<td>board_SQL.xml</td>
+<td>SQL query</td>
+</tr>
+<tr>
+<td>css/js/img</td>
+<td>/webapp/resources/[css js img]/</td>
+<td>sub-item.css</td>
+<td>src=&ldquo;js/item.js&rdquo;</td>
+</tr>
+<tr>
+<td>plugins</td>
+<td>/webapp/resources/plugins/</td>
+<td>-</td>
+<td>텍스트 에디터 등</td>
+</tr>
+<tr>
+<td>view</td>
+<td>/webapp/WEB-INF/views/서비스/</td>
+<td>/board/create.jsp</td>
+<td></td>
+</tr>
+<tr>
+<td>others</td>
+<td>-</td>
+<td></td>
+<td>kebob-case</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>이후 프로젝트 규모에 따라 controller, service, dao 패키지에 <code>업무영역</code>으로 하위 패키지 리팩토링</li>
+</ul>
+<h4 id=3-1-2-naming>3-1-2. Naming</h4>
+<ul>
+<li>camelCase
+→ java class</li>
+<li>snake_case
+→ java package</li>
+<li>kebob-case
+→ xml, js, css 등 기타 모든 파일명</li>
+</ul>
+<h3 id=3-2-java-class>3-2. JAVA Class</h3>
+<p>본연의 업무에 충실하고 유지보수에 용이하도록 구성</p>
+<h4 id=3-2-1-controller>3-2-1. Controller</h4>
+<ul>
+<li>로직 구현 지양</li>
+<li>Service 호출 및 Exception 처리 전담</li>
+</ul>
+<h4 id=3-2-2-service>3-2-2. Service</h4>
+<ul>
+<li>도메인 서비스 지양 → 기능별 세분화 서비스 지향
+UserService → UserRegisterService, UserEmailService &mldr;</li>
+</ul>
+<h4 id=3-2-3-dao>3-2-3. Dao</h4>
+<ul>
+<li>interface 구현 없이 @Mapper 활용</li>
+</ul>
+<h2 id=4-coding>4. Coding</h2>
+<p>코딩 스타일에 관련 된 규정</p>
+<h3 id=4-1-dto-활용>4-1. DTO 활용</h3>
+<p>프로젝트에서 Dto를 적극적으로 활용하여 유지보수 및 확장이 용이한 환경을 구성한다.</p>
+<h4 id=4-1-1-가급적-dto-를-사용하여-데이터-처리하기>4-1-1. 가급적 DTO 를 사용하여 데이터 처리하기</h4>
+<ul>
+<li>Dto attribute
+private String id → private UserDto userDto</li>
+<li>Service args
+userDto selectUser(int no) → userDto selectUser(userDto)</li>
+</ul>
+<h4 id=4-1-2-객체-분리-사용>4-1-2. 객체 분리 사용</h4>
+<ul>
+<li>request, response 객체 분리 사용
+불필요한 정보 제거</li>
+</ul>
+<h3 id=4-2-예외처리>4-2. 예외처리</h3>
+<ul>
+<li>예외는 무시하지 말고 처리할 것</li>
+</ul>
+<h3 id=4-3-주석처리>4-3. 주석처리</h3>
+<ul>
+<li>각 단위별 기능 명시</li>
+<li>모호한 부분 설명</li>
+</ul>
+<h3 id=4-4-클래스-및-메서드-작게-나누기>4-4. 클래스 및 메서드 작게 나누기</h3>
+<p>세부 기능별 분리(모듈화)</p>
+<ul>
+<li>재사용성 향상</li>
+<li>가독성 향상</li>
+<li>유지보수 향상</li>
+</ul>
+<h3 id=4-5-unit-test>4-5. Unit Test</h3>
+<ul>
+<li>Junit 4 사용</li>
+<li>반드시 TDD를 고수할 필요는 없음</li>
+<li>FIRST 규칙 지향
+Fast: 테스트는 빠르게 동작하여 자주 돌릴 수 있어야 한다.
+Independent: 각각의 테스트는 독립적이며 서로 의존해서는 안된다.
+Repeatable: 어느 환경에서도 반복 가능해야 한다.
+Self-Validating: 테스트는 성공 또는 실패로 bool 값으로 결과를 내어 자체적으로 검증되어야 한다.
+Timely: 테스트는 적시에 즉, 테스트하려는 실제 코드를 구현하기 직전에 구현해야 한다.</li>
+</ul>
+<h2 id=5-etc>5. Etc</h2>
+<p>그 밖의 사항들</p>
+<h3 id=5-1-sql>5-1. SQL</h3>
+<p>필수 사항은 아니지만 가독성 향상을 위함</p>
+<h4 id=5-1-1-예약어>5-1-1. 예약어</h4>
+<ul>
+<li>예약어는 대문자 사용
+→ select(❌), SELECT(👌🏻)</li>
+</ul>
+<h4 id=5-1-2-속성column-attribute--테이블table-relation>5-1-2. 속성(Column, Attribute) & 테이블(Table, Relation)</h4>
+<ul>
+<li>Snake Case
+→ modify_date</li>
+<li>복수형 대신 단수형 사용
+→ users(❌), user(👌🏻)</li>
+<li>Query 에서 backquote(``) 감싸기</li>
+</ul>
+<h4 id=5-1-3-query-예시>5-1-3. Query 예시</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>`</span><span style=color:#66d9ef>user</span><span style=color:#f92672>`</span>.<span style=color:#f92672>`</span>modify_date<span style=color:#f92672>`</span> <span style=color:#66d9ef>FROM</span> <span style=color:#f92672>`</span>my_board<span style=color:#f92672>`</span>.<span style=color:#f92672>`</span><span style=color:#66d9ef>user</span><span style=color:#f92672>`</span>;
+</code></pre></div><h3 id=5-2-uri>5-2. URI</h3>
+<p>URI는 대소문자에 따라 다른 페이지로 인식하기 때문에, 필수 사항은 아니지만 범용적으로 사용되는 방식 채택</p>
+<ul>
+<li>소문자 사용
+→ Create(❌), CREATE(❌), create(👌🏻)</li>
+<li>Kebab Case 사용
+→ create_post(❌), createPost(❌), create-post(👌🏻)</li>
+</ul>
+<pre tabindex=0><code>https://example.com/blogs/new-post
+</code></pre><h3 id=5-3-css>5-3. CSS</h3>
+<p>프로젝트 진행 간 유지보수 용이성에 초점</p>
+<h4 id=5-3-1-변수-활용>5-3-1. 변수 활용</h4>
+<ul>
+<li>색상 리스트, 글자 크기 등 사이트 일관성을 유지시켜야할 항목은 변수로 지정하여 활용</li>
+</ul>
+<h4 id=5-3-2-사이즈>5-3-2. 사이즈</h4>
+<ul>
+<li>요소 크기는 가급적 px 가 아닌 <strong>rem</strong>(root-em) 사용
+→ html 폰트 사이즈 변경 시 하위 요소 일괄 적용 가능
+→ em 과 비교해 고려사항이나 유지보수 측면에서 이점</li>
+</ul>
+<h4 id=5-3-3-변수-및-rem-활용-예시>5-3-3. 변수 및 rem 활용 예시</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css>@<span style=color:#66d9ef>media</span> <span style=color:#f92672>(</span><span style=color:#f92672>min-width</span><span style=color:#f92672>:</span> <span style=color:#f92672>768</span>.<span style=color:#a6e22e>1px</span><span style=color:#f92672>)</span> {
+		<span style=color:#75715e>/* 가로 768px 초과시 1rem == 10px  */</span>
+    <span style=color:#f92672>html</span> { <span style=color:#66d9ef>font-size</span>: <span style=color:#ae81ff>62.5</span><span style=color:#66d9ef>%</span>; }
+}
+@<span style=color:#66d9ef>media</span> <span style=color:#f92672>(</span><span style=color:#f92672>max-width</span><span style=color:#f92672>:</span> <span style=color:#f92672>768px</span><span style=color:#f92672>)</span>  {
+    <span style=color:#75715e>/* 가로 768px 이하 1rem == 8.75px  */</span>
+    <span style=color:#f92672>html</span> { <span style=color:#66d9ef>font-size</span>: <span style=color:#ae81ff>54.6875</span><span style=color:#66d9ef>%</span>; }
+}
+
+<span style=color:#f92672>html</span>{
+    <span style=color:#75715e>/* 배경색 */</span>
+    --bg-color-1: <span style=color:#ae81ff>#715d74</span>;
+    --bg-color-2: <span style=color:#ae81ff>#a08aa3</span>;
+    --bg-color-3: <span style=color:#ae81ff>#d1bad4</span>;
+    --bg-color-4: <span style=color:#ae81ff>#d1bad4</span><span style=color:#ae81ff>70</span>;
+    --bg-color-5: <span style=color:#ae81ff>#ffffff</span>;
+
+    <span style=color:#75715e>/* 글자색 */</span>
+    --txt-color-1: <span style=color:#66d9ef>black</span>;
+    --txt-color-2: rgb(<span style=color:#ae81ff>59</span>, <span style=color:#ae81ff>59</span>, <span style=color:#ae81ff>59</span>);
+    --txt-color-3: <span style=color:#66d9ef>grey</span>;
+    --txt-color-4: rgb(<span style=color:#ae81ff>214</span>, <span style=color:#ae81ff>212</span>, <span style=color:#ae81ff>212</span>);
+    --txt-color-5: <span style=color:#66d9ef>white</span>;
+    --txt-color-warn: rgb(<span style=color:#ae81ff>215</span>, <span style=color:#ae81ff>68</span>, <span style=color:#ae81ff>68</span>);
+
+    <span style=color:#75715e>/* 폰트 사이즈 */</span>
+    --font-xs: <span style=color:#ae81ff>1.2</span><span style=color:#66d9ef>rem</span>;
+    --font-sm: <span style=color:#ae81ff>1.4</span><span style=color:#66d9ef>rem</span>;
+    --font-base: <span style=color:#ae81ff>1.6</span><span style=color:#66d9ef>rem</span>;
+    --font-lg: <span style=color:#ae81ff>1.8</span><span style=color:#66d9ef>rem</span>;
+    --font-xl: <span style=color:#ae81ff>2</span><span style=color:#66d9ef>rem</span>;
+}
+
+.<span style=color:#a6e22e>article</span> {
+	<span style=color:#66d9ef>font-size</span> : <span style=color:#a6e22e>var</span>(<span style=color:#f92672>--</span>font<span style=color:#f92672>-</span>base);
+}
+</code></pre></div><h2 id=참고>참고</h2>
+<ul>
+<li>팀 코딩 컨벤션 정립하기
+<a href=https://log.hodol.dev/techcourse/coding-convention>https://log.hodol.dev/techcourse/coding-convention</a></li>
+<li>캠퍼스 핵데이 Java 코딩 컨벤션
+<a href=https://naver.github.io/hackday-conventions-java/>https://naver.github.io/hackday-conventions-java/</a></li>
+<li>Naver JavaScript Style Guide
+<a href=https://github.com/naver/eslint-config-naver/blob/master/STYLE_GUIDE.md>https://github.com/naver/eslint-config-naver/blob/master/STYLE_GUIDE.md</a></li>
+<li>나만의 코딩컨벤션 작성하기
+<a href=https://jobc.tistory.com/212>https://jobc.tistory.com/212</a></li>
+<li>자바 코딩 가이드(파일명, 메소드, 코딩규칙)
+<a href=https://shlee0882.tistory.com/129>https://shlee0882.tistory.com/129</a></li>
+<li>자바 코딩 규칙
+<a href=https://myeonguni.tistory.com/1596>https://myeonguni.tistory.com/1596</a></li>
+<li>Mapper
+<a href=https://twofootdog.github.io/Spring-DAO%EC%99%80-Mapper%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/>https://twofootdog.github.io/Spring-DAO와-Mapper의-차이점/</a></li>
+</ul>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+<div class="col-md-6 previous-article">
+<a href=/yi-teamproject-log-2/ title="팀 프로젝트(쇼핑몰 제작) 회고 - 2.페이지 구상" class="btn btn-outline-info">
+<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
+<div class=next-prev-text>팀 프로젝트(쇼핑몰 제작) 회고 - 2.페이지 구상</div>
+</a>
+</div>
+<div class="col-md-6 next-article">
+<a href=/yi-teamproject-log-4/ title="팀 프로젝트(쇼핑몰 제작) 회고 - 4.DB" class="btn btn-outline-info">
+<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
+<div class=next-prev-text>팀 프로젝트(쇼핑몰 제작) 회고 - 4.DB</div>
+</a>
+</div>
+</div>
+<hr>
+<div class=utterances></div>
+<script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous defer></script>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">List</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#1-basic>1. Basic</a>
+<ul>
+<li><a href=#1-1-ide-설정>1-1. IDE 설정</a>
+<ul>
+<li><a href=#1-1-1-eclipse>1-1-1. Eclipse</a></li>
+<li><a href=#1-1-2-intellij>1-1-2. Intellij</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#2-variable--method>2. Variable & Method</a>
+<ul>
+<li><a href=#2-1-common>2-1. Common</a>
+<ul>
+<li><a href=#2-1-1-naming>2-1-1. Naming</a></li>
+</ul>
+</li>
+<li><a href=#2-2-variable>2-2. Variable</a>
+<ul>
+<li><a href=#2-2-1-boolean>2-2-1. boolean</a></li>
+<li><a href=#2-2-2-const>2-2-2. Const</a></li>
+</ul>
+</li>
+<li><a href=#2-3-method>2-3. Method</a>
+<ul>
+<li><a href=#2-3-1-check>2-3-1. check</a></li>
+<li><a href=#2-3-2-getter--setter>2-3-2. getter & setter</a></li>
+<li><a href=#2-3-3-dao--sql-mapper>2-3-3. DAO & SQL mapper</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#3-structure>3. Structure</a>
+<ul>
+<li><a href=#3-1-folder--package--file>3-1. Folder & Package & File</a>
+<ul>
+<li><a href=#3-1-1-outline>3-1-1. Outline</a></li>
+<li><a href=#3-1-2-naming>3-1-2. Naming</a></li>
+</ul>
+</li>
+<li><a href=#3-2-java-class>3-2. JAVA Class</a>
+<ul>
+<li><a href=#3-2-1-controller>3-2-1. Controller</a></li>
+<li><a href=#3-2-2-service>3-2-2. Service</a></li>
+<li><a href=#3-2-3-dao>3-2-3. Dao</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#4-coding>4. Coding</a>
+<ul>
+<li><a href=#4-1-dto-활용>4-1. DTO 활용</a>
+<ul>
+<li><a href=#4-1-1-가급적-dto-를-사용하여-데이터-처리하기>4-1-1. 가급적 DTO 를 사용하여 데이터 처리하기</a></li>
+<li><a href=#4-1-2-객체-분리-사용>4-1-2. 객체 분리 사용</a></li>
+</ul>
+</li>
+<li><a href=#4-2-예외처리>4-2. 예외처리</a></li>
+<li><a href=#4-3-주석처리>4-3. 주석처리</a></li>
+<li><a href=#4-4-클래스-및-메서드-작게-나누기>4-4. 클래스 및 메서드 작게 나누기</a></li>
+<li><a href=#4-5-unit-test>4-5. Unit Test</a></li>
+</ul>
+</li>
+<li><a href=#5-etc>5. Etc</a>
+<ul>
+<li><a href=#5-1-sql>5-1. SQL</a>
+<ul>
+<li><a href=#5-1-1-예약어>5-1-1. 예약어</a></li>
+<li><a href=#5-1-2-속성column-attribute--테이블table-relation>5-1-2. 속성(Column, Attribute) & 테이블(Table, Relation)</a></li>
+<li><a href=#5-1-3-query-예시>5-1-3. Query 예시</a></li>
+</ul>
+</li>
+<li><a href=#5-2-uri>5-2. URI</a></li>
+<li><a href=#5-3-css>5-3. CSS</a>
+<ul>
+<li><a href=#5-3-1-변수-활용>5-3-1. 변수 활용</a></li>
+<li><a href=#5-3-2-사이즈>5-3-2. 사이즈</a></li>
+<li><a href=#5-3-3-변수-및-rem-활용-예시>5-3-3. 변수 및 rem 활용 예시</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#참고>참고</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>Contact</h5>
+<ul>
+<li><span>Email: </span> <a href=mailto:taedi90@gmail.com><span>taedi90@gmail.com</span></a></li>
+<li><span>Github: </span> <a href=https://github.com/taedi90><span>https://github.com/taedi90</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>$(document).ready(function(){$('p').has('img').css('text-align','center')})</script>
+</body>
+</html>

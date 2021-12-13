@@ -1,0 +1,323 @@
+<!doctype html><html>
+<head>
+<title>팀 프로젝트(쇼핑몰 제작) 회고 - 2.페이지 구상</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<link rel=icon type=image/png href=/images/site/favicon.svg>
+<meta property="og:title" content="팀 프로젝트(쇼핑몰 제작) 회고 - 2.페이지 구상">
+<meta property="og:description" content="쇼핑몰로 프로젝트 주제를 결정하고, 초기에 어떤 페이지가 필요할까 고민하며 작성해본 리스트다. 회의 단계에서 제외된 내용도 있고, 시간 여유상 구현하지 못한 기능들도 있다.
+1. 기본 페이지 구성 idea 1-1. 사용자 상품리스트, 상품상세, 로그인/회원가입, 결제화면, 마이페이지, 장바구니, 질문답변, 리뷰, 비회원 기능, 비밀번호 초기화, 주문취소/반품, 이용약관, about
+1-1-1. 메인(상품리스트)  header, nav, main, footer 구성 제품 정렬 기능(인기순, 가격순, 세부조건) 카테고리별 구분 제품 재고 현황에 따라 sold out 처리 및 정렬에서 뒤로 빼기 페이징 처리  1-1-2.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://log.taedi.net/yi-teamproject-log-2/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-03T00:00:00+09:00">
+<meta property="article:modified_time" content="2021-12-13T20:24:00+09:00">
+<meta name=description content="팀 프로젝트(쇼핑몰 제작) 회고 - 2.페이지 구상">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-52CHZ4CKK9',{anonymize_ip:!1})}</script>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+<img src=/images/site/main-logo.svg alt=Logo>
+Taedi's Log</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+<img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
+<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo">
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
+<div class=subtree>
+<li><a href=/posts/java/ title=Java>Java</a></li>
+<li><a href=/posts/javascript/ title=JavaScript>JavaScript</a></li>
+<li><a class=active href=/posts/logs/ title=Logs>Logs</a></li>
+<li><a href=/posts/python/ title=Python>Python</a></li>
+<li><a href=/posts/server/ title=Server>Server</a></li>
+<li><a href=/posts/sql/ title=SQL>SQL</a></li>
+<li><a href=/posts/blog/ title=Blog>Blog</a></li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/default-hero.svg)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/avatar_hue4fa7b2d8e73b32dce85afe643c3f5c5_90375_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Taesoo Kim</h5>
+<p>2021년 12월 03일</p>
+</div>
+<div class=title>
+<h1>팀 프로젝트(쇼핑몰 제작) 회고 - 2.페이지 구상</h1>
+</div>
+<div class=taxonomy-terms>
+<ul style=padding-inline-start:0>
+<li class=rounded><a href=/tags/log class="btn, btn-sm">log</a></li>
+</ul>
+</div>
+<div class=post-content id=post-content>
+<p>쇼핑몰로 프로젝트 주제를 결정하고, 초기에 어떤 페이지가 필요할까 고민하며 작성해본 리스트다. 회의 단계에서 제외된 내용도 있고, 시간 여유상 구현하지 못한 기능들도 있다.</p>
+<h2 id=1-기본-페이지-구성-idea>1. 기본 페이지 구성 idea</h2>
+<h3 id=1-1-사용자>1-1. 사용자</h3>
+<p>상품리스트, 상품상세, 로그인/회원가입, 결제화면, 마이페이지, 장바구니, 질문답변, 리뷰, 비회원 기능, 비밀번호 초기화, 주문취소/반품, 이용약관, about</p>
+<h4 id=1-1-1-메인상품리스트>1-1-1. 메인(상품리스트)</h4>
+<ul>
+<li>header, nav, main, footer 구성</li>
+<li>제품 정렬 기능(인기순, 가격순, 세부조건)</li>
+<li>카테고리별 구분</li>
+<li>제품 재고 현황에 따라 sold out 처리 및 정렬에서 뒤로 빼기</li>
+<li>페이징 처리</li>
+</ul>
+<h4 id=1-1-2-상품상세>1-1-2. 상품상세</h4>
+<ul>
+<li>제품사진, 구매옵션, 구매버튼, 제품상세, 교환반품정보, 후기, QnA(비밀글)</li>
+</ul>
+<h4 id=1-1-3-회원가입로그인>1-1-3. 회원가입/로그인</h4>
+<ul>
+<li>일반 가입/oAuth 병행 (db 설계시 oAuth 구분용 속성 추가)</li>
+<li>이메일 인증</li>
+<li>자동로그인</li>
+</ul>
+<h4 id=1-1-4-결제화면>1-1-4. 결제화면</h4>
+<ul>
+<li>선택 아이템 및 금액 합계, 배송 주소지 선택, 결제 수단 , 결제(구현x, pg 테스트 api가 있을까?)</li>
+<li>form 전송 시 구매번호 부여</li>
+</ul>
+<h4 id=1-1-5-마이페이지>1-1-5. 마이페이지</h4>
+<ul>
+<li>주문관리(주문내역, 반품/취소 현황)</li>
+<li>회원정보 변경, 탈퇴</li>
+<li>배송 주소지 등록(기본 배송지 + 추가 배송지, 배송지 별 닉네임)</li>
+<li>내 질문/내 후기</li>
+</ul>
+<h4 id=1-1-6-장바구니>1-1-6. 장바구니</h4>
+<ul>
+<li>아이템 삭제, 추가</li>
+<li>로그인 전/후 장바구니 연동(쿠키 or 세션 활용)</li>
+</ul>
+<h4 id=1-1-7-리뷰>1-1-7. 리뷰</h4>
+<ul>
+<li>각 상품 페이지에 리뷰 탭 배치</li>
+<li>이름은 * 처리(김*수)</li>
+<li>구매번호가 있어야 후기 작성이 가능하도록</li>
+<li>댓글, 좋아요, 별점</li>
+<li>사진 업로드(포토리뷰, 일반리뷰) - 파일 용량 리사이즈</li>
+</ul>
+<h4 id=1-1-8-질문-답변>1-1-8. 질문 답변</h4>
+<ul>
+<li>각 상품 페이지에 질문 답변 탭 배치</li>
+<li>비밀글 작성 기능</li>
+</ul>
+<h4 id=1-1-9-비회원-기능>1-1-9. 비회원 기능</h4>
+<ul>
+<li>결제 화면, 주문현황 조회, 반품/취소</li>
+</ul>
+<h4 id=1-1-10-비밀번호-초기화>1-1-10. 비밀번호 초기화</h4>
+<ul>
+<li>secure random</li>
+<li>메일 발송</li>
+</ul>
+<h4 id=1-1-11--주문-취소--반품>1-1-11. 주문 취소 / 반품</h4>
+<ul>
+<li>배송 상황에 따라 취소/반품 구분</li>
+<li>취소요청, 요청사유</li>
+</ul>
+<h4 id=1-1-12-이용약관-개인정보-처리-방침>1-1-12. 이용약관, 개인정보 처리 방침</h4>
+<ul>
+<li>표준양식 구해서 실제 사이트와 같은 로직으로 구현</li>
+</ul>
+<h4 id=1-1-13-about프로젝트-소개>1-1-13. about(프로젝트 소개)</h4>
+<ul>
+<li>구성원, 기능 소개 등 간결한 1페이지 구성</li>
+</ul>
+<h3 id=1-2-관리자>1-2. 관리자</h3>
+<p>상품 등록, 재고관리, 배송관리, 매출보고, 회원관리, 질문, 반품 취소 관리, 리뷰 관리</p>
+<h4 id=1-2-1-상품-등록>1-2-1. 상품 등록</h4>
+<ul>
+<li>아이템 번호, 분류, 아이템명, 상세 페이지, 환불교환 정보, 수량(초기 입고량)</li>
+<li>상세 페이지 용 텍스트 에디터 필요(사진 업로드, html tag whistlist 지정)</li>
+</ul>
+<h4 id=1-2-2-재고-관리>1-2-2. 재고 관리</h4>
+<ul>
+<li>아이템별 수량 변경</li>
+<li>제품 발송처리시 -1, 취소 +1, 반품/환불은 검수 후 수기처리</li>
+</ul>
+<h4 id=1-2-3-배송-관리>1-2-3. 배송 관리</h4>
+<ul>
+<li>발주 들어온 품목들 표시</li>
+<li>배송현황, 운송장 입력</li>
+<li>엑셀 일괄입력 기능</li>
+</ul>
+<h4 id=1-2-4-매출-보고가능하다면>1-2-4. 매출 보고(가능하다면)</h4>
+<ul>
+<li>일자별 매출 추이, 취소 현황, 재구매율 등</li>
+</ul>
+<h4 id=1-2-5-회원-관리>1-2-5. 회원 관리</h4>
+<ul>
+<li>회원 리스트 조회</li>
+<li>cvs 내려받기</li>
+<li>비밀번호 초기화 메일 발송 등</li>
+</ul>
+<h4 id=1-2-6-질문-관리>1-2-6. 질문 관리</h4>
+<ul>
+<li>전체 질문답변 표시</li>
+<li>답변/미답변 표시, 필터링</li>
+<li>답변 작성/수정</li>
+</ul>
+<h4 id=1-2-7-리뷰-관리>1-2-7. 리뷰 관리</h4>
+<ul>
+<li>전체 리뷰 표시</li>
+<li>답변/미답변 표시, 필터링</li>
+<li>답변 작성/수정</li>
+<li>답변 일괄 작성 기능(템플릿)</li>
+</ul>
+<h4 id=1-2-8-반품-취소-관리>1-2-8. 반품 취소 관리</h4>
+<ul>
+<li>요청 정보 표시</li>
+<li>처리현황 체크(상태 변경)</li>
+</ul>
+<h2 id=2-추가-기능-idea>2. 추가 기능 idea</h2>
+<ul>
+<li>색상별 상품 정렬(배경제거, 색상 점유% db 저장, 유사도 높은 순으로 정렬)</li>
+<li>다중조건 검색(카테고리, 가격 등)</li>
+<li>인기검색어</li>
+<li>연관 상품(다른 사용자가 함께 본 제품, 로그 & 트리거 & 이력 없을 경우 기본값 설정 )</li>
+<li>뉴스레터</li>
+<li>검색어 자동완성(로그&트리거, 키워드 빈도 순 정렬, 일부 표출, char 핸들링!)</li>
+<li>포인트 적립 + 출석포인트 + 메일링 포인트</li>
+<li>기타 보안 관련 기능(패스워드 암호화)</li>
+<li>SEO 대응</li>
+</ul>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+<div class="col-md-6 previous-article">
+<a href=/yi-teamproject-log-1/ title="팀 프로젝트(쇼핑몰 제작) 회고 - 1.후기" class="btn btn-outline-info">
+<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
+<div class=next-prev-text>팀 프로젝트(쇼핑몰 제작) 회고 - 1.후기</div>
+</a>
+</div>
+<div class="col-md-6 next-article">
+<a href=/yi-teamproject-log-3/ title="팀 프로젝트(쇼핑몰 제작) 회고 - 3.코딩 컨벤션" class="btn btn-outline-info">
+<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
+<div class=next-prev-text>팀 프로젝트(쇼핑몰 제작) 회고 - 3.코딩 컨벤션</div>
+</a>
+</div>
+</div>
+<hr>
+<div class=utterances></div>
+<script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous defer></script>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">List</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#1-기본-페이지-구성-idea>1. 기본 페이지 구성 idea</a>
+<ul>
+<li><a href=#1-1-사용자>1-1. 사용자</a>
+<ul>
+<li><a href=#1-1-1-메인상품리스트>1-1-1. 메인(상품리스트)</a></li>
+<li><a href=#1-1-2-상품상세>1-1-2. 상품상세</a></li>
+<li><a href=#1-1-3-회원가입로그인>1-1-3. 회원가입/로그인</a></li>
+<li><a href=#1-1-4-결제화면>1-1-4. 결제화면</a></li>
+<li><a href=#1-1-5-마이페이지>1-1-5. 마이페이지</a></li>
+<li><a href=#1-1-6-장바구니>1-1-6. 장바구니</a></li>
+<li><a href=#1-1-7-리뷰>1-1-7. 리뷰</a></li>
+<li><a href=#1-1-8-질문-답변>1-1-8. 질문 답변</a></li>
+<li><a href=#1-1-9-비회원-기능>1-1-9. 비회원 기능</a></li>
+<li><a href=#1-1-10-비밀번호-초기화>1-1-10. 비밀번호 초기화</a></li>
+<li><a href=#1-1-11--주문-취소--반품>1-1-11. 주문 취소 / 반품</a></li>
+<li><a href=#1-1-12-이용약관-개인정보-처리-방침>1-1-12. 이용약관, 개인정보 처리 방침</a></li>
+<li><a href=#1-1-13-about프로젝트-소개>1-1-13. about(프로젝트 소개)</a></li>
+</ul>
+</li>
+<li><a href=#1-2-관리자>1-2. 관리자</a>
+<ul>
+<li><a href=#1-2-1-상품-등록>1-2-1. 상품 등록</a></li>
+<li><a href=#1-2-2-재고-관리>1-2-2. 재고 관리</a></li>
+<li><a href=#1-2-3-배송-관리>1-2-3. 배송 관리</a></li>
+<li><a href=#1-2-4-매출-보고가능하다면>1-2-4. 매출 보고(가능하다면)</a></li>
+<li><a href=#1-2-5-회원-관리>1-2-5. 회원 관리</a></li>
+<li><a href=#1-2-6-질문-관리>1-2-6. 질문 관리</a></li>
+<li><a href=#1-2-7-리뷰-관리>1-2-7. 리뷰 관리</a></li>
+<li><a href=#1-2-8-반품-취소-관리>1-2-8. 반품 취소 관리</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#2-추가-기능-idea>2. 추가 기능 idea</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>Contact</h5>
+<ul>
+<li><span>Email: </span> <a href=mailto:taedi90@gmail.com><span>taedi90@gmail.com</span></a></li>
+<li><span>Github: </span> <a href=https://github.com/taedi90><span>https://github.com/taedi90</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+<script>$(document).ready(function(){$('p').has('img').css('text-align','center')})</script>
+</body>
+</html>

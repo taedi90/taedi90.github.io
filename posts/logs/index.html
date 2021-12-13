@@ -1,0 +1,234 @@
+<!doctype html><html>
+<head>
+<title>Logs</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<link rel=icon type=image/png href=/images/site/favicon.svg>
+<meta property="og:title" content="Logs">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://log.taedi.net/posts/logs/">
+<link rel=stylesheet href=/css/layouts/list.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-52CHZ4CKK9',{anonymize_ip:!1})}</script>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+<img src=/images/site/main-logo.svg alt=Logo>
+Taedi's Log</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+<img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
+<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo">
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
+<div class=subtree>
+<li><a href=/posts/java/ title=Java>Java</a></li>
+<li><a href=/posts/javascript/ title=JavaScript>JavaScript</a></li>
+<li><a class=active href=/posts/logs/ title=Logs>Logs</a></li>
+<li><a href=/posts/python/ title=Python>Python</a></li>
+<li><a href=/posts/server/ title=Server>Server</a></li>
+<li><a href=/posts/sql/ title=SQL>SQL</a></li>
+<li><a href=/posts/blog/ title=Blog>Blog</a></li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class="content container-fluid" id=content>
+<div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/yi-teamproject-log-7/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>팀 프로젝트 회고 - 7.Flow(주문 & 결제)</h5>
+<p class="card-text post-summary">1. Flow 1-1. 주문하기 1-2. 주문 확인 2. 구현 Idea 2-1. 주문 대기열 삭제 주기 결제가 완료되지 않은 주문 대기열 매일 자정마다 삭제 (주문상품, 주문 릴레이션) 진행중인 주문이 삭제되는 경우 고려해야함 11시 55분에 작성한 주문 대기열이 바로 삭제되는 불상사도 고려해야함 → 자정마다 2일 이상 지난 미결제 대기열 삭제
+2-2. 주문 진행 상태 구분 주문번호가 일치하는 각 주문상품들의 상태를 보고 판단
+결제 대기 - 주문 튜플은 있으나 결제 내역이 없다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 13일</span>
+<a href=/yi-teamproject-log-7/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/yi-teamproject-log-6/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>팀 프로젝트 회고 - 6.Flow(배송비)</h5>
+<p class="card-text post-summary">0. 전제 조건 배송비는 발송 운임과 반송 운임으로 구분하며, 상품과 동일하게 취급한다. 발송 운임은 주문 당 1개를 초과할 수 없다. 반송 운임은 경우에 따라 중복 부과될 수 있다. 배송비는 편도 2,500원 왕복 5,000원으로 책정한다. 정가기준 50,000원 이상 구매 시 발송 운임은 판매자가 부담한다. 취소 반품 시, 배송비 아이템은 제외하고 계산한다. ex) 상품 A 10,000원 + 상품 B 15,000원 + 발송 운임 2,500원 = 합 27,500원 단순변심 반품 시 주문에 반송 운임 아이템 추가 운임 5,000원을 제외한 22,500원 환불 1.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 12일</span>
+<a href=/yi-teamproject-log-6/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/yi-teamproject-log-5/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>팀 프로젝트 회고 - 5.Flow(회원가입&로그인)</h5>
+<p class="card-text post-summary">1. Flow 1-1. 회원가입 1-1-1. 회원가입(일반) 1-1-2. 회원가입(oAuth) 1-2. 로그인 1-3. 비밀번호 초기화(일반회원) 아이디 & 이메일 입력 → (server) 일치 확인 → (server) 임시 비밀번호 저장 및 메일 발송 → 로그인 시 비밀번호 변경 안내 띄우기
+2. 구현 Idea 회원가입(일반) 가입신청 → 약관 동의 → 정보입력 → 이메일 확인(session? table) → 가입 완료
+이메일 링크에 아이디를 암호화한 주소를 줘서 해당 주소로 접속하면 확인 되는 걸로 하기
+회원가입(oAuth) 가입신청 → 구글 로그인 및 정보 제공 동의 → (약관 동의) → 가입 완료</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 11일</span>
+<a href=/yi-teamproject-log-5/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/yi-teamproject-log-4/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>팀 프로젝트(쇼핑몰 제작) 회고 - 4.DB</h5>
+<p class="card-text post-summary">프로젝트를 진행하면서 가장 찾기 어려웠던 자료가 DB 구조에 대한 부분이었다. 정답이 명확하지도 않거니와 실제 서비스라면 핵심적인 로직이 드러날 수도 있는 부분이라 자료가 크게 없지 않을까 개인적으로 생각해보았다. 그리고 DB를 구현하기 위해서 Flow가 선행되어야 함을 느꼈고 두 과정을 병행하여 진행했던 기억이 있다.
+1. DB 초기부터 제품 교환에 대한 부분은 고려하지 않았고 논리적인 오류는 그때그때 수정하여 나온 결과지만 여기저기 미흡한 부분이 있을 수 있다.
+1-1. ERD 1-2.DDL -- project DROP SCHEMA IF EXISTS `project`; -- project CREATE SCHEMA `project`; USE `project`; CREATE TABLE carrier ( carrier_no int AUTO_INCREMENT COMMENT '택배사 코드' PRIMARY KEY, name varchar(100) NULL COMMENT '택배사 명', biz_no char(10) NULL COMMENT '사업자번호' ) COMMENT '택배사'; CREATE TABLE category ( category_no int AUTO_INCREMENT COMMENT '카테고리 번호' PRIMARY KEY, title varchar(100) NULL COMMENT '카테고리 명' ) COMMENT '카테고리'; CREATE TABLE coupon ( coupon_no int AUTO_INCREMENT COMMENT '쿠폰번호' PRIMARY KEY, name varchar(100) NULL COMMENT '쿠폰명', amount int NULL COMMENT '정액할인', min_price int NULL COMMENT '제품하한가', percent decimal(3, 2) NULL COMMENT '정률할인', max_discount int NULL COMMENT '할인상한가', validity int NULL COMMENT '유효기간' ) COMMENT '쿠폰'; CREATE TABLE keyword_history ( field varchar(100) NULL COMMENT '검색자', keyword varchar(5000) NULL COMMENT '키워드', reg_date timestamp NULL COMMENT '검색일자' ) COMMENT '검색키워드'; CREATE TABLE member ( username varchar(100) NOT NULL COMMENT '아이디' PRIMARY KEY, password varchar(500) NOT NULL COMMENT '비밀번호', name varchar(100) NOT NULL COMMENT '이름', email varchar(200) NOT NULL COMMENT '이메일', email_confirm tinyint(1) DEFAULT '0' NOT NULL COMMENT '이메일 본인확인', phone char(11) NULL COMMENT '휴대폰', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '생성일자', withdrawal_date timestamp NULL COMMENT '탈퇴일자', social tinyint(1) NOT NULL COMMENT '소셜회원 여부', temp_pass tinyint(1) DEFAULT '0' NULL COMMENT '임시비밀번호여부', enabled tinyint(1) DEFAULT '1' NOT NULL COMMENT '활성화 상태' ) COMMENT '회원'; CREATE TABLE auth ( username varchar(100) NOT NULL COMMENT '아이디', authority varchar(50) NOT NULL COMMENT '권한', PRIMARY KEY (username, authority), CONSTRAINT fk_member_to_auth FOREIGN KEY (username) REFERENCES member (username) ) COMMENT '권한'; CREATE TABLE persistent_logins ( username varchar(100) NOT NULL COMMENT '아이디', series varchar(64) NOT NULL COMMENT '시리즈' PRIMARY KEY, token varchar(64) NOT NULL COMMENT '토큰', last_used timestamp NOT NULL COMMENT '마지막 사용' ) COMMENT '자동 로그인'; CREATE TABLE address ( username varchar(100) NULL COMMENT '아이디', title varchar(100) NULL COMMENT '배송지별칭', zipcode char(5) NULL COMMENT '우편번호', address1 varchar(500) NULL COMMENT '주소 앞', address2 varchar(500) NULL COMMENT '주소 상세', name varchar(100) NULL COMMENT '받는분', phone char(11) NULL COMMENT '휴대폰', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '등록일자', mod_date timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일자', CONSTRAINT fk_member_to_address FOREIGN KEY (username) REFERENCES member (username) ) COMMENT '주소'; CREATE TABLE coupon_history ( issue_number bigint AUTO_INCREMENT COMMENT '쿠폰발급번호', coupon_no int NOT NULL COMMENT '쿠폰번호', username varchar(100) NOT NULL COMMENT '아이디', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '발급일자', expire_date timestamp NULL COMMENT '만료일자', use_date timestamp NULL COMMENT '사용일자', use_order bigint NULL COMMENT '사용주문', PRIMARY KEY (issue_number, coupon_no, username), CONSTRAINT fk_coupon_to_coupon_history FOREIGN KEY (coupon_no) REFERENCES coupon (coupon_no), CONSTRAINT fk_member_to_coupon_history FOREIGN KEY (username) REFERENCES member (username) ) COMMENT '쿠폰발급이력'; CREATE TABLE non_member ( non_username varchar(100) NOT NULL COMMENT '임시아이디' PRIMARY KEY, password varchar(500) NULL COMMENT '주문확인비번', name varchar(100) NULL COMMENT '이름', email varchar(200) NULL COMMENT '이메일', phone char(11) NULL COMMENT '핸드폰', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '등록일자' ) COMMENT '비회원'; CREATE TABLE `order` ( order_no bigint NOT NULL COMMENT '주문번호' PRIMARY KEY, username varchar(100) NULL COMMENT '회원아이디', non_username varchar(100) NULL COMMENT '비회원아이디', zipcode char(5) NULL COMMENT '우편번호', address1 varchar(500) NULL COMMENT '주소 앞', address2 varchar(500) NULL COMMENT '주소 상세', name varchar(100) NULL COMMENT '받는분', phone char(11) NULL COMMENT '휴대폰', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '생성일자', point int NULL COMMENT '포인트 사용액', status varchar(50) NULL COMMENT '주문상태', CONSTRAINT fk_member_to_order FOREIGN KEY (username) REFERENCES member (username), CONSTRAINT fk_non_member_to_order FOREIGN KEY (non_username) REFERENCES non_member (non_username) ) COMMENT '주문'; CREATE TABLE pass_history ( username varchar(100) NULL COMMENT '아이디', password varchar(500) NULL COMMENT '비밀번호', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '설정일자', CONSTRAINT fk_member_to_pass_history FOREIGN KEY (username) REFERENCES member (username) ) COMMENT 'pass_history'; CREATE TABLE payment ( payment_no bigint AUTO_INCREMENT COMMENT '번호' PRIMARY KEY, sort varchar(50) NULL COMMENT '결제구분', method varchar(50) NULL COMMENT '지불방식', order_no bigint NULL COMMENT '주문번호', uid varchar(50) NULL COMMENT 'pg사 결제번호', amount int NULL COMMENT '결제금액', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '결제일자', CONSTRAINT fk_order_to_payment FOREIGN KEY (order_no) REFERENCES `order` (order_no) ) COMMENT '결제환불'; CREATE TABLE point ( point_no bigint AUTO_INCREMENT COMMENT '포인트 번호' PRIMARY KEY, username varchar(100) NOT NULL COMMENT '아이디', point int NULL COMMENT '포인트', order_item_no bigint NULL COMMENT '주문상품번호', review_no bigint NULL COMMENT '리뷰번호', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '적립일', exp_date timestamp NULL COMMENT '만료일', CONSTRAINT fk_member_to_point FOREIGN KEY (username) REFERENCES member (username) ) COMMENT '포인트'; CREATE TABLE privacy_policy ( policy_no int AUTO_INCREMENT COMMENT '번호' PRIMARY KEY, text varchar(10000) NULL COMMENT '내용', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '작성일' ) COMMENT '개인정보 처리 방침'; CREATE table privacy_agreement ( username varchar(100) NOT NULL COMMENT '동의자 아이디', policy_no int NOT NULL COMMENT '약관번호', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '동의일자', PRIMARY KEY (username, policy_no), CONSTRAINT fk_member_to_privacy_agreement FOREIGN KEY (username) REFERENCES member (username), CONSTRAINT fk_privacy_policy_to_privacy_agreement FOREIGN KEY (policy_no) REFERENCES privacy_policy (policy_no) ) COMMENT '개인정보 처리 방침 동의 내역'; CREATE TABLE product_info_announce ( pia_no int AUTO_INCREMENT COMMENT '고시_번호' PRIMARY KEY, title varchar(100) NULL COMMENT '템플릿 명', text varchar(5000) NULL COMMENT '내용', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '작성일' ) COMMENT '상품정보제공고시'; CREATE TABLE item ( item_no int AUTO_INCREMENT COMMENT '상품번호' PRIMARY KEY, category_no int NULL COMMENT '카테고리번호', name varchar(100) NULL COMMENT '상품명', price int NULL COMMENT '가격', discount int NULL COMMENT '할인_가격', start_discount timestamp NULL COMMENT '할인_시작일', end_discount timestamp NULL COMMENT '할인_종료일', title varchar(100) NULL COMMENT '제목', text varchar(10000) NULL COMMENT '내용', image varchar(200) NULL UNIQUE COMMENT '상품이미지', pia_no int NULL COMMENT '상품정보제공고시_번호', coupon_allow tinyint(1) NULL COMMENT '쿠폰할인가능여부', hide tinyint(1) NULL COMMENT '상품숨기기', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '작성일자', mod_date timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일자', username varchar(100) NOT NULL COMMENT '작성자', publish tinyint(1) NULL COMMENT '발행여부', CONSTRAINT fk_category_to_item FOREIGN KEY (category_no) REFERENCES category (category_no) ON UPDATE CASCADE, CONSTRAINT fk_product_info_announce_to_item FOREIGN KEY (pia_no) REFERENCES product_info_announce (pia_no) ON UPDATE CASCADE, CONSTRAINT fk_member_to_item FOREIGN KEY (username) REFERENCES member (username) ) COMMENT '상품정보'; CREATE TABLE `option` ( option_no bigint AUTO_INCREMENT COMMENT '옵션번호', item_no int NOT NULL COMMENT '상품번호', name varchar(100) NULL COMMENT '옵션명', option_price int NULL COMMENT '추가금액', stock int NULL COMMENT '재고수량', PRIMARY KEY (option_no, item_no), CONSTRAINT fk_item_to_option FOREIGN KEY (item_no) REFERENCES item (item_no) ON UPDATE CASCADE ON DELETE CASCADE ) COMMENT '상품옵션'; CREATE TABLE cart ( cart_no bigint AUTO_INCREMENT COMMENT '장바구니 번호' PRIMARY KEY, username varchar(100) NOT NULL COMMENT '아이디', option_no bigint NULL COMMENT '옵션번호', item_no int NULL COMMENT '상품번호', quantity int NULL COMMENT '수량', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '등록일자', mod_date timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일자', CONSTRAINT fk_member_to_cart FOREIGN KEY (username) REFERENCES member (username), CONSTRAINT fk_option_to_cart FOREIGN KEY (option_no, item_no) REFERENCES `option` (option_no, item_no) ON DELETE CASCADE ON UPDATE CASCADE ) COMMENT '장바구니'; CREATE TABLE question ( question_no bigint AUTO_INCREMENT COMMENT '질문번호', username varchar(100) NOT NULL COMMENT '아이디', item_no int NULL COMMENT '상품번호', title varchar(100) NULL COMMENT '제목', secret tinyint(1) NULL COMMENT '비밀글여부', text varchar(5000) NULL COMMENT '내용', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '작성일', answer_title varchar(100) NULL COMMENT '답변_제목', answer_text varchar(5000) NULL COMMENT '답변_내용', answer_id varchar(100) NULL COMMENT '답변_작성자', answer_reg_date timestamp NULL COMMENT '답변_작성일', PRIMARY KEY (question_no, username), CONSTRAINT fk_item_to_question FOREIGN KEY (item_no) REFERENCES item (item_no) ON UPDATE CASCADE ON DELETE SET NULL, CONSTRAINT fk_member_to_question FOREIGN KEY (username) REFERENCES member (username) ) COMMENT '질문답변'; CREATE TABLE return_option ( return_option_code int AUTO_INCREMENT COMMENT '반품_코드' PRIMARY KEY, reason varchar(50) NULL COMMENT '반품_사유', return_free tinyint(1) NULL COMMENT '배송비 면제', comment varchar(5000) NULL COMMENT '비고' ) COMMENT '반품사유'; CREATE TABLE order_item ( order_item_no bigint AUTO_INCREMENT COMMENT '주문상품번호', order_no bigint NOT NULL COMMENT '주문번호', item_no int NULL COMMENT '상품번호', option_no bigint NULL COMMENT '옵션번호', option_name varchar(100) NULL COMMENT '옵션명', issue_number bigint NULL COMMENT '쿠폰발급번호', coupon_no int NULL COMMENT '쿠폰번호', price_item int NULL COMMENT '상품 금액', price_option int NULL COMMENT '옵션 금액', price_coupon int NULL COMMENT '할인 금액', prepare_date timestamp NULL COMMENT '배송_준비일', delivery_carrier_no int NULL COMMENT '택배사번호', tracking_number int NULL COMMENT '배송_운송장번호', delivery_start_date timestamp NULL COMMENT '배송_운송장등록일', delivery_end_date timestamp NULL COMMENT '배송_완료일', confirm_date timestamp NULL COMMENT '구매_확정일', cancel_date timestamp NULL COMMENT '취소_요청일', return_date timestamp NULL COMMENT '반품_요청일', return_carrier_no int NULL COMMENT '반품_택배사번호', return_number timestamp NULL COMMENT '반품_운송장', return_confirm_date timestamp NULL COMMENT '반품_처리일', return_option_code int NULL COMMENT '반품_코드', refund_date timestamp NULL COMMENT '환불_일자', PRIMARY KEY (order_item_no, order_no), CONSTRAINT fk_carrier_to_order_item FOREIGN KEY (delivery_carrier_no) REFERENCES carrier (carrier_no) ON UPDATE CASCADE, CONSTRAINT fk_coupon_history_to_order_item FOREIGN KEY (issue_number, coupon_no) REFERENCES coupon_history (issue_number, coupon_no) ON UPDATE CASCADE, CONSTRAINT fk_option_to_order_item FOREIGN KEY (option_no, item_no) REFERENCES `option` (option_no, item_no) ON UPDATE CASCADE ON DELETE SET NULL, CONSTRAINT fk_order_to_order_item FOREIGN KEY (order_no) REFERENCES `order` (order_no) ON UPDATE CASCADE, CONSTRAINT fk_return_option_to_order_item FOREIGN KEY (return_option_code) REFERENCES return_option (return_option_code) ON UPDATE CASCADE ) COMMENT '주문상품'; CREATE TABLE review ( review_no bigint AUTO_INCREMENT COMMENT '리뷰번호', order_item_no bigint NOT NULL COMMENT '주문상품번호', order_no bigint NOT NULL COMMENT '주문번호', username varchar(100) NULL COMMENT '아이디', star int NULL COMMENT '별점', text varchar(5000) NULL COMMENT '내용', title varchar(100) NULL COMMENT '제목', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '작성일', mod_date timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일', answer_text varchar(5000) NULL COMMENT '답변 내용', answer_id varchar(100) NULL COMMENT '답변 담당자', answer_reg_date timestamp NULL COMMENT '답변 작성일', answer_mod_date timestamp NULL COMMENT '답변 수정일', PRIMARY KEY (review_no, order_item_no, order_no), CONSTRAINT fk_member_to_review FOREIGN KEY (username) REFERENCES member (username), CONSTRAINT fk_order_item_to_review FOREIGN KEY (order_item_no, order_no) REFERENCES order_item (order_item_no, order_no) ) COMMENT '리뷰'; CREATE TABLE `like` ( review_no bigint NOT NULL COMMENT '리뷰번호', username varchar(100) NOT NULL COMMENT '아이디', reg_date timestamp NULL COMMENT '일자', PRIMARY KEY (review_no, username), CONSTRAINT fk_member_to_like FOREIGN KEY (username) REFERENCES member (username), CONSTRAINT fk_review_to_like FOREIGN KEY (review_no) REFERENCES review (review_no) ON UPDATE CASCADE ON DELETE CASCADE ) COMMENT '좋아요'; CREATE TABLE review_comment ( comment_no bigint AUTO_INCREMENT COMMENT '댓글번호' PRIMARY KEY, order_item_no bigint NULL COMMENT '주문상품번호', review_no bigint NULL COMMENT '리뷰번호', username varchar(100) NULL COMMENT '아이디', text varchar(5000) NULL COMMENT '내용', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '작성일자', mod_date timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일자', order_no bigint NULL COMMENT '주문번호', CONSTRAINT fk_member_to_review_comment FOREIGN KEY (username) REFERENCES member (username) ON UPDATE CASCADE ON DELETE CASCADE, CONSTRAINT fk_review_to_review_comment FOREIGN KEY (review_no) REFERENCES review (review_no) ) COMMENT '리뷰댓글'; CREATE TABLE review_template ( no int AUTO_INCREMENT COMMENT '번호' PRIMARY KEY, name varchar(100) NULL COMMENT '별칭', text varchar(5000) NULL COMMENT '내용', reg_date timestamp DEFAULT CURRENT_TIMESTAMP NULL COMMENT '작성일', mod_date timestamp NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일' ) COMMENT '리뷰 답변 템플릿'; </p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 07일</span>
+<a href=/yi-teamproject-log-4/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/yi-teamproject-log-3/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>팀 프로젝트(쇼핑몰 제작) 회고 - 3.코딩 컨벤션</h5>
+<p class="card-text post-summary">프로젝트 내내 덕을 많이 본 코딩 컨벤션이다. 하단 링크를 참고하여 간결하게 우리 프로젝트 만의 컨벤션을 정의했는데 기회가 된다면 이것보다도 더욱 정교하게 만들어 보고 싶다.
+1. Basic 캠퍼스 핵데이 Java 코딩 컨벤션 을 준수 하며, JS 의 경우 Naver JavaScript Style Guide 를 가급적 지향하며 코딩할 것
+1-1. IDE 설정 캠퍼스 핵데이 가이드에 따라 코딩할 수 있도록 IDE Formatter 적용이 가능함
+1-1-1. Eclipse naver-eclipse-formatter.xml
+아래 링크 D.1.* 내용 참고 https://naver.github.io/hackday-conventions-java/#_eclipse 1-1-2.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 05일</span>
+<a href=/yi-teamproject-log-3/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/yi-teamproject-log-2/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>팀 프로젝트(쇼핑몰 제작) 회고 - 2.페이지 구상</h5>
+<p class="card-text post-summary">쇼핑몰로 프로젝트 주제를 결정하고, 초기에 어떤 페이지가 필요할까 고민하며 작성해본 리스트다. 회의 단계에서 제외된 내용도 있고, 시간 여유상 구현하지 못한 기능들도 있다.
+1. 기본 페이지 구성 idea 1-1. 사용자 상품리스트, 상품상세, 로그인/회원가입, 결제화면, 마이페이지, 장바구니, 질문답변, 리뷰, 비회원 기능, 비밀번호 초기화, 주문취소/반품, 이용약관, about
+1-1-1. 메인(상품리스트) header, nav, main, footer 구성 제품 정렬 기능(인기순, 가격순, 세부조건) 카테고리별 구분 제품 재고 현황에 따라 sold out 처리 및 정렬에서 뒤로 빼기 페이징 처리 1-1-2.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 03일</span>
+<a href=/yi-teamproject-log-2/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/yi-teamproject-log-1/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.svg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>팀 프로젝트(쇼핑몰 제작) 회고 - 1.후기</h5>
+<p class="card-text post-summary">지난 한달간 조원 2명과 쇼핑몰 제작 프로젝트를 진행했고, 처음 팀 프로젝트를 경험하며 막막했던 부분들을 기록으로 남기고자 글을 작성하였다. 나와 마찬가지로 처음 팀 프로젝트를 경험할 누군가에게 도움이 될 수 있으면 좋겠다.
+1. 후기 프로젝트를 진행하며 느낀 사항 중 좋았던 부분과 다음에 필히 개선해야겠다고 생각했던 부분을 되새겨 보았다.
+1-1. 만족했던 점 팀 단위의 개발을 처음 경험해보며 혼자서 개발할 때는 추상적으로만 느껴졌던 협업에 대한 부분을 몸소 체험해볼 수 있는 기회가 되었고, 그러면서 여러 시도를 해볼 수 있어서 좋았다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 02일</span>
+<a href=/yi-teamproject-log-1/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class=paginator>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>Contact</h5>
+<ul>
+<li><span>Email: </span> <a href=mailto:taedi90@gmail.com><span>taedi90@gmail.com</span></a></li>
+<li><span>Github: </span> <a href=https://github.com/taedi90><span>https://github.com/taedi90</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=/js/list.js></script>
+</body>
+</html>
