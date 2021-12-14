@@ -3,14 +3,15 @@ name: "Taesoo Kim"
 nickname: "Taedi"
 image: "images/author/avatar.png"
 
-# greeting message before your name. it will default to "Hi! I am" if not provided
-greeting: "Hi, I am"
-
 # give your contact information. they will be used in the footer
 contactInfo:
   email: "taedi90@gmail.com"
-  github: "https://github.com/taedi90"
+  github: "taedi90"
   #phone: "+0123456789"
+
+
+# greeting message before your name. it will default to "Hi! I am" if not provided
+greeting: "Hi, I am"
 
 # a summary of what you do
 summary:
