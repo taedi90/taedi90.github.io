@@ -1,6 +1,6 @@
 ---
 title: "Github 블로그 설정 3. Notion 페이지 변환"
-date: 2021-09-13T00:00:00+09:00
+date: 2021-09-12T00:00:00+09:00
 lastmod: 2021-10-17T16:34:00+09:00
 hero: images/hero/blog.png
 url: /notion-to-hugo-toha/
@@ -11,7 +11,7 @@ menu:
     name: 3. notion 페이지 변환
     identifier: Blog-3. notion 페이지 변환
     parent: Blog
-    weight: 12
+    weight: 11
 ---
 
 

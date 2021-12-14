@@ -1,6 +1,6 @@
 ---
 title: "Github 블로그 설정 2. 세부 설정"
-date: 2021-09-13T00:00:00+09:00
+date: 2021-09-11T00:00:00+09:00
 lastmod: 2021-10-17T16:34:00+09:00
 hero: images/hero/blog.png
 url: /hugo-setting/
@@ -11,7 +11,7 @@ menu:
     name: 2. 세부 설정
     identifier: Blog-2. 세부 설정
     parent: Blog
-    weight: 11
+    weight: 12
 ---
 
 

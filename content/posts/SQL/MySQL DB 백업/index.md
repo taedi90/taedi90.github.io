@@ -1,6 +1,6 @@
 ---
 title: "[mysqldump] MySQL DB 백업 및 복구"
-date: 2021-12-07T00:00:00+09:00
+date: 2021-11-29T00:00:00+09:00
 lastmod: 2021-12-08T11:27:00+09:00
 hero: images/hero/sql.png
 url: /mysql-dump/

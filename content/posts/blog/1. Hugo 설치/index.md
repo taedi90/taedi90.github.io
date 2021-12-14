@@ -1,6 +1,6 @@
 ---
 title: "Github 블로그 설정  1. Hugo 설치"
-date: 2021-09-13T00:00:00+09:00
+date: 2021-09-10T00:00:00+09:00
 lastmod: 2021-10-17T15:51:00+09:00
 hero: images/hero/blog.png
 url: /hugo-install/
@@ -11,7 +11,7 @@ menu:
     name: 1. Hugo 설치
     identifier: Blog-1. Hugo 설치
     parent: Blog
-    weight: 10
+    weight: 13
 ---
 
 
