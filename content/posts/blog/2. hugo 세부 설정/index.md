@@ -11,7 +11,7 @@ menu:
     name: 2. 세부 설정
     identifier: Blog-2. 세부 설정
     parent: Blog
-    weight: 12
+    weight: 10
 ---
 
 

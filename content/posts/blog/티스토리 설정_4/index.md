@@ -1,7 +1,7 @@
 ---
 title: "기존 주소 방문 시 리다이렉트 하기 - 티스토리 2차 도메인 설정 #3"
 date: 2021-03-10T00:00:00+09:00
-lastmod: 2021-12-04T17:20:00+09:00
+lastmod: 2021-03-10T17:20:00+09:00
 hero: 
 url: /tistory-blog-setting-4/
 description: 티스토리 개인 도메인 설정

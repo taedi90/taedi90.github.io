@@ -1,7 +1,7 @@
 ---
 title: "티스토리 개인 도메인 구매 및 활용하기 - #1 구매동기, DNS설정, 오류해결"
 date: 2021-03-05T00:00:00+09:00
-lastmod: 2021-12-04T17:11:00+09:00
+lastmod: 2021-03-05T17:11:00+09:00
 hero: 
 url: /tistory-blog-setting/
 description: 티스토리 개인 도메인 설정

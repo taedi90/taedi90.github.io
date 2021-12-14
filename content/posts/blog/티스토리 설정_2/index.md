@@ -1,7 +1,7 @@
 ---
 title: "검색엔진 노출 재설정하기 - 티스토리 2차 도메인 설정 #1"
 date: 2021-03-07T00:00:00+09:00
-lastmod: 2021-12-04T17:11:00+09:00
+lastmod: 2021-03-07T17:11:00+09:00
 hero: 
 url: /tistory-blog-setting-2/
 description: 티스토리 개인 도메인 설정

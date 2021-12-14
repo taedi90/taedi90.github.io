@@ -11,7 +11,7 @@ menu:
     name: 3. notion 페이지 변환
     identifier: Blog-3. notion 페이지 변환
     parent: Blog
-    weight: 11
+    weight: 10
 ---
 
 

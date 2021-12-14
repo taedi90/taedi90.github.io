@@ -11,7 +11,7 @@ menu:
     name: 1. Hugo 설치
     identifier: Blog-1. Hugo 설치
     parent: Blog
-    weight: 13
+    weight: 10
 ---
 
 
