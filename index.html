@@ -142,6 +142,25 @@ Taedi's Log</a>
 </a>
 </div>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/spring-mybatis-paging/ title="Spring Mybatis 페이징 처리" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero2.png alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>Spring Mybatis 페이징 처리</h5>
+<p class="card-text post-summary"> 마이바티스 환경에서 페이징 처리를 편리하게 하기 위한 방법을 고민하다 Pager 클래스를 활용하여 여러 페이지에서 공통적으로 사용할 수 있는 방법을 생각해보았다.
+코드 Pager 클래스 생성 client 요청의 파라미터, db 조회 결과, view에 전달할 정보를 운반할 클래스를 생성한다. 테이블마다 추가로 필요한 속성이 있을 경우 상속을 받아 사용하였다.
+import lombok.AllArgsConstructor; import lombok.Builder; import lombok.Data; /** * 페이징 처리를 위한 Pager 클래스 * * @author taedi */ @Data @Builder @AllArgsConstructor public class Pager { //client 요청 값 private int pageNo; //페이지 번호 private int amount; //한 페이지에 표시할 레코드 수 private String category; //카테고리 private String keyword; //검색 키워드 private String order; //정렬 순서 //server 설정 private int linkCount; //하단 링크에 표시할 페이지 수 //DB 조회 결과 private int startRecord; // 페이지 시작 레코드(인덱스) private int totalRecords; //전체 레코드 수 private int finalPageNo; //끝 페이지 번호 private int startPage; //페이지 링크 시작 번호 private int endPage; //페이지 링크 종료 번호 private int prev; //이전 버튼에 부여할 페이지 번호 private int next; //다음 버튼에 부여할 페이지 번호 private Object records; //게시물을 담을 객체 //별도 지정하지 않았을 경우의 기본 값 public Pager() { this.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 12월 08일</span>
+<a href=/spring-mybatis-paging/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
 <a href=/yi-teamproject-log-4/ title="팀 프로젝트(쇼핑몰 제작) 회고 - 4.DB" class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -156,23 +175,6 @@ Taedi's Log</a>
 <div class=card-footer>
 <span class=float-left>2021년 12월 07일</span>
 <a href=/yi-teamproject-log-4/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/mysql-dump/ title="[mysqldump] MySQL DB 백업 및 복구" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/hero/sql.png alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>[mysqldump] MySQL DB 백업 및 복구</h5>
-<p class="card-text post-summary"> 백업 # mysqldump -u root -p --databases [DB명] > [저장경로/파일명] mysqldump -u root -p --databases [DB명] > /var/lib/mysql/project_2021-12-07.sql 복원 # mysqldump -u root -p [DB명] &lt; [저장경로/파일명] mysql -u root -p project &lt; /var/lib/mysql/project_2021-12-07.sql 참고 https://code-factory.tistory.com/21 </p>
-</div>
-<div class=card-footer>
-<span class=float-left>2021년 12월 07일</span>
-<a href=/mysql-dump/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

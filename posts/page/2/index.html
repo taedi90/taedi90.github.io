@@ -71,6 +71,24 @@ Taedi's Log</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/eclipse-mac-kor-fix/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/hero/java.png alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>이클립스(eclipse), Dbeaver 맥에서 한글 짤림문제 해결</h5>
+<p class="card-text post-summary">서론 맥에서 이클립스를 사용하려면 불편함을 감수해야하는 부분이 있는데 그중에서도 제일은 한글 짤림 현상일 것이다. 이것은 한글 타이핑 시 마지막에 입력한 글자가 지워지는 현상인데, 이를 방지하려면 문장 작성 후 esc, enter, space 키 등을 입력 해주어야 하는 번거로움이 있다. (SQL 클라이언트 툴인 Dbeaver 또한 동일한 증상을 가지고 있다.)
+구글 검색을 해보니 2013년 이전부터 리포팅 되어왔으나 프로그램 개선이나 해결책이 없는 채로 방치된 문제로 보였고, 여러 포스팅에서 맞춤법 자동 수정 을 해제하라는 말이 있었지만 일단 현재기준으로 전혀 먹히지 않는다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 10월 16일</span>
+<a href=/eclipse-mac-kor-fix/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/python-virtual-environment-setup/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -83,64 +101,6 @@ Taedi's Log</a>
 <div class=card-footer>
 <span class=float-left>2021년 09월 18일</span>
 <a href=/python-virtual-environment-setup/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/hugo-install/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Github 블로그 설정 1. Hugo 설치</h5>
-<p class="card-text post-summary">서론 코딩 공부를 시작하며 메모는 선택이 아닌 필수가 되었다. 처음에는 노션으로 기본적인 메모를 하고 어느정도 정리가 되면 티스토리에 업로드를 할 것을 계획했고 포스팅을 조금씩 해나가고 있었는데, 언젠가부터 글을 작성할 때 마다 reCAPTCHA 가 발생하기 시작했다.
-물론 직접 글을 작성할 때야 체크 항목이 하나 늘어난 것 뿐이지만, 문제는 OPEN API 방식의 포스팅은 완전히 불가능해져 애용하던 Notion2Tistory 를 활용할 수가 없어진 것이 큰 문제였다. (노션에 작성한 글을 API 없이 티스토리에 업로드 하기위해서는 대단한 인내심이 필요했다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>2021년 09월 13일</span>
-<a href=/hugo-install/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/hugo-setting/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Github 블로그 설정 2. 세부 설정</h5>
-<p class="card-text post-summary">글 게시 작성한 글을 게시하려면 md 형식으로 저장하여 프로젝트 내부의 content 폴더에 위치시키면 된다.
-front matter 설정 글 상단에 yaml, toml, json 키 값 쌍으로 이워진 front matter 를 작성해야한다. front matter 는 종류가 꽤 다양해 공식 문서를 확인해보고 필요한 것들을 선택적으로 사용하면 될 듯하다. 그리고 적용한 테마에 따라서 필수적으로 요구되는 front matter 가 달라질 수 있고 형식 또한 달라질 수 있는 듯 하다.
-https://gohugo.io/content-management/front-matter/
-섹션 설정 hugo는 폴더로 섹션과 하위 섹션을 구분할 수 있다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>2021년 09월 13일</span>
-<a href=/hugo-setting/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/notion-to-hugo-toha/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Github 블로그 설정 3. Notion 페이지 변환</h5>
-<p class="card-text post-summary">노션은 기본적으로 작성한 글을 마크다운으로 내보낼 수 있는 기능이 있어 hugo 포스팅을 하는데 탁월할 것이라 생각했다.
-하지만 노션의 내보내기 기능은 어딘가 아쉬운 부분이 있어 이것을 조금 손봐줄 필요가 있었다.
-추가 작업 H 태그 노션은 h1 ~ h3 태그만 지원하며 h4~h6 태그는 없다. 그런데 h1 태그는 포스트에 여러개 존재하면 SEO 점수에 좋지 않은 영향을 미치기 떄문에 hugo 포스팅을 염두에 둔다면 h2 와 h3 태그만 사용해야하는 문제가 발생한다.
-그대로 사용하기엔 기존의 글을 그대로 옮기기 위해 추가적인 작업이 필요한 문제와(h1 태그 안쓴 글이 없었다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>2021년 09월 13일</span>
-<a href=/notion-to-hugo-toha/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
@@ -160,6 +120,64 @@ https://gohugo.io/content-management/front-matter/
 <div class=card-footer>
 <span class=float-left>2021년 09월 13일</span>
 <a href=/hugo-upload/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/notion-to-hugo-toha/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Github 블로그 설정 3. Notion 페이지 변환</h5>
+<p class="card-text post-summary">노션은 기본적으로 작성한 글을 마크다운으로 내보낼 수 있는 기능이 있어 hugo 포스팅을 하는데 탁월할 것이라 생각했다.
+하지만 노션의 내보내기 기능은 어딘가 아쉬운 부분이 있어 이것을 조금 손봐줄 필요가 있었다.
+추가 작업 H 태그 노션은 h1 ~ h3 태그만 지원하며 h4~h6 태그는 없다. 그런데 h1 태그는 포스트에 여러개 존재하면 SEO 점수에 좋지 않은 영향을 미치기 떄문에 hugo 포스팅을 염두에 둔다면 h2 와 h3 태그만 사용해야하는 문제가 발생한다.
+그대로 사용하기엔 기존의 글을 그대로 옮기기 위해 추가적인 작업이 필요한 문제와(h1 태그 안쓴 글이 없었다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 09월 12일</span>
+<a href=/notion-to-hugo-toha/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/hugo-setting/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Github 블로그 설정 2. 세부 설정</h5>
+<p class="card-text post-summary">글 게시 작성한 글을 게시하려면 md 형식으로 저장하여 프로젝트 내부의 content 폴더에 위치시키면 된다.
+front matter 설정 글 상단에 yaml, toml, json 키 값 쌍으로 이워진 front matter 를 작성해야한다. front matter 는 종류가 꽤 다양해 공식 문서를 확인해보고 필요한 것들을 선택적으로 사용하면 될 듯하다. 그리고 적용한 테마에 따라서 필수적으로 요구되는 front matter 가 달라질 수 있고 형식 또한 달라질 수 있는 듯 하다.
+https://gohugo.io/content-management/front-matter/
+섹션 설정 hugo는 폴더로 섹션과 하위 섹션을 구분할 수 있다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 09월 11일</span>
+<a href=/hugo-setting/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/hugo-install/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/hero/blog.png alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Github 블로그 설정 1. Hugo 설치</h5>
+<p class="card-text post-summary">서론 코딩 공부를 시작하며 메모는 선택이 아닌 필수가 되었다. 처음에는 노션으로 기본적인 메모를 하고 어느정도 정리가 되면 티스토리에 업로드를 할 것을 계획했고 포스팅을 조금씩 해나가고 있었는데, 언젠가부터 글을 작성할 때 마다 reCAPTCHA 가 발생하기 시작했다.
+물론 직접 글을 작성할 때야 체크 항목이 하나 늘어난 것 뿐이지만, 문제는 OPEN API 방식의 포스팅은 완전히 불가능해져 애용하던 Notion2Tistory 를 활용할 수가 없어진 것이 큰 문제였다. (노션에 작성한 글을 API 없이 티스토리에 업로드 하기위해서는 대단한 인내심이 필요했다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>2021년 09월 10일</span>
+<a href=/hugo-install/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
