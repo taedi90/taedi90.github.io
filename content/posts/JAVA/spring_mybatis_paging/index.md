@@ -2,7 +2,7 @@
 title: "Spring Mybatis 페이징 처리"
 date: 2021-12-08T00:00:00+09:00
 lastmod: 2021-12-14T09:54:00+09:00
-hero: 
+hero: images/hero/java.png
 url: /spring-mybatis-paging/
 description: 
 tags: [Mybatis, Spring]
