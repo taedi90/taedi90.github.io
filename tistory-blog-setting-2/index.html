@@ -1,235 +1,29 @@
-<!doctype html><html>
-<head>
-<title>검색엔진 노출 재설정하기 - 티스토리 2차 도메인 설정 #1</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
-<link rel=icon type=image/png href=/images/site/favicon.svg>
-<meta property="og:title" content="검색엔진 노출 재설정하기 - 티스토리 2차 도메인 설정 #1">
-<meta property="og:description" content="티스토리 개인 도메인 설정">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://log.taedi.net/tistory-blog-setting-2/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-03-07T00:00:00+09:00">
-<meta property="article:modified_time" content="2021-03-07T17:11:00+09:00">
-<meta name=description content="티스토리 개인 도메인 설정">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-52CHZ4CKK9',{anonymize_ip:!1})}</script>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-<img src=/images/site/main-logo.svg alt=Logo>
+<!doctype html><html><head><title>검색엔진 노출 재설정하기 - 티스토리 2차 도메인 설정 #1</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<link rel=icon type=image/png href=/images/site/favicon.svg><meta property="og:title" content="검색엔진 노출 재설정하기 - 티스토리 2차 도메인 설정 #1"><meta property="og:description" content="티스토리 개인 도메인 설정"><meta property="og:type" content="article"><meta property="og:url" content="https://log.taedi.net/tistory-blog-setting-2/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-03-07T00:00:00+09:00"><meta property="article:modified_time" content="2021-03-07T17:11:00+09:00"><meta name=description content="티스토리 개인 도메인 설정"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-52CHZ4CKK9",{anonymize_ip:!1})}</script></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/><img src=/images/site/main-logo.svg alt=Logo>
 Taedi's Log</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-<img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
-<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo">
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
-<div class=subtree>
-<li><a class=active href=/posts/blog/ title=Blog>Blog</a></li>
-<li><a href=/posts/java/ title=Java>Java</a></li>
-<li><a href=/posts/javascript/ title=JavaScript>JavaScript</a></li>
-<li><a href=/posts/logs/ title=Logs>Logs</a></li>
-<li><a href=/posts/python/ title=Python>Python</a></li>
-<li><a href=/posts/server/ title=Server>Server</a></li>
-<li><a href=/posts/sql/ title=SQL>SQL</a></li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/default-hero2.png)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/avatar_hue4fa7b2d8e73b32dce85afe643c3f5c5_90375_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Taesoo Kim</h5>
-<p>2021년 03월 07일</p>
-</div>
-<div class=title>
-<h1>검색엔진 노출 재설정하기 - 티스토리 2차 도메인 설정 #1</h1>
-</div>
-<div class=taxonomy-terms>
-<ul style=padding-inline-start:0>
-<li class=rounded><a href=/tags/blog class="btn, btn-sm">blog</a></li>
-<li class=rounded><a href=/tags/dns class="btn, btn-sm">dns</a></li>
-<li class=rounded><a href=/tags/tistory class="btn, btn-sm">tistory</a></li>
-</ul>
-</div>
-<div class=post-content id=post-content>
-<p>※ 티스토리 블로그에 작성했던 내용을 옮겨왔습니다.</p>
-<p>티스토리 블로그 주소 변경을 마친 후에 가장 먼저 <strong>사이트 검색노출</strong>을 재설정 해주었습니다. 기존에 사용하던 1차 도메인(티스토리 기본 제공 도메인)이 계속해서 검색엔진에 노출되고 있고 2차 도메인(개인 도메인)은 아직 알려져있지 않기 때문에 신속하게 변경하여야 유입 방문객 수 손실을 그나마 낮출 수 있을 것이라 판단했기 때문입니다.</p>
-<p>도메인 구매과정 및 티스토리 블로그 적용 방법에 대한 내용이 궁금하시다면 아래 링크를 참고하시기 바랍니다.</p>
-<p><a href=https://taedi.net/41>티스토리 개인 도메인 구매 및 활용하기 - #1 구매동기, DNS설정, 오류해결</a></p>
-<h3 id=1차-도메인-게시글-검색엔진-노출-제외>1차 도메인 게시글 검색엔진 노출 제외</h3>
-<p>일단 기존 주소로 알려져 있는 검색 노출을 모두 제외 시켜야합니다. 색인 요청 처리까지 긴 시간이 걸린 결과물이지만.. 새로운 도메인의 게시글과 중복글으로 판단되어 사이트 평가가 낮아질 수 있다는 우려에 우선적으로 진행하였습니다.</p>
-<h4 id=내-블로그-글-비공개로-전환>내 블로그 글 비공개로 전환</h4>
-<p>우선 <strong>블로그 관리 홈 > 글 관리</strong> 탭에서 포스팅한 모든 글을 비공개로 처리해줍니다.</p>
-<p><img src=images/pic-0009.png alt="블로그 관리 홈 > 글 관리에서 작성했던 모든 글을 비공개 처리한다."></p>
-<p>블로그 관리 홈 > 글 관리에서 작성했던 모든 글을 비공개 처리한다.</p>
-<h4 id=검색-등록기관에서-검색-제외-요청하기>검색 등록기관에서 검색 제외 요청하기</h4>
-<p>네이버 서치어드바이저, 구글 서치콘솔, 빙 웹마스터 도구에서 현재 색인된 페이지들을 모두 검색 제외 요청합니다.</p>
-<p><img src=images/pic-0007.png alt="네이버는 각각의 페이지를 모두 제외 요청 해야 함"></p>
-<p>네이버는 각각의 페이지를 모두 제외 요청 해야 함</p>
-<p><img src=images/pic-0003.png alt="구글은 도메인만 입력하면 하위 페이지를 모두 처리할 수 있다."></p>
-<p>구글은 도메인만 입력하면 하위 페이지를 모두 처리할 수 있다.</p>
-<h4 id=제출한-rss-및-사이트맵-제거>제출한 RSS 및 사이트맵 제거</h4>
-<p>등록했던 RSS 및 사이트맵도 제거하여 검색엔진이 새로 페이지들을 색인하는 것을 방지하여 줍니다.</p>
-<p><img src=images/pic-0005.png alt="네이버 RSS 제출 페이지"></p>
-<p>네이버 RSS 제출 페이지</p>
-<p><img src=images/pic-0002.png alt="구글은 Sitemaps에서 RSS와 사이트맵을 제거"></p>
-<p>구글은 Sitemaps에서 RSS와 사이트맵을 제거</p>
-<h4 id=로봇-차단>로봇 차단</h4>
-<p>검색 로봇이 사이트에 접근할 수 없도록 메타태그나 Robots.txt를 수정하여 주어야 하는데, 저는 1차 도메인으로 접근하는 경우에 인덱싱이 불가하도록 스크립트를 <strong>스킨편집</strong>에서 추가하여 주었습니다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx>		<span style=color:#75715e>&lt;!--</span> <span style=color:#a6e22e>robot</span> <span style=color:#a6e22e>접근</span> <span style=color:#a6e22e>선택적</span> <span style=color:#a6e22e>허용</span> <span style=color:#f92672>--&gt;</span>
-		&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/javascript&#34;</span>&gt;
-			<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>currURL</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>location</span>.<span style=color:#a6e22e>hostname</span>;
-			<span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>currURL</span>.<span style=color:#a6e22e>match</span>(<span style=color:#e6db74>&#39;tae-di.tistory.com&#39;</span>)) {
-				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;NaverBot&#34; content=&#34;noindex, nofollow&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
-				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;Yeti&#34; content=&#34;noindex, nofollow&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
-			}
-			<span style=color:#66d9ef>else</span> {
-				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;NaverBot&#34; content=&#34;All&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
-				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;NaverBot&#34; content=&#34;index,follow&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
-				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;Yeti&#34; content=&#34;All&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
-				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;Yeti&#34; content=&#34;index,follow&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
-
-			}
-		&lt;/<span style=color:#f92672>script</span>&gt;
-
-</code></pre></div><p><a href=https://taedi.net>tae-di.tistory.com</a>으로 접근하는 요청에 대해서만 로봇 검색을 제외하는 메타태그를 페이지에 작성하라는 내용인데 이 부분은 제가 올바르게 했는지 의문이 드네요. 위의 코드를 추가하고 <strong>다음포털</strong>에서 1~2차 도메인 모두 검색 노출이 불가능했습니다. 고객센터에 문의 해보니 아래와 같은 답변을 얻었습니다.</p>
-<p><img src=images/pic-0004.png alt="다음은 주석 처리 된 메타 태그도 로봇 크롤링에 반영한다? "></p>
-<p>다음은 주석 처리 된 메타 태그도 로봇 크롤링에 반영한다?</p>
-<p>의문인 부분은 이후에 해당 스크립트를 주석처리해도 해결이 되지 않았다는 점인데.. 현재는 제거해버린 상태입니다. 향후에도 <a href=https://taedi.net>tae-di.tistory.com</a>로 진입하는 크롤링을 모두 거절하고 싶은데 이 부분은 좀 더 학습을 해야 가능할 것 같습니다.</p>
-<p>1차 도메인 검색 제외를 위해서는 <head>와 </head> 사이에 아래 태그를 넣어주고 처리 이후 삭제하여주는 방법이 가장 확실하고 간결합니다. 까먹지말고 꼭 지워야 2차 도메인에서의 크롤링이 가능합니다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;robots&#34;</span> <span style=color:#a6e22e>content</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;noindex, nofollow&#34;</span> /&gt;
-</code></pre></div><h4 id=검색-제외-확인>검색 제외 확인</h4>
-<p><strong>site:블로그주소</strong>를 각 검색엔진에 입력해 노출되는 페이지를 확인할 수 있습니다. 위의 과정들이 제대로 진행되었다면 수시간 내에 아래와 같이 1차 도메인으로 조회되는 글이 사라져 있을 것입니다.</p>
-<p><img src=images/pic-0008.png alt="검색엔진에 더이상 노출되지 않는 1차 도메인"></p>
-<p>검색엔진에 더이상 노출되지 않는 1차 도메인</p>
-<h4 id=블로그-글-공개-전환-및-로봇-차단-메타-태그-지우기>블로그 글 공개 전환 및 로봇 차단 메타 태그 지우기</h4>
-<p>이제 블로그 글을 공개전환하고 로봇 차단을 위해 입력한 메타 태그 또한 지워주면 됩니다. 각 검색 엔진에 등록 된 사이트도 제거할까도 생각해봤지만 추후에 검색에 노출되거나 하는 상황에 대비해 일단은 남겨두는 편이 좋을 것 같습니다. 제 경우에는 네이버 검색에서 결과가 다시 노출되어 이후에 다시 사이트를 등록하여 주었습니다.</p>
-<p><img src=images/pic-0006.png alt="되살아나는 네이버 검색결과.."></p>
-<p>되살아나는 네이버 검색결과..</p>
-<h3 id=개인-도메인-검색엔진-등록하기>개인 도메인 검색엔진 등록하기</h3>
-<p>이후 새로운 도메인들을 각각의 검색엔진에 등록하여 주면 됩니다. 구글의 경우에는 <strong>주소 변경</strong> 기능도 있지만 제 경우에는 오류가 발생하여 그냥 신규 등록으로 진행하였습니다. 등록 방법에 대한 안내는 아래 링크를 참고하여 주시기 바랍니다.</p>
-<p><a href=https://taedi.net/6>티스토리 블로그 네이버 검색 노출 방법 - NAVER Search Advisor</a></p>
-<p><a href=https://taedi.net/7>티스토리 블로그 구글 검색 노출 방법 - Google Search Console</a></p>
-<h3 id=네이버-원본-반영-요청하기>네이버 원본 반영 요청하기</h3>
-<p>항상 마지막까지 애먹이는 것은 네이버 검색 노출인 것 같습니다. 구글과 빙, 다음에서는 개인 도메인으로 정상적으로 노출되기 시작했지만 네이버는 아직 반영이 되지 않고 있어 이번엔 <strong>원본 반영 요청</strong>을 해보았습니다. 아래 링크를 타고 가시면 고객센터 원본 반영 요청 페이지가 나오는데 여기에 포스팅 url을 입력하여 주고 신청하여주면 됩니다.</p>
-<p><a href="https://help.naver.com/support/contents/contents.help?serviceNo=606&categoryNo=2018#">네이버 고객센터</a></p>
-<p><img src=images/pic-0001.png alt="네이버 원본 반영 요청, 제발 처리해주시길&mldr;!"></p>
-<p>네이버 원본 반영 요청, 제발 처리해주시길&mldr;!</p>
-<p>블로그의 게시글 url을 한번에 가져오는 것은 아래 글의 내용을 참고하시면 좋을 것 같습니다.</p>
-<p><a href=https://taedi.net/22>사이트맵에서 페이지 목록 파싱해보기</a></p>
-<p>저는 이렇게 <strong>사이트 검색노출 설정</strong>을 마쳤습니다. 물론 아직까지 네이버는 정상적으로 검색 노출이 되지 않는 상황이고 발견되지 않은 오류가 있을 수도 있으나 관련 된 내용은 경과에 따라 추가하도록 하겠습니다. 읽어주셔서 감사합니다</p>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-<div class="col-md-6 previous-article">
-<a href=/tistory-blog-setting/ title="티스토리 개인 도메인 구매 및 활용하기 - #1 구매동기, DNS설정, 오류해결" class="btn btn-outline-info">
-<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
-<div class=next-prev-text>티스토리 개인 도메인 구매 및 활용하기 - #1 구매동기, DNS설정, 오류해결</div>
-</a>
-</div>
-<div class="col-md-6 next-article">
-<a href=/tistory-blog-setting-3/ title="댓글 작성하려는데 로그인이 안된다구? - 티스토리 2차 도메인 설정 #2" class="btn btn-outline-info">
-<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
-<div class=next-prev-text>댓글 작성하려는데 로그인이 안된다구? - 티스토리 2차 도메인 설정 #2</div>
-</a>
-</div>
-</div>
-<hr>
-<div class=utterances></div>
-<script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous defer></script>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">List</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#1차-도메인-게시글-검색엔진-노출-제외>1차 도메인 게시글 검색엔진 노출 제외</a>
-<ul>
-<li><a href=#내-블로그-글-비공개로-전환>내 블로그 글 비공개로 전환</a></li>
-<li><a href=#검색-등록기관에서-검색-제외-요청하기>검색 등록기관에서 검색 제외 요청하기</a></li>
-<li><a href=#제출한-rss-및-사이트맵-제거>제출한 RSS 및 사이트맵 제거</a></li>
-<li><a href=#로봇-차단>로봇 차단</a></li>
-<li><a href=#검색-제외-확인>검색 제외 확인</a></li>
-<li><a href=#블로그-글-공개-전환-및-로봇-차단-메타-태그-지우기>블로그 글 공개 전환 및 로봇 차단 메타 태그 지우기</a></li>
-</ul>
-</li>
-<li><a href=#개인-도메인-검색엔진-등록하기>개인 도메인 검색엔진 등록하기</a></li>
-<li><a href=#네이버-원본-반영-요청하기>네이버 원본 반영 요청하기</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>Contact</h5>
-<ul>
-<li><a href=mailto:taedi90@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>taedi90@gmail.com</span>
-</a></li>
-<li><a href=https://github.com/taedi90 target=_blank rel=noopener>
-<span><i class="fab fa-github"></i></span> <span>taedi90</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div><img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
+<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo"></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>Posts</a></li><div class=subtree><li><a class=active href=/posts/blog/ title=Blog>Blog</a></li><li><a href=/posts/java/ title=Java>Java</a></li><li><a href=/posts/javascript/ title=JavaScript>JavaScript</a></li><li><a href=/posts/logs/ title=Logs>Logs</a></li><li><a href=/posts/python/ title=Python>Python</a></li><li><a href=/posts/server/ title=Server>Server</a></li><li><a href=/posts/sql/ title=SQL>SQL</a></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/default-hero2.png)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/avatar_hue4fa7b2d8e73b32dce85afe643c3f5c5_90375_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Taesoo Kim</h5><p>2021년 03월 07일</p></div><div class=title><h1>검색엔진 노출 재설정하기 - 티스토리 2차 도메인 설정 #1</h1></div><div class=taxonomy-terms><ul style=padding-inline-start:0><li class=rounded><a href=/tags/blog class="btn, btn-sm">blog</a></li><li class=rounded><a href=/tags/dns class="btn, btn-sm">dns</a></li><li class=rounded><a href=/tags/tistory class="btn, btn-sm">tistory</a></li></ul></div><div class=post-content id=post-content><p>※ 티스토리 블로그에 작성했던 내용을 옮겨왔습니다.</p><p>티스토리 블로그 주소 변경을 마친 후에 가장 먼저 <strong>사이트 검색노출</strong>을 재설정 해주었습니다. 기존에 사용하던 1차 도메인(티스토리 기본 제공 도메인)이 계속해서 검색엔진에 노출되고 있고 2차 도메인(개인 도메인)은 아직 알려져있지 않기 때문에 신속하게 변경하여야 유입 방문객 수 손실을 그나마 낮출 수 있을 것이라 판단했기 때문입니다.</p><p>도메인 구매과정 및 티스토리 블로그 적용 방법에 대한 내용이 궁금하시다면 아래 링크를 참고하시기 바랍니다.</p><p><a href=https://taedi.net/41>티스토리 개인 도메인 구매 및 활용하기 - #1 구매동기, DNS설정, 오류해결</a></p><h3 id=1차-도메인-게시글-검색엔진-노출-제외>1차 도메인 게시글 검색엔진 노출 제외</h3><p>일단 기존 주소로 알려져 있는 검색 노출을 모두 제외 시켜야합니다. 색인 요청 처리까지 긴 시간이 걸린 결과물이지만.. 새로운 도메인의 게시글과 중복글으로 판단되어 사이트 평가가 낮아질 수 있다는 우려에 우선적으로 진행하였습니다.</p><h4 id=내-블로그-글-비공개로-전환>내 블로그 글 비공개로 전환</h4><p>우선 <strong>블로그 관리 홈 > 글 관리</strong> 탭에서 포스팅한 모든 글을 비공개로 처리해줍니다.</p><p><img src=images/pic-0009.png alt="블로그 관리 홈 > 글 관리에서 작성했던 모든 글을 비공개 처리한다."></p><p>블로그 관리 홈 > 글 관리에서 작성했던 모든 글을 비공개 처리한다.</p><h4 id=검색-등록기관에서-검색-제외-요청하기>검색 등록기관에서 검색 제외 요청하기</h4><p>네이버 서치어드바이저, 구글 서치콘솔, 빙 웹마스터 도구에서 현재 색인된 페이지들을 모두 검색 제외 요청합니다.</p><p><img src=images/pic-0007.png alt="네이버는 각각의 페이지를 모두 제외 요청 해야 함"></p><p>네이버는 각각의 페이지를 모두 제외 요청 해야 함</p><p><img src=images/pic-0003.png alt="구글은 도메인만 입력하면 하위 페이지를 모두 처리할 수 있다."></p><p>구글은 도메인만 입력하면 하위 페이지를 모두 처리할 수 있다.</p><h4 id=제출한-rss-및-사이트맵-제거>제출한 RSS 및 사이트맵 제거</h4><p>등록했던 RSS 및 사이트맵도 제거하여 검색엔진이 새로 페이지들을 색인하는 것을 방지하여 줍니다.</p><p><img src=images/pic-0005.png alt="네이버 RSS 제출 페이지"></p><p>네이버 RSS 제출 페이지</p><p><img src=images/pic-0002.png alt="구글은 Sitemaps에서 RSS와 사이트맵을 제거"></p><p>구글은 Sitemaps에서 RSS와 사이트맵을 제거</p><h4 id=로봇-차단>로봇 차단</h4><p>검색 로봇이 사이트에 접근할 수 없도록 메타태그나 Robots.txt를 수정하여 주어야 하는데, 저는 1차 도메인으로 접근하는 경우에 인덱싱이 불가하도록 스크립트를 <strong>스킨편집</strong>에서 추가하여 주었습니다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=display:flex><span>		<span style=color:#75715e>&lt;!--</span> <span style=color:#a6e22e>robot</span> <span style=color:#a6e22e>접근</span> <span style=color:#a6e22e>선택적</span> <span style=color:#a6e22e>허용</span> <span style=color:#f92672>--&gt;</span>
+</span></span><span style=display:flex><span>		&lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/javascript&#34;</span>&gt;
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>currURL</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>location</span>.<span style=color:#a6e22e>hostname</span>;
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>currURL</span>.<span style=color:#a6e22e>match</span>(<span style=color:#e6db74>&#39;tae-di.tistory.com&#39;</span>)) {
+</span></span><span style=display:flex><span>				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;NaverBot&#34; content=&#34;noindex, nofollow&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
+</span></span><span style=display:flex><span>				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;Yeti&#34; content=&#34;noindex, nofollow&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;NaverBot&#34; content=&#34;All&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
+</span></span><span style=display:flex><span>				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;NaverBot&#34; content=&#34;index,follow&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
+</span></span><span style=display:flex><span>				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;Yeti&#34; content=&#34;All&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
+</span></span><span style=display:flex><span>				document.<span style=color:#a6e22e>write</span>(<span style=color:#e6db74>&#39;&lt;meta name=&#34;Yeti&#34; content=&#34;index,follow&#34; /&gt;&#39;</span><span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;&lt;br&gt;&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		&lt;/<span style=color:#f92672>script</span>&gt;
+</span></span></code></pre></div><p><a href=https://taedi.net>tae-di.tistory.com</a>으로 접근하는 요청에 대해서만 로봇 검색을 제외하는 메타태그를 페이지에 작성하라는 내용인데 이 부분은 제가 올바르게 했는지 의문이 드네요. 위의 코드를 추가하고 <strong>다음포털</strong>에서 1~2차 도메인 모두 검색 노출이 불가능했습니다. 고객센터에 문의 해보니 아래와 같은 답변을 얻었습니다.</p><p><img src=images/pic-0004.png alt="다음은 주석 처리 된 메타 태그도 로봇 크롤링에 반영한다? "></p><p>다음은 주석 처리 된 메타 태그도 로봇 크롤링에 반영한다?</p><p>의문인 부분은 이후에 해당 스크립트를 주석처리해도 해결이 되지 않았다는 점인데.. 현재는 제거해버린 상태입니다. 향후에도 <a href=https://taedi.net>tae-di.tistory.com</a>로 진입하는 크롤링을 모두 거절하고 싶은데 이 부분은 좀 더 학습을 해야 가능할 것 같습니다.</p><p>1차 도메인 검색 제외를 위해서는<head>와</head>사이에 아래 태그를 넣어주고 처리 이후 삭제하여주는 방법이 가장 확실하고 간결합니다. 까먹지말고 꼭 지워야 2차 도메인에서의 크롤링이 가능합니다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>name</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;robots&#34;</span> <span style=color:#a6e22e>content</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;noindex, nofollow&#34;</span> /&gt;
+</span></span></code></pre></div><h4 id=검색-제외-확인>검색 제외 확인</h4><p><strong>site:블로그주소</strong>를 각 검색엔진에 입력해 노출되는 페이지를 확인할 수 있습니다. 위의 과정들이 제대로 진행되었다면 수시간 내에 아래와 같이 1차 도메인으로 조회되는 글이 사라져 있을 것입니다.</p><p><img src=images/pic-0008.png alt="검색엔진에 더이상 노출되지 않는 1차 도메인"></p><p>검색엔진에 더이상 노출되지 않는 1차 도메인</p><h4 id=블로그-글-공개-전환-및-로봇-차단-메타-태그-지우기>블로그 글 공개 전환 및 로봇 차단 메타 태그 지우기</h4><p>이제 블로그 글을 공개전환하고 로봇 차단을 위해 입력한 메타 태그 또한 지워주면 됩니다. 각 검색 엔진에 등록 된 사이트도 제거할까도 생각해봤지만 추후에 검색에 노출되거나 하는 상황에 대비해 일단은 남겨두는 편이 좋을 것 같습니다. 제 경우에는 네이버 검색에서 결과가 다시 노출되어 이후에 다시 사이트를 등록하여 주었습니다.</p><p><img src=images/pic-0006.png alt="되살아나는 네이버 검색결과.."></p><p>되살아나는 네이버 검색결과..</p><h3 id=개인-도메인-검색엔진-등록하기>개인 도메인 검색엔진 등록하기</h3><p>이후 새로운 도메인들을 각각의 검색엔진에 등록하여 주면 됩니다. 구글의 경우에는 <strong>주소 변경</strong> 기능도 있지만 제 경우에는 오류가 발생하여 그냥 신규 등록으로 진행하였습니다. 등록 방법에 대한 안내는 아래 링크를 참고하여 주시기 바랍니다.</p><p><a href=https://taedi.net/6>티스토리 블로그 네이버 검색 노출 방법 - NAVER Search Advisor</a></p><p><a href=https://taedi.net/7>티스토리 블로그 구글 검색 노출 방법 - Google Search Console</a></p><h3 id=네이버-원본-반영-요청하기>네이버 원본 반영 요청하기</h3><p>항상 마지막까지 애먹이는 것은 네이버 검색 노출인 것 같습니다. 구글과 빙, 다음에서는 개인 도메인으로 정상적으로 노출되기 시작했지만 네이버는 아직 반영이 되지 않고 있어 이번엔 <strong>원본 반영 요청</strong>을 해보았습니다. 아래 링크를 타고 가시면 고객센터 원본 반영 요청 페이지가 나오는데 여기에 포스팅 url을 입력하여 주고 신청하여주면 됩니다.</p><p><a href="https://help.naver.com/support/contents/contents.help?serviceNo=606&categoryNo=2018#">네이버 고객센터</a></p><p><img src=images/pic-0001.png alt="네이버 원본 반영 요청, 제발 처리해주시길&amp;hellip;!"></p><p>네이버 원본 반영 요청, 제발 처리해주시길&mldr;!</p><p>블로그의 게시글 url을 한번에 가져오는 것은 아래 글의 내용을 참고하시면 좋을 것 같습니다.</p><p><a href=https://taedi.net/22>사이트맵에서 페이지 목록 파싱해보기</a></p><p>저는 이렇게 <strong>사이트 검색노출 설정</strong>을 마쳤습니다. 물론 아직까지 네이버는 정상적으로 검색 노출이 되지 않는 상황이고 발견되지 않은 오류가 있을 수도 있으나 관련 된 내용은 경과에 따라 추가하도록 하겠습니다. 읽어주셔서 감사합니다</p></div><ins class=adsbygoogle style=display:inline-block;min-width:400px;width:100%;text-align:center data-ad-client=ca-pub-1882367656929494 data-ad-slot=9457951065 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><hr><div class="row next-prev-navigator"><div class="col-md-6 previous-article"><a href=/tistory-blog-setting/ title="티스토리 개인 도메인 구매 및 활용하기 - #1 구매동기, DNS설정, 오류해결" class="btn btn-outline-info"><div><i class="fas fa-chevron-circle-left"></i> 이전</div><div class=next-prev-text>티스토리 개인 도메인 구매 및 활용하기 - #1 구매동기, DNS설정, 오류해결</div></a></div><div class="col-md-6 next-article"><a href=/tistory-blog-setting-3/ title="댓글 작성하려는데 로그인이 안된다구? - 티스토리 2차 도메인 설정 #2" class="btn btn-outline-info"><div>다음 <i class="fas fa-chevron-circle-right"></i></div><div class=next-prev-text>댓글 작성하려는데 로그인이 안된다구? - 티스토리 2차 도메인 설정 #2</div></a></div></div><hr><div class=utterances></div><script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous defer></script></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">List</h5><hr><div class=toc><nav id=TableOfContents><ul><li><ul><li><a href=#1차-도메인-게시글-검색엔진-노출-제외>1차 도메인 게시글 검색엔진 노출 제외</a><ul><li><a href=#내-블로그-글-비공개로-전환>내 블로그 글 비공개로 전환</a></li><li><a href=#검색-등록기관에서-검색-제외-요청하기>검색 등록기관에서 검색 제외 요청하기</a></li><li><a href=#제출한-rss-및-사이트맵-제거>제출한 RSS 및 사이트맵 제거</a></li><li><a href=#로봇-차단>로봇 차단</a></li><li><a href=#검색-제외-확인>검색 제외 확인</a></li><li><a href=#블로그-글-공개-전환-및-로봇-차단-메타-태그-지우기>블로그 글 공개 전환 및 로봇 차단 메타 태그 지우기</a></li></ul></li><li><a href=#개인-도메인-검색엔진-등록하기>개인 도메인 검색엔진 등록하기</a></li><li><a href=#네이버-원본-반영-요청하기>네이버 원본 반영 요청하기</a></li></ul></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>Contact</h5><ul><li><a href=mailto:taedi90@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>taedi90@gmail.com</span></a></li><li><a href=https://github.com/taedi90 target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>taedi90</span></a></li></ul></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -237,7 +31,4 @@ Taedi's Log</a>
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script>$(document).ready(function(){$('p').has('img').css('text-align','center')})</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script>$(document).ready(function(){$("p").has("img").css("text-align","center")})</script></body></html>

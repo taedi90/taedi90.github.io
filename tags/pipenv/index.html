@@ -1,137 +1,16 @@
-<!doctype html><html>
-<head>
-<title>pipenv</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
-<link rel=icon type=image/png href=/images/site/favicon.svg>
-<meta property="og:title" content="pipenv">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://log.taedi.net/tags/pipenv/">
-<link rel=stylesheet href=/css/layouts/list.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-52CHZ4CKK9',{anonymize_ip:!1})}</script>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-<img src=/images/site/main-logo.svg alt=Logo>
+<!doctype html><html><head><title>pipenv</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<link rel=icon type=image/png href=/images/site/favicon.svg><meta property="og:title" content="pipenv"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://log.taedi.net/tags/pipenv/"><link rel=stylesheet href=/css/layouts/list.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-52CHZ4CKK9",{anonymize_ip:!1})}</script></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/><img src=/images/site/main-logo.svg alt=Logo>
 Taedi's Log</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-<img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
-<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo">
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/tags data-filter=all>Tags</a></li>
-<div class="subtree taxonomy-terms">
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/ajax/ data-taxonomy-term=ajax><span class=taxonomy-label>ajax</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/blog/ data-taxonomy-term=blog><span class=taxonomy-label>blog</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/deploy/ data-taxonomy-term=deploy><span class=taxonomy-label>deploy</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/dns/ data-taxonomy-term=dns><span class=taxonomy-label>dns</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/eclipse/ data-taxonomy-term=eclipse><span class=taxonomy-label>eclipse</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/github-pages/ data-taxonomy-term=github-pages><span class=taxonomy-label>github pages</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/hugo/ data-taxonomy-term=hugo><span class=taxonomy-label>hugo</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/java/ data-taxonomy-term=java><span class=taxonomy-label>java</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/log/ data-taxonomy-term=log><span class=taxonomy-label>log</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/macos/ data-taxonomy-term=macos><span class=taxonomy-label>macOS</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/maven/ data-taxonomy-term=maven><span class=taxonomy-label>maven</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/modal/ data-taxonomy-term=modal><span class=taxonomy-label>modal</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/mybatis/ data-taxonomy-term=mybatis><span class=taxonomy-label>Mybatis</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/oci/ data-taxonomy-term=oci><span class=taxonomy-label>OCI</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/pip/ data-taxonomy-term=pip><span class=taxonomy-label>pip</span></a></li>
-<li><a class="taxonomy-term active" href=https://log.taedi.net/tags/pipenv/ data-taxonomy-term=pipenv><span class=taxonomy-label>pipenv</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/pyenv/ data-taxonomy-term=pyenv><span class=taxonomy-label>pyenv</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/python/ data-taxonomy-term=python><span class=taxonomy-label>python</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/sever/ data-taxonomy-term=sever><span class=taxonomy-label>sever</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/spring/ data-taxonomy-term=spring><span class=taxonomy-label>Spring</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/tistory/ data-taxonomy-term=tistory><span class=taxonomy-label>tistory</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/tomcat/ data-taxonomy-term=tomcat><span class=taxonomy-label>tomcat</span></a></li>
-<li><a class=taxonomy-term href=https://log.taedi.net/tags/vanillajs/ data-taxonomy-term=vanillajs><span class=taxonomy-label>VanillaJS</span></a></li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class="content container-fluid" id=content>
-<div class="container-fluid post-card-holder" id=post-card-holder>
-<div class=post-card>
-<a href=/python-virtual-environment-setup/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/hero/python.png alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>파이썬 가상환경 설정(pyenv, pipenv)</h5>
-<p class="card-text post-summary">오랜만에 파이썬을 사용하려고 보니 pyenv 와 pipenv 용어들은 기억나는데 좀처럼 어떻게 써야할지 감이 잡히지 않았다. 물론 글로벌 환경에서 작업해도 무방했지만 소싯적 시험기간에 공부보단 책상정리에 열중했던 주의력 산만한 학생으로서 두가지를 반드시 사용해야겠다는 결의를 다져보았다. 찾아보니 예전에 같은 주제로 메모도 해두었지만 나조차 이해가 되지않을 만큼의 내용으로 도움이 되지 않았고 이에 새롭게 파이썬 가상환경 사용방법을 알아 보았다. 물론 파이썬 가상환경의 전반적인 부분은 아니고 내가 사용할 만큼, 그리고 세팅하면서 발생하는 의구심에 대한 부분을 나의 눈높이 정도로 정리하였다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>2021년 09월 18일</span>
-<a href=/python-virtual-environment-setup/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class=paginator>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>Contact</h5>
-<ul>
-<li><a href=mailto:taedi90@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>taedi90@gmail.com</span>
-</a></li>
-<li><a href=https://github.com/taedi90 target=_blank rel=noopener>
-<span><i class="fab fa-github"></i></span> <span>taedi90</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div><img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
+<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo"></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/tags data-filter=all>Tags</a></li><div class="subtree taxonomy-terms"><li><a class=taxonomy-term href=https://log.taedi.net/tags/ajax/ data-taxonomy-term=ajax><span class=taxonomy-label>ajax</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/blog/ data-taxonomy-term=blog><span class=taxonomy-label>blog</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/deploy/ data-taxonomy-term=deploy><span class=taxonomy-label>deploy</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/dns/ data-taxonomy-term=dns><span class=taxonomy-label>dns</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/eclipse/ data-taxonomy-term=eclipse><span class=taxonomy-label>eclipse</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/github-pages/ data-taxonomy-term=github-pages><span class=taxonomy-label>github pages</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/hugo/ data-taxonomy-term=hugo><span class=taxonomy-label>hugo</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/java/ data-taxonomy-term=java><span class=taxonomy-label>java</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/log/ data-taxonomy-term=log><span class=taxonomy-label>log</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/macos/ data-taxonomy-term=macos><span class=taxonomy-label>macOS</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/maven/ data-taxonomy-term=maven><span class=taxonomy-label>maven</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/modal/ data-taxonomy-term=modal><span class=taxonomy-label>modal</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/mybatis/ data-taxonomy-term=mybatis><span class=taxonomy-label>Mybatis</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/oci/ data-taxonomy-term=oci><span class=taxonomy-label>OCI</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/pip/ data-taxonomy-term=pip><span class=taxonomy-label>pip</span></a></li><li><a class="taxonomy-term active" href=https://log.taedi.net/tags/pipenv/ data-taxonomy-term=pipenv><span class=taxonomy-label>pipenv</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/pyenv/ data-taxonomy-term=pyenv><span class=taxonomy-label>pyenv</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/python/ data-taxonomy-term=python><span class=taxonomy-label>python</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/sever/ data-taxonomy-term=sever><span class=taxonomy-label>sever</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/spring/ data-taxonomy-term=spring><span class=taxonomy-label>Spring</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/tistory/ data-taxonomy-term=tistory><span class=taxonomy-label>tistory</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/tomcat/ data-taxonomy-term=tomcat><span class=taxonomy-label>tomcat</span></a></li><li><a class=taxonomy-term href=https://log.taedi.net/tags/vanillajs/ data-taxonomy-term=vanillajs><span class=taxonomy-label>VanillaJS</span></a></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class="content container-fluid" id=content><div class="container-fluid post-card-holder" id=post-card-holder><div class=post-card><a href=/python-virtual-environment-setup/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/hero/python.png alt="Hero Image"></div><div class=card-body><h5 class=card-title>파이썬 가상환경 설정(pyenv, pipenv)</h5><p class="card-text post-summary">오랜만에 파이썬을 사용하려고 보니 pyenv 와 pipenv 용어들은 기억나는데 좀처럼 어떻게 써야할지 감이 잡히지 않았다. 물론 글로벌 환경에서 작업해도 무방했지만 소싯적 시험기간에 공부보단 책상정리에 열중했던 주의력 산만한 학생으로서 두가지를 반드시 사용해야겠다는 결의를 다져보았다. 찾아보니 예전에 같은 주제로 메모도 해두었지만 나조차 이해가 되지않을 만큼의 내용으로 도움이 되지 않았고 이에 새롭게 파이썬 가상환경 사용방법을 알아 보았다. 물론 파이썬 가상환경의 전반적인 부분은 아니고 내가 사용할 만큼, 그리고 세팅하면서 발생하는 의구심에 대한 부분을 나의 눈높이 정도로 정리하였다.</p></div><div class=card-footer><span class=float-left>2021년 09월 18일</span>
+<a href=/python-virtual-environment-setup/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div></div><div class=paginator></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>Contact</h5><ul><li><a href=mailto:taedi90@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>taedi90@gmail.com</span></a></li><li><a href=https://github.com/taedi90 target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>taedi90</span></a></li></ul></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
 <script type=text/javascript src=/js/plyr.js></script>
 <script type=text/javascript src=/js/main.js></script>
-<script src=/js/list.js></script>
-</body>
-</html>
+<script src=/js/list.js></script></body></html>

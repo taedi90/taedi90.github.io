@@ -1,521 +1,367 @@
-<!doctype html><html>
-<head>
-<title>[Vanilla JS]모달 알림창 만들어보기</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
-<link rel=icon type=image/png href=/images/site/favicon.svg>
-<meta property="og:title" content="[Vanilla JS]모달 알림창 만들어보기">
-<meta property="og:description" content="바닐라 자바스크립트 모달 알림창 만들기">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://log.taedi.net/vanillajs-modal-window/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-12-05T00:00:00+09:00">
-<meta property="article:modified_time" content="2021-12-05T16:24:00+09:00">
-<meta name=description content="바닐라 자바스크립트 모달 알림창 만들기">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-52CHZ4CKK9',{anonymize_ip:!1})}</script>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-<img src=/images/site/main-logo.svg alt=Logo>
+<!doctype html><html><head><title>[Vanilla JS]모달 알림창 만들어보기</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882367656929494" crossorigin=anonymous></script>
+<link rel=icon type=image/png href=/images/site/favicon.svg><meta property="og:title" content="[Vanilla JS]모달 알림창 만들어보기"><meta property="og:description" content="바닐라 자바스크립트 모달 알림창 만들기"><meta property="og:type" content="article"><meta property="og:url" content="https://log.taedi.net/vanillajs-modal-window/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-12-05T00:00:00+09:00"><meta property="article:modified_time" content="2021-12-05T16:24:00+09:00"><meta name=description content="바닐라 자바스크립트 모달 알림창 만들기"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-52CHZ4CKK9"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-52CHZ4CKK9",{anonymize_ip:!1})}</script></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/><img src=/images/site/main-logo.svg alt=Logo>
 Taedi's Log</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-<img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
-<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo">
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>Posts</a></li>
-<div class=subtree>
-<li><a href=/posts/blog/ title=Blog>Blog</a></li>
-<li><a href=/posts/java/ title=Java>Java</a></li>
-<li><a class=active href=/posts/javascript/ title=JavaScript>JavaScript</a></li>
-<li><a href=/posts/logs/ title=Logs>Logs</a></li>
-<li><a href=/posts/python/ title=Python>Python</a></li>
-<li><a href=/posts/server/ title=Server>Server</a></li>
-<li><a href=/posts/sql/ title=SQL>SQL</a></li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/hero/js.png)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/avatar_hue4fa7b2d8e73b32dce85afe643c3f5c5_90375_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Taesoo Kim</h5>
-<p>2021년 12월 05일</p>
-</div>
-<div class=title>
-<h1>[Vanilla JS]모달 알림창 만들어보기</h1>
-</div>
-<div class=taxonomy-terms>
-<ul style=padding-inline-start:0>
-<li class=rounded><a href=/tags/vanillajs class="btn, btn-sm">VanillaJS</a></li>
-<li class=rounded><a href=/tags/modal class="btn, btn-sm">modal</a></li>
-</ul>
-</div>
-<div class=post-content id=post-content>
-<p>프로젝트를 진행하면서 알림이나 서브 컨텐츠를 <code>alert</code> 창이나 <code>pop-up window</code>를 이용하지 않고 처리하고싶은 욕심이 생겨 모달창을 공부해보았다.</p>
-<h2 id=시도해본-것>시도해본 것</h2>
-<ul>
-<li>여러 창을 동시에 띄울 수 있어야 하고, 포커싱 된 요소가 최상단에 위치해야한다.</li>
-<li>버튼을 눌렀을 때 예약된 함수를 불러올 수 있어야 한다.</li>
-<li>드래그&드롭으로 이동이 가능해야한다.</li>
-<li>html, css에 별도로 구성요소를 세팅하지 않고 .js 파일 링크만으로 동작해야한다.</li>
-</ul>
-<h2 id=동작-영상>동작 영상</h2>
-<p><img src=images/pic-0001.gif alt=모달창.gif></p>
-<h2 id=코드>코드</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#e6db74>&#39;use strict&#39;</span>;
-
-<span style=color:#75715e>/**
-</span><span style=color:#75715e> * Vanilla JavaScript 모달 알림창 스크립트
-</span><span style=color:#75715e> *
-</span><span style=color:#75715e> * @param {string} html - (optional) 모달창 내용
-</span><span style=color:#75715e> * @param {int} kind - (optional) 버튼 종류 (1: 확인, 2: 예&amp;아니오)
-</span><span style=color:#75715e> * @param {function} confirmCallback - (optional) 확인, 예 클릭 후 실행 함수
-</span><span style=color:#75715e> * @param {function} cancelCallback -  (optional) 아니오 클릭 후 실행 함수
-</span><span style=color:#75715e> *
-</span><span style=color:#75715e> * @example
-</span><span style=color:#75715e> * const modalContainer = new ModalContainer();
-</span><span style=color:#75715e> * modalContainer.add(&#34;모달창 내용&#34;, 1, ()=&gt;{alert(&#34;콜백&#34;)});
-</span><span style=color:#75715e> *
-</span><span style=color:#75715e> * @author taedi &lt;taedi90@gmail.com&gt;
-</span><span style=color:#75715e> */</span>
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ModalContainer</span> {
-    <span style=color:#75715e>//setting
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>container</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;#modal_container&#34;</span>); <span style=color:#75715e>//모달창이 생성 될 부모 요소
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>idNum</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>; <span style=color:#75715e>//모달창 식별 번호
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>zIndexCount</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>; <span style=color:#75715e>//z-index 시작값, 다른 요소보다 뒤에 표시되면 값을 상향 조정
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>modals</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Map</span>(); <span style=color:#75715e>//모달 맵
-</span><span style=color:#75715e></span>
-    <span style=color:#75715e>//style 설정
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>styleContainer</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index:</span><span style=color:#e6db74>${</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>zIndexCount</span><span style=color:#e6db74>}</span><span style=color:#e6db74>;`</span>;
-    <span style=color:#a6e22e>styleOverlay</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;position: absolute;`</span>;
-    <span style=color:#a6e22e>styleModal</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`background-color: white;
-</span><span style=color:#e6db74>                padding: 2.5rem 5rem;
-</span><span style=color:#e6db74>                text-align: center;
-</span><span style=color:#e6db74>                position: absolute;
-</span><span style=color:#e6db74>                width: 20rem;
-</span><span style=color:#e6db74>                border-radius: 0.1rem;
-</span><span style=color:#e6db74>                box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
-</span><span style=color:#e6db74>                font-size: inherit;`</span>;
-    <span style=color:#a6e22e>styleButtonContainer</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`margin-top:1rem;`</span>;
-    <span style=color:#a6e22e>styleButton</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`padding: 0.5rem; 
-</span><span style=color:#e6db74>                margin: 0.3rem;
-</span><span style=color:#e6db74>                background-color:#e5e5e5;
-</span><span style=color:#e6db74>                border: 0.1rem solid black;
-</span><span style=color:#e6db74>                border-radius: 0.5rem;
-</span><span style=color:#e6db74>                min-width: 3rem;
-</span><span style=color:#e6db74>                cursor: pointer;
-</span><span style=color:#e6db74>                `</span>;
-
-    <span style=color:#75715e>//생성자
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>constructor</span>() {
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>initContainer</span>(); <span style=color:#75715e>//컨테이너 생성
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>initOverlay</span>(); <span style=color:#75715e>//오버레이 생성
-</span><span style=color:#75715e></span>
-        <span style=color:#75715e>// 마우스가 범위를 벗어날 수 있기 때문에 move, up은 컨테이너 전체에 할당
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;mouseup&#39;</span>, ()=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>endPointing</span>()});
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;touchend&#39;</span>, ()=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>endPointing</span>()});
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;mousemove&#39;</span>, (<span style=color:#a6e22e>e</span>)=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>movePointing</span>(<span style=color:#a6e22e>e</span>)});
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;touchmove&#39;</span>, (<span style=color:#a6e22e>e</span>)=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>movePointing</span>(<span style=color:#a6e22e>e</span>)});
-    }
-
-    <span style=color:#75715e>// 컨테이너 초기화
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>initContainer</span>(){
-        <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span> <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>){ <span style=color:#75715e>//없을 경우 생성
-</span><span style=color:#75715e></span>            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
-            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal_container&#34;</span>;
-            document.<span style=color:#a6e22e>body</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>);
-        } <span style=color:#66d9ef>else</span> { <span style=color:#75715e>//있을 경우 초기화
-</span><span style=color:#75715e></span>            <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>firstChild</span>) {
-                <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>removeChild</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>lastChild</span>);
-            }
-        }
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleContainer</span>;
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>hideContainer</span>();
-    }
-
-    <span style=color:#75715e>//컨테이너 활성
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>showContainer</span>(){
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>display</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;block&#39;</span>;
-    }
-
-    <span style=color:#75715e>//컨테이너 숨기기
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>hideContainer</span>(){
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>display</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;none&#39;</span>;
-    }
-
-    <span style=color:#75715e>//오버레이 생성
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>initOverlay</span>(){
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>overlay</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>overlay</span>.<span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal_overlay&#34;</span>;
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>overlay</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleOverlay</span>;
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>overlay</span>);
-    }
-
-    <span style=color:#75715e>//모달창 생성
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>html</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#75715e>//모달창 내용
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>kind</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>, <span style=color:#75715e>//모달창 종류(1 : 확인, 2 : 예 &amp; 아니오)
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>confirmCallback</span> <span style=color:#f92672>=</span> () =&gt; {}, <span style=color:#75715e>//확인 or 예 클릭할 때 콜백 함수
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>cancelCallback</span> <span style=color:#f92672>=</span> () =&gt; {} <span style=color:#75715e>//아니오 클릭할 때 콜백 함수
-</span><span style=color:#75715e></span>    ){
-
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal&#34;</span> <span style=color:#f92672>+</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>idNum</span><span style=color:#f92672>++</span>;
-        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>callbackObject</span> <span style=color:#f92672>=</span> {};
-
-        <span style=color:#75715e>//모달 요소 생성
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modalWindow</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
-        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>id</span>;
-        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleModal</span>;
-        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>zIndex</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>zIndexCount</span><span style=color:#f92672>++</span>;
-        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal_window&#34;</span>;
-
-        <span style=color:#75715e>//모달 내용
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modalContent</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
-        <span style=color:#a6e22e>modalContent</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal_content&#34;</span>;
-        <span style=color:#a6e22e>modalContent</span>.<span style=color:#a6e22e>innerHTML</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>html</span>;
-        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>modalContent</span>);
-
-        <span style=color:#75715e>//버튼
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>buttonBox</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
-        <span style=color:#a6e22e>buttonBox</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleButtonContainer</span>;
-
-        <span style=color:#75715e>//버튼 종류 설정(1 : 확인, 2 : 예 &amp; 아니오)
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>buttonConfirm</span>;
-        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>buttonCancel</span>;
-        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>kind</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>) {
-            <span style=color:#a6e22e>callbackObject</span>[<span style=color:#e6db74>&#34;confirmCallback&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>confirmCallback</span>;
-            <span style=color:#a6e22e>buttonConfirm</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;button&#34;</span>);
-            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;button_confirm&#34;</span>;
-            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleButton</span>;
-            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;확인&#34;</span>;
-            <span style=color:#a6e22e>buttonBox</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>buttonConfirm</span>);
-        } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>kind</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>2</span>) {
-            <span style=color:#a6e22e>callbackObject</span>[<span style=color:#e6db74>&#34;confirmCallback&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>confirmCallback</span>;
-            <span style=color:#a6e22e>buttonConfirm</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;button&#34;</span>);
-            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;button_confirm&#34;</span>;
-            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleButton</span>;
-            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;예&#34;</span>;
-            <span style=color:#a6e22e>buttonBox</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>buttonConfirm</span>);
-
-            <span style=color:#a6e22e>callbackObject</span>[<span style=color:#e6db74>&#34;cancelCallback&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>cancelCallback</span>;
-            <span style=color:#a6e22e>buttonCancel</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;button&#34;</span>);
-            <span style=color:#a6e22e>buttonCancel</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;button_cancel&#34;</span>;
-            <span style=color:#a6e22e>buttonCancel</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleButton</span>;
-            <span style=color:#a6e22e>buttonCancel</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;아니오&#34;</span>;
-            <span style=color:#a6e22e>buttonBox</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>buttonCancel</span>);
-        }
-
-        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>buttonBox</span>);
-
-        <span style=color:#75715e>//컨테이너 숨김 해제
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>size</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>) {
-            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>showContainer</span>();
-        }
-
-        <span style=color:#75715e>//모달창 삽입
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>modalWindow</span>);
-
-        <span style=color:#75715e>//맵에 추가
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>set</span>(<span style=color:#a6e22e>id</span>,
-            {
-                <span style=color:#a6e22e>object</span><span style=color:#f92672>:</span><span style=color:#a6e22e>modalWindow</span>,
-                <span style=color:#a6e22e>callbackObject</span><span style=color:#f92672>:</span><span style=color:#a6e22e>callbackObject</span>
-            });
-
-        <span style=color:#75715e>//가운데 정렬
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>left</span> <span style=color:#f92672>=</span> (window.<span style=color:#a6e22e>innerWidth</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>getBoundingClientRect</span>().<span style=color:#a6e22e>width</span>) <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>top</span> <span style=color:#f92672>=</span> (window.<span style=color:#a6e22e>innerHeight</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>getBoundingClientRect</span>().<span style=color:#a6e22e>height</span>) <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
-        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>top</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>top</span><span style=color:#e6db74>}</span><span style=color:#e6db74>px`</span>;
-        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>left</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>left</span><span style=color:#e6db74>}</span><span style=color:#e6db74>px`</span>;
-
-        <span style=color:#75715e>//이벤트 추가
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;mousedown&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>modalWindow</span>));
-        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;touchstart&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>modalWindow</span>));
-
-        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>buttonConfirm</span>){
-            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>,()=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>confirmFunc</span>(<span style=color:#a6e22e>id</span>)});
-        }
-
-        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>buttonCancel</span>){
-            <span style=color:#a6e22e>buttonCancel</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, ()=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>cancelFunc</span>(<span style=color:#a6e22e>id</span>)});
-        }
-
-    }
-
-    <span style=color:#75715e>//모달창 닫기
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>closeModal</span>(<span style=color:#a6e22e>modal</span>) {
-
-        <span style=color:#75715e>//드래그 이벤트 제거
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>removeEventListener</span>(<span style=color:#e6db74>&#39;mousedown&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>modal</span>));
-        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>removeEventListener</span>(<span style=color:#e6db74>&#39;touchstart&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>modal</span>));
-
-        <span style=color:#75715e>//모달창 요소 삭제
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>remove</span>();
-
-        <span style=color:#75715e>//마지막 모달창이라면 오버레이 숨기기
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>size</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>1</span>) {
-            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>hideContainer</span>();
-        }
-
-    }
-
-    <span style=color:#75715e>//확인 &amp; 예 버튼 클릭
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>confirmFunc</span>(<span style=color:#a6e22e>id</span>) {
-
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modal</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>get</span>(<span style=color:#a6e22e>id</span>);
-
-        <span style=color:#75715e>//모달창 닫기
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>closeModal</span>(<span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>object</span>);
-
-        <span style=color:#75715e>//콜백함수 호출
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>callbackObject</span>.<span style=color:#a6e22e>confirmCallback</span>();
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#a6e22e>id</span>);
-
-    }
-
-    <span style=color:#75715e>//아니오 버튼 클릭
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>cancelFunc</span>(<span style=color:#a6e22e>id</span>) {
-
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modal</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>get</span>(<span style=color:#a6e22e>id</span>);
-
-        <span style=color:#75715e>//모달창 닫기
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>closeModal</span>(<span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>object</span>);
-
-        <span style=color:#75715e>//콜백함수 호출
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>callbackObject</span>.<span style=color:#a6e22e>cancelCallback</span>();
-        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#a6e22e>id</span>);
-
-    }
-
-    <span style=color:#75715e>//사용자가 가르키는 좌표를 받아오는 함수
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>getCoordinates</span>(<span style=color:#a6e22e>e</span>) {
-
-        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>undefined</span>;
-        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>undefined</span>;
-
-        <span style=color:#75715e>//모바일 &amp; 데스크탑 체크
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;touchstart&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;touchmove&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;touchend&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;touchcancel&#39;</span>) {
-            <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>evt</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>typeof</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>originalEvent</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;undefined&#39;</span>) <span style=color:#f92672>?</span> <span style=color:#a6e22e>e</span> <span style=color:#f92672>:</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>originalEvent</span>;
-            <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>touch</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>evt</span>.<span style=color:#a6e22e>touches</span>[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>||</span> <span style=color:#a6e22e>evt</span>.<span style=color:#a6e22e>changedTouches</span>[<span style=color:#ae81ff>0</span>];
-            <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>touch</span>.<span style=color:#a6e22e>pageX</span>;
-            <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>touch</span>.<span style=color:#a6e22e>pageY</span>;
-        } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mousedown&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseup&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mousemove&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseover&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseout&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseenter&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseleave&#39;</span>) {
-            <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>clientX</span>;
-            <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>clientY</span>;
-        }
-
-        <span style=color:#66d9ef>return</span> {<span style=color:#a6e22e>clientX</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>clientX</span>, <span style=color:#a6e22e>clientY</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>clientY</span>};
-    }
-
-    <span style=color:#75715e>//포인팅 시작(touchstart, mousedown)
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>elem</span>) {
-        <span style=color:#75715e>//e.preventDefault();
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>stopPropagation</span>();
-
-        <span style=color:#75715e>//사용자 포인팅 지점 가져오기
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>coordinates</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getCoordinates</span>(<span style=color:#a6e22e>e</span>);
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>coordinates</span>.<span style=color:#a6e22e>clientX</span>;
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>coordinates</span>.<span style=color:#a6e22e>clientY</span>;
-
-        <span style=color:#75715e>//선택한 요소의 좌표 가져오기
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elemPos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getBoundingClientRect</span>();
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elemX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elemPos</span>.<span style=color:#a6e22e>x</span>;
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elemY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elemPos</span>.<span style=color:#a6e22e>y</span>;
-
-        <span style=color:#75715e>//사용자 좌표와 요소 간의 갭 구하기
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gapX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>elemX</span>;
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gapY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>elemY</span>;
-
-        <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#34;gap-x&#34;</span>, <span style=color:#a6e22e>gapX</span>);
-        <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#34;gap-y&#34;</span>, <span style=color:#a6e22e>gapY</span>);
-
-        <span style=color:#75715e>//선택한 요소에 &#39;hold&#39;클래스 부여
-</span><span style=color:#75715e></span>        <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>add</span>(<span style=color:#e6db74>&#34;hold&#34;</span>);
-
-        <span style=color:#75715e>//클릭한 요소를 최상단에 유지
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elems</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelectorAll</span>(<span style=color:#e6db74>&#34;.modal_window&#34;</span>);
-
-        <span style=color:#a6e22e>elems</span>.<span style=color:#a6e22e>forEach</span>((<span style=color:#a6e22e>elem</span>) =&gt; {
-            <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>contains</span>(<span style=color:#e6db74>&#34;hold&#34;</span>)) {
-                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>zIndex</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>zIndexCount</span><span style=color:#f92672>++</span>;
-            }
-        });
-
-    }
-
-    <span style=color:#75715e>//드래그
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>movePointing</span>(<span style=color:#a6e22e>e</span>) {
-        <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>preventDefault</span>();
-        <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>stopPropagation</span>();
-
-        <span style=color:#75715e>//사용자 포인팅 지점 가져오기
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>coordinates</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getCoordinates</span>(<span style=color:#a6e22e>e</span>);
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>coordinates</span>.<span style=color:#a6e22e>clientX</span>;
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>coordinates</span>.<span style=color:#a6e22e>clientY</span>;
-
-        <span style=color:#75715e>//현재 포커싱 된 요소 찾기
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elems</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelectorAll</span>(<span style=color:#e6db74>&#34;.modal_window&#34;</span>);
-
-        <span style=color:#a6e22e>elems</span>.<span style=color:#a6e22e>forEach</span>((<span style=color:#a6e22e>elem</span>) =&gt; {
-            <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>contains</span>(<span style=color:#e6db74>&#34;hold&#34;</span>)) {
-
-                <span style=color:#75715e>//포인팅 위치와 요소 사이의 갭
-</span><span style=color:#75715e></span>                <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gapX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getAttribute</span>(<span style=color:#e6db74>&#34;gap-x&#34;</span>);
-                <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gapY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getAttribute</span>(<span style=color:#e6db74>&#34;gap-y&#34;</span>);
-
-                <span style=color:#75715e>//최초에 지정했던 gap과  현재 포인팅 위치를 기준으로 요소가 이동해야할 좌표 값 구하기
-</span><span style=color:#75715e></span>                <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>elemX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>gapX</span>;
-                <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>elemY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>gapY</span>;
-                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#34;elem-x&#34;</span>, <span style=color:#a6e22e>elemX</span>);
-                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#34;elem-y&#34;</span>, <span style=color:#a6e22e>elemY</span>);
-
-                <span style=color:#75715e>//이동 한계 처리 (최대치 이상은 움직이지 않도록)
-</span><span style=color:#75715e></span>                <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>maxLeft</span> <span style=color:#f92672>=</span> window.<span style=color:#a6e22e>innerWidth</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getBoundingClientRect</span>().<span style=color:#a6e22e>width</span>;
-                <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>maxHeight</span> <span style=color:#f92672>=</span> window.<span style=color:#a6e22e>innerHeight</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getBoundingClientRect</span>().<span style=color:#a6e22e>height</span>;
-
-                <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elemX</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>) {
-                    <span style=color:#a6e22e>elemX</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
-                } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elemX</span> <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>maxLeft</span>) {
-                    <span style=color:#a6e22e>elemX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>maxLeft</span>;
-                }
-
-                <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elemY</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>) {
-                    <span style=color:#a6e22e>elemY</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
-                } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elemY</span> <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>maxHeight</span>) {
-                    <span style=color:#a6e22e>elemY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>maxHeight</span>;
-                }
-
-                <span style=color:#75715e>//요소 이동
-</span><span style=color:#75715e></span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>left</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>elemX</span><span style=color:#e6db74>}</span><span style=color:#e6db74>px`</span>;
-                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>top</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>elemY</span><span style=color:#e6db74>}</span><span style=color:#e6db74>px`</span>;
-
-            }
-        });
-    }
-
-    <span style=color:#75715e>//포인팅 종료(touchend, mouseup)
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>endPointing</span>() {
-        <span style=color:#75715e>//e.preventDefault();
-</span><span style=color:#75715e></span>
-        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elems</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelectorAll</span>(<span style=color:#e6db74>&#34;.modal_window&#34;</span>);
-
-        <span style=color:#a6e22e>elems</span>.<span style=color:#a6e22e>forEach</span>((<span style=color:#a6e22e>elem</span>) =&gt; {
-            <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>contains</span>(<span style=color:#e6db74>&#34;hold&#34;</span>)) {
-
-                <span style=color:#75715e>// 움직임에 적용된 속성 및 class를 삭제
-</span><span style=color:#75715e></span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>remove</span>(<span style=color:#e6db74>&#34;hold&#34;</span>);
-                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>removeAttribute</span>(<span style=color:#e6db74>&#34;gap-x&#34;</span>);
-                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>removeAttribute</span>(<span style=color:#e6db74>&#34;gap-y&#34;</span>);
-                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>removeAttribute</span>(<span style=color:#e6db74>&#34;elem-x&#34;</span>);
-                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>removeAttribute</span>(<span style=color:#e6db74>&#34;elem-y&#34;</span>);
-
-            }
-        });
-
-    }
-
-}
-<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modalContainer</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ModalContainer</span>();
-</code></pre></div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-<div class="col-md-6 previous-article">
-<a href=/vanillajs-ajax-module/ title="[Vanilla JS]Ajax 함수 모듈화" class="btn btn-outline-info">
-<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
-<div class=next-prev-text>[Vanilla JS]Ajax 함수 모듈화</div>
-</a>
-</div>
-<div class="col-md-6 next-article">
-<a href=/yi-teamproject-log-1/ title="팀 프로젝트(쇼핑몰 제작) 회고 - 1.후기" class="btn btn-outline-info">
-<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
-<div class=next-prev-text>팀 프로젝트(쇼핑몰 제작) 회고 - 1.후기</div>
-</a>
-</div>
-</div>
-<hr>
-<div class=utterances></div>
-<script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous defer></script>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">List</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#시도해본-것>시도해본 것</a></li>
-<li><a href=#동작-영상>동작 영상</a></li>
-<li><a href=#코드>코드</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>Contact</h5>
-<ul>
-<li><a href=mailto:taedi90@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>taedi90@gmail.com</span>
-</a></li>
-<li><a href=https://github.com/taedi90 target=_blank rel=noopener>
-<span><i class="fab fa-github"></i></span> <span>taedi90</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div><img src=/images/site/main-logo.svg class=d-none id=main-logo alt=Logo>
+<img src=/images/site/inverted-logo.svg class=d-none id=inverted-logo alt="Inverted Logo"></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>Posts</a></li><div class=subtree><li><a href=/posts/blog/ title=Blog>Blog</a></li><li><a href=/posts/java/ title=Java>Java</a></li><li><a class=active href=/posts/javascript/ title=JavaScript>JavaScript</a></li><li><a href=/posts/logs/ title=Logs>Logs</a></li><li><a href=/posts/python/ title=Python>Python</a></li><li><a href=/posts/server/ title=Server>Server</a></li><li><a href=/posts/sql/ title=SQL>SQL</a></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://log.taedi.net/images/hero/js.png)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/avatar_hue4fa7b2d8e73b32dce85afe643c3f5c5_90375_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Taesoo Kim</h5><p>2021년 12월 05일</p></div><div class=title><h1>[Vanilla JS]모달 알림창 만들어보기</h1></div><div class=taxonomy-terms><ul style=padding-inline-start:0><li class=rounded><a href=/tags/vanillajs class="btn, btn-sm">VanillaJS</a></li><li class=rounded><a href=/tags/modal class="btn, btn-sm">modal</a></li></ul></div><div class=post-content id=post-content><p>프로젝트를 진행하면서 알림이나 서브 컨텐츠를 <code>alert</code> 창이나 <code>pop-up window</code>를 이용하지 않고 처리하고싶은 욕심이 생겨 모달창을 공부해보았다.</p><h2 id=시도해본-것>시도해본 것</h2><ul><li>여러 창을 동시에 띄울 수 있어야 하고, 포커싱 된 요소가 최상단에 위치해야한다.</li><li>버튼을 눌렀을 때 예약된 함수를 불러올 수 있어야 한다.</li><li>드래그&드롭으로 이동이 가능해야한다.</li><li>html, css에 별도로 구성요소를 세팅하지 않고 .js 파일 링크만으로 동작해야한다.</li></ul><h2 id=동작-영상>동작 영상</h2><p><img src=images/pic-0001.gif alt=모달창.gif></p><h2 id=코드>코드</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=display:flex><span><span style=color:#e6db74>&#39;use strict&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * Vanilla JavaScript 모달 알림창 스크립트
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {string} html - (optional) 모달창 내용
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {int} kind - (optional) 버튼 종류 (1: 확인, 2: 예&amp;아니오)
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {function} confirmCallback - (optional) 확인, 예 클릭 후 실행 함수
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {function} cancelCallback -  (optional) 아니오 클릭 후 실행 함수
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * @example
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * const modalContainer = new ModalContainer();
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * modalContainer.add(&#34;모달창 내용&#34;, 1, ()=&gt;{alert(&#34;콜백&#34;)});
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * @author taedi &lt;taedi90@gmail.com&gt;
+</span></span></span><span style=display:flex><span><span style=color:#75715e> */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ModalContainer</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//setting
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>container</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelector</span>(<span style=color:#e6db74>&#34;#modal_container&#34;</span>); <span style=color:#75715e>//모달창이 생성 될 부모 요소
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>idNum</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>; <span style=color:#75715e>//모달창 식별 번호
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>zIndexCount</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>; <span style=color:#75715e>//z-index 시작값, 다른 요소보다 뒤에 표시되면 값을 상향 조정
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>modals</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Map</span>(); <span style=color:#75715e>//모달 맵
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//style 설정
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>styleContainer</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index:</span><span style=color:#e6db74>${</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>zIndexCount</span><span style=color:#e6db74>}</span><span style=color:#e6db74>;`</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>styleOverlay</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`background-color: rgba(0,0,0,0.6);width: 100%;height: 100%;position: absolute;`</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>styleModal</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`background-color: white;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                padding: 2.5rem 5rem;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                text-align: center;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                position: absolute;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                width: 20rem;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                border-radius: 0.1rem;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                font-size: inherit;`</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>styleButtonContainer</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`margin-top:1rem;`</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>styleButton</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`padding: 0.5rem; 
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                margin: 0.3rem;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                background-color:#e5e5e5;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                border: 0.1rem solid black;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                border-radius: 0.5rem;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                min-width: 3rem;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                cursor: pointer;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>                `</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//생성자
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>constructor</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>initContainer</span>(); <span style=color:#75715e>//컨테이너 생성
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>initOverlay</span>(); <span style=color:#75715e>//오버레이 생성
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 마우스가 범위를 벗어날 수 있기 때문에 move, up은 컨테이너 전체에 할당
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;mouseup&#39;</span>, ()=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>endPointing</span>()});
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;touchend&#39;</span>, ()=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>endPointing</span>()});
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;mousemove&#39;</span>, (<span style=color:#a6e22e>e</span>)=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>movePointing</span>(<span style=color:#a6e22e>e</span>)});
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;touchmove&#39;</span>, (<span style=color:#a6e22e>e</span>)=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>movePointing</span>(<span style=color:#a6e22e>e</span>)});
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 컨테이너 초기화
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>initContainer</span>(){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span> <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>){ <span style=color:#75715e>//없을 경우 생성
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal_container&#34;</span>;
+</span></span><span style=display:flex><span>            document.<span style=color:#a6e22e>body</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>);
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> { <span style=color:#75715e>//있을 경우 초기화
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>firstChild</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>removeChild</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>lastChild</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleContainer</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>hideContainer</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//컨테이너 활성
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>showContainer</span>(){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>display</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;block&#39;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//컨테이너 숨기기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>hideContainer</span>(){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>display</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;none&#39;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//오버레이 생성
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>initOverlay</span>(){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>overlay</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>overlay</span>.<span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal_overlay&#34;</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>overlay</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleOverlay</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>overlay</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//모달창 생성
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>html</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#75715e>//모달창 내용
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>kind</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>, <span style=color:#75715e>//모달창 종류(1 : 확인, 2 : 예 &amp; 아니오)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>confirmCallback</span> <span style=color:#f92672>=</span> () =&gt; {}, <span style=color:#75715e>//확인 or 예 클릭할 때 콜백 함수
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>cancelCallback</span> <span style=color:#f92672>=</span> () =&gt; {} <span style=color:#75715e>//아니오 클릭할 때 콜백 함수
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    ){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal&#34;</span> <span style=color:#f92672>+</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>idNum</span><span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>callbackObject</span> <span style=color:#f92672>=</span> {};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//모달 요소 생성
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modalWindow</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>id</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>id</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleModal</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>zIndex</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>zIndexCount</span><span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal_window&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//모달 내용
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modalContent</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalContent</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;modal_content&#34;</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalContent</span>.<span style=color:#a6e22e>innerHTML</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>html</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>modalContent</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//버튼
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>buttonBox</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;div&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>buttonBox</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleButtonContainer</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//버튼 종류 설정(1 : 확인, 2 : 예 &amp; 아니오)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>buttonConfirm</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>buttonCancel</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>kind</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>callbackObject</span>[<span style=color:#e6db74>&#34;confirmCallback&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>confirmCallback</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonConfirm</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;button&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;button_confirm&#34;</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleButton</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;확인&#34;</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonBox</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>buttonConfirm</span>);
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>kind</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>2</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>callbackObject</span>[<span style=color:#e6db74>&#34;confirmCallback&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>confirmCallback</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonConfirm</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;button&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;button_confirm&#34;</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleButton</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;예&#34;</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonBox</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>buttonConfirm</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>callbackObject</span>[<span style=color:#e6db74>&#34;cancelCallback&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>cancelCallback</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonCancel</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;button&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonCancel</span>.<span style=color:#a6e22e>className</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;button_cancel&#34;</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonCancel</span>.<span style=color:#a6e22e>style</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>styleButton</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonCancel</span>.<span style=color:#a6e22e>innerText</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;아니오&#34;</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonBox</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>buttonCancel</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>buttonBox</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//컨테이너 숨김 해제
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>size</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>showContainer</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//모달창 삽입
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>modalWindow</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//맵에 추가
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>set</span>(<span style=color:#a6e22e>id</span>,
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>object</span><span style=color:#f92672>:</span><span style=color:#a6e22e>modalWindow</span>,
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>callbackObject</span><span style=color:#f92672>:</span><span style=color:#a6e22e>callbackObject</span>
+</span></span><span style=display:flex><span>            });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//가운데 정렬
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>left</span> <span style=color:#f92672>=</span> (window.<span style=color:#a6e22e>innerWidth</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>getBoundingClientRect</span>().<span style=color:#a6e22e>width</span>) <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>top</span> <span style=color:#f92672>=</span> (window.<span style=color:#a6e22e>innerHeight</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>getBoundingClientRect</span>().<span style=color:#a6e22e>height</span>) <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>top</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>top</span><span style=color:#e6db74>}</span><span style=color:#e6db74>px`</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>left</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>left</span><span style=color:#e6db74>}</span><span style=color:#e6db74>px`</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//이벤트 추가
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;mousedown&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>modalWindow</span>));
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modalWindow</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;touchstart&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>modalWindow</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>buttonConfirm</span>){
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonConfirm</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>,()=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>confirmFunc</span>(<span style=color:#a6e22e>id</span>)});
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>buttonCancel</span>){
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>buttonCancel</span>.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;click&#39;</span>, ()=&gt;{<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>cancelFunc</span>(<span style=color:#a6e22e>id</span>)});
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//모달창 닫기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>closeModal</span>(<span style=color:#a6e22e>modal</span>) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//드래그 이벤트 제거
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>removeEventListener</span>(<span style=color:#e6db74>&#39;mousedown&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>modal</span>));
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>removeEventListener</span>(<span style=color:#e6db74>&#39;touchstart&#39;</span>, (<span style=color:#a6e22e>e</span>) =&gt; <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>modal</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//모달창 요소 삭제
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>remove</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//마지막 모달창이라면 오버레이 숨기기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>size</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>hideContainer</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//확인 &amp; 예 버튼 클릭
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>confirmFunc</span>(<span style=color:#a6e22e>id</span>) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modal</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>get</span>(<span style=color:#a6e22e>id</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//모달창 닫기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>closeModal</span>(<span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>object</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//콜백함수 호출
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>callbackObject</span>.<span style=color:#a6e22e>confirmCallback</span>();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#a6e22e>id</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//아니오 버튼 클릭
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>cancelFunc</span>(<span style=color:#a6e22e>id</span>) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modal</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#a6e22e>get</span>(<span style=color:#a6e22e>id</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//모달창 닫기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>closeModal</span>(<span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>object</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//콜백함수 호출
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>modal</span>.<span style=color:#a6e22e>callbackObject</span>.<span style=color:#a6e22e>cancelCallback</span>();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>modals</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#a6e22e>id</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//사용자가 가르키는 좌표를 받아오는 함수
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>getCoordinates</span>(<span style=color:#a6e22e>e</span>) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>undefined</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>undefined</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//모바일 &amp; 데스크탑 체크
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;touchstart&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;touchmove&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;touchend&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;touchcancel&#39;</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>evt</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>typeof</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>originalEvent</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;undefined&#39;</span>) <span style=color:#f92672>?</span> <span style=color:#a6e22e>e</span> <span style=color:#f92672>:</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>originalEvent</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>touch</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>evt</span>.<span style=color:#a6e22e>touches</span>[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>||</span> <span style=color:#a6e22e>evt</span>.<span style=color:#a6e22e>changedTouches</span>[<span style=color:#ae81ff>0</span>];
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>touch</span>.<span style=color:#a6e22e>pageX</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>touch</span>.<span style=color:#a6e22e>pageY</span>;
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mousedown&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseup&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mousemove&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseover&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseout&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseenter&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>type</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;mouseleave&#39;</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>clientX</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>clientY</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> {<span style=color:#a6e22e>clientX</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>clientX</span>, <span style=color:#a6e22e>clientY</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>clientY</span>};
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//포인팅 시작(touchstart, mousedown)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>startPointing</span>(<span style=color:#a6e22e>e</span>, <span style=color:#a6e22e>elem</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//e.preventDefault();
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>stopPropagation</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//사용자 포인팅 지점 가져오기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>coordinates</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getCoordinates</span>(<span style=color:#a6e22e>e</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>coordinates</span>.<span style=color:#a6e22e>clientX</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>coordinates</span>.<span style=color:#a6e22e>clientY</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//선택한 요소의 좌표 가져오기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elemPos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getBoundingClientRect</span>();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elemX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elemPos</span>.<span style=color:#a6e22e>x</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elemY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elemPos</span>.<span style=color:#a6e22e>y</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//사용자 좌표와 요소 간의 갭 구하기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gapX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>elemX</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gapY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>elemY</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#34;gap-x&#34;</span>, <span style=color:#a6e22e>gapX</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#34;gap-y&#34;</span>, <span style=color:#a6e22e>gapY</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//선택한 요소에 &#39;hold&#39;클래스 부여
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>add</span>(<span style=color:#e6db74>&#34;hold&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//클릭한 요소를 최상단에 유지
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elems</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelectorAll</span>(<span style=color:#e6db74>&#34;.modal_window&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>elems</span>.<span style=color:#a6e22e>forEach</span>((<span style=color:#a6e22e>elem</span>) =&gt; {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>contains</span>(<span style=color:#e6db74>&#34;hold&#34;</span>)) {
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>zIndex</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>zIndexCount</span><span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//드래그
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>movePointing</span>(<span style=color:#a6e22e>e</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>preventDefault</span>();
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>stopPropagation</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//사용자 포인팅 지점 가져오기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>coordinates</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>getCoordinates</span>(<span style=color:#a6e22e>e</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>coordinates</span>.<span style=color:#a6e22e>clientX</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>coordinates</span>.<span style=color:#a6e22e>clientY</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//현재 포커싱 된 요소 찾기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elems</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelectorAll</span>(<span style=color:#e6db74>&#34;.modal_window&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>elems</span>.<span style=color:#a6e22e>forEach</span>((<span style=color:#a6e22e>elem</span>) =&gt; {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>contains</span>(<span style=color:#e6db74>&#34;hold&#34;</span>)) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>//포인팅 위치와 요소 사이의 갭
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gapX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getAttribute</span>(<span style=color:#e6db74>&#34;gap-x&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gapY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getAttribute</span>(<span style=color:#e6db74>&#34;gap-y&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>//최초에 지정했던 gap과  현재 포인팅 위치를 기준으로 요소가 이동해야할 좌표 값 구하기
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>elemX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>clientX</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>gapX</span>;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>elemY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>clientY</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>gapY</span>;
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#34;elem-x&#34;</span>, <span style=color:#a6e22e>elemX</span>);
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>setAttribute</span>(<span style=color:#e6db74>&#34;elem-y&#34;</span>, <span style=color:#a6e22e>elemY</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>//이동 한계 처리 (최대치 이상은 움직이지 않도록)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>maxLeft</span> <span style=color:#f92672>=</span> window.<span style=color:#a6e22e>innerWidth</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getBoundingClientRect</span>().<span style=color:#a6e22e>width</span>;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>maxHeight</span> <span style=color:#f92672>=</span> window.<span style=color:#a6e22e>innerHeight</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>getBoundingClientRect</span>().<span style=color:#a6e22e>height</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elemX</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>elemX</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>                } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elemX</span> <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>maxLeft</span>) {
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>elemX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>maxLeft</span>;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elemY</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>elemY</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>                } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elemY</span> <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>maxHeight</span>) {
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>elemY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>maxHeight</span>;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>//요소 이동
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>left</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>elemX</span><span style=color:#e6db74>}</span><span style=color:#e6db74>px`</span>;
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>style</span>.<span style=color:#a6e22e>top</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>elemY</span><span style=color:#e6db74>}</span><span style=color:#e6db74>px`</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//포인팅 종료(touchend, mouseup)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>endPointing</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//e.preventDefault();
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>elems</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>querySelectorAll</span>(<span style=color:#e6db74>&#34;.modal_window&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>elems</span>.<span style=color:#a6e22e>forEach</span>((<span style=color:#a6e22e>elem</span>) =&gt; {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>contains</span>(<span style=color:#e6db74>&#34;hold&#34;</span>)) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 움직임에 적용된 속성 및 class를 삭제
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>classList</span>.<span style=color:#a6e22e>remove</span>(<span style=color:#e6db74>&#34;hold&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>removeAttribute</span>(<span style=color:#e6db74>&#34;gap-x&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>removeAttribute</span>(<span style=color:#e6db74>&#34;gap-y&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>removeAttribute</span>(<span style=color:#e6db74>&#34;elem-x&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>elem</span>.<span style=color:#a6e22e>removeAttribute</span>(<span style=color:#e6db74>&#34;elem-y&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>modalContainer</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>ModalContainer</span>();
+</span></span></code></pre></div></div><ins class=adsbygoogle style=display:inline-block;min-width:400px;width:100%;text-align:center data-ad-client=ca-pub-1882367656929494 data-ad-slot=9457951065 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><hr><div class="row next-prev-navigator"><div class="col-md-6 previous-article"><a href=/vanillajs-ajax-module/ title="[Vanilla JS]Ajax 함수 모듈화" class="btn btn-outline-info"><div><i class="fas fa-chevron-circle-left"></i> 이전</div><div class=next-prev-text>[Vanilla JS]Ajax 함수 모듈화</div></a></div><div class="col-md-6 next-article"><a href=/yi-teamproject-log-1/ title="팀 프로젝트(쇼핑몰 제작) 회고 - 1.후기" class="btn btn-outline-info"><div>다음 <i class="fas fa-chevron-circle-right"></i></div><div class=next-prev-text>팀 프로젝트(쇼핑몰 제작) 회고 - 1.후기</div></a></div></div><hr><div class=utterances></div><script src=https://utteranc.es/client.js repo=taedi90/blog_comments issue-term=pathname theme=github-light crossorigin=anonymous defer></script></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">List</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#시도해본-것>시도해본 것</a></li><li><a href=#동작-영상>동작 영상</a></li><li><a href=#코드>코드</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>Contact</h5><ul><li><a href=mailto:taedi90@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>taedi90@gmail.com</span></a></li><li><a href=https://github.com/taedi90 target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>taedi90</span></a></li></ul></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -523,7 +369,4 @@ Taedi's Log</a>
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-<script>$(document).ready(function(){$('p').has('img').css('text-align','center')})</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script><script>$(document).ready(function(){$("p").has("img").css("text-align","center")})</script></body></html>
