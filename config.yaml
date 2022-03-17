@@ -94,7 +94,7 @@ params:
     #mailchimpURL: 
 
   enableUtterances: true
-  enableGoogleAds: false
+  enableGoogleAds: true
 
 sitemap:
   filename: sitemap.xml
